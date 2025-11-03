@@ -23,6 +23,7 @@ natural_hour= None
 natural_day= None
 
 DEFAULT_IMAGE = "XII/Artificial/C1-pv2.exr"
+DEFAULT_IMAGE2 = "XII/Artificial/C2-pv2.exr"
 
 # Helper functions
 def show_selected_images():
@@ -35,27 +36,76 @@ def show_selected_images():
         folder = folder.replace('+', '%2B')
         return f"XII/{folder}/{file_name}.exr"
 
+    # --- Funció auxiliar per formatar el text del label ---
+    def format_label_text(text):
+        if isinstance(text, list):
+            # Mostra cada element en una línia nova
+            return "<br>".join(str(t) for t in text)
+        return str(text)
+
+    # --- Configura les imatges segons el nombre de targetes seleccionades ---
     if len(selected_cards) == 0:
-        url = f"http://127.0.0.1:3006/index.html?img1={DEFAULT_IMAGE}"
+        img1 = DEFAULT_IMAGE
+        img2 = DEFAULT_IMAGE2
+        url = f"http://127.0.0.1:3006/index.html?img1={img1}"
+        label1 = "Hanging oil lamp"
+        label2 = "Two table candles"
     elif len(selected_cards) == 1:
         img1 = DEFAULT_IMAGE
         img2 = format_exr(selected_cards[0]["image"])
         url = f"http://127.0.0.1:3006/index.html?img1={img1}&img2={img2}"
+        label1 = "Hanging oil lamp"
+        label2 = format_label_text(selected_cards[0]["text"])
     else:
         img1 = format_exr(selected_cards[0]["image"])
         img2 = format_exr(selected_cards[1]["image"])
         url = f"http://127.0.0.1:3006/index.html?img1={img1}&img2={img2}"
+        label1 = format_label_text(selected_cards[0]["text"])
+        label2 = format_label_text(selected_cards[1]["text"])
 
-    return f'''
-    <div class="w-full h-full">
+    # --- HTML amb labels flotants sota de les imatges ---
+    html = f"""
+    <div style="position: relative; width: 100%; height: 100%;">
         <iframe 
             src="{url}" 
-            style="width:100%; height:100%; border:none;" 
+            style="width:100%; height:100%; border:none; position: absolute; top:0; left:0; z-index:0;"
             allowfullscreen
             loading="lazy">
         </iframe>
+
+        <div style="
+            position: absolute;
+            bottom: 60px;
+            left: 25%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            font-weight: 500;
+            color: #eee;
+            text-align: center;
+            text-shadow: 0 0 5px rgba(0,0,0,0.6);
+            z-index: 2;
+        ">{label1}</div>
+
+        <div style="
+            position: absolute;
+            bottom: 60px;
+            left: 75%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            font-weight: 500;
+            color: #eee;
+            text-align: center;
+            text-shadow: 0 0 5px rgba(0,0,0,0.6);
+            z-index: 2;
+        ">{label2}</div>
     </div>
-    '''
+    """
+    return html
+
+
+
+
+
 
 
 def update_all_cards_visibility():
