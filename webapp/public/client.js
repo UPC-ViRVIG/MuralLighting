@@ -38,6 +38,29 @@ const containerR = document.getElementById('window2');
 var rightView = new ImageView(containerR.clientWidth, containerR.clientHeight);
 containerR.appendChild(rightView.renderer.domElement);
 
+//Add interactive frames
+containerL.classList.add('image-frame', 'hidden');
+containerR.classList.add('image-frame', 'hidden');
+
+let selectedWindow = '';
+
+// Only one frame visible at a time and save selection
+containerL.addEventListener('click', () => {
+    containerL.classList.remove('hidden');
+    containerR.classList.add('hidden');
+    selectedWindow = 'left';
+    console.log("Seleccionat: esquerra");
+});
+
+containerR.addEventListener('click', () => {
+    containerR.classList.remove('hidden');
+    containerL.classList.add('hidden');
+    selectedWindow = 'right';
+    console.log("Seleccionat: dreta");
+});
+
+
+
 // Difference dialog
 const containerD = document.getElementById('winDiff');
 var vs = await readTextFile("shaders/vs_difference.glsl");
@@ -46,6 +69,8 @@ var difWin = new DifferenceWindow(vs, fs)
 difWin.renderer.setSize(containerD.clientWidth, containerD.clientHeight);
 containerD.appendChild(difWin.renderer.domElement);
 // console.log("container size: " + containerD.clientWidth + " x " + containerD.clientHeight);
+
+
 
 // Set up Orbit Controls
 const controlsL = new OrbitControls(leftView.camera, leftView.renderer.domElement);
