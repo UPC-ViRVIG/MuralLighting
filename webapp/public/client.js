@@ -260,6 +260,7 @@ toneMappingFolder.add(params, 'toneMappingMethodName', options).name('Tone mappi
     updateToneMapping();
 });
 
+
 // To fix/share normalization between views
 toneMappingFolder.add(params, 'fixNormalization').name('Fix normalization');
 
@@ -267,31 +268,38 @@ toneMappingFolder.add(params, 'fixNormalization').name('Fix normalization');
 for (let method of toneMappingMethods) {
     const folder = toneMappingFolder.addFolder(method.name);
     for (const [_, param] of Object.entries(method.parameters)) {
-        folder.add(param, "value", param.min, param.max).name(param.name).onChange((value) => {
-            updateToneMapping();
-        });
-        //     render();
-        // });        
-        //console.log(method.name, " ", param.name, " ", param.value);     
+        folder.add(param, "value", param.min, param.max).name(param.name).onChange(() => updateToneMapping());
     }
 }
 
+
 // toneMappingFolder.open();
-toneMappingFolder.close();
-updateFolders(params.toneMappingMethodName);
+toneMappingFolder.close(); 
+updateFolders(params.toneMappingMethodName); 
+
 
 // Function to collapse other TM folders and expand the selected one
 function updateFolders(selectedOption) {
-    //console.log(selectedOption);
+    
     toneMappingFolder.folders.forEach(folder => {
-        //console.log(folder._title);
-        if (folder._title === `${selectedOption}`) {
-            folder.open(); // Expand the selected folder
+        if (folder._title === selectedOption) {
+            folder.open(); 
+            folder.domElement.style.display = ''; 
         } else {
-            folder.close(); // Collapse all other folders
+            folder.close(); 
+            folder.domElement.style.display = 'none'; 
         }
     });
 }
+
+
+
+
+
+
+
+
+
 
 // Image difference params
 const imgDiffFolder = gui.addFolder('Image Difference');
@@ -319,6 +327,9 @@ fetch('/images')
         rightImageMenu = gui.add(params, 'rightImage', images).name('Right Image').onChange((value) => {
             exrLoader.load('./textures/' + value, loadRightImage, undefined, loadingError);
         });
+
+        leftImageMenu.domElement.closest('.controller')?.style.setProperty('display', 'none');
+        rightImageMenu.domElement.closest('.controller')?.style.setProperty('display', 'none');
 
         // Load initial images
         const { img1, img2 } = getQueryParams();
