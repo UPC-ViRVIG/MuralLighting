@@ -49,6 +49,7 @@ containerL.addEventListener('click', () => {
     containerL.classList.remove('hidden');
     containerR.classList.add('hidden');
     selectedWindow = 'left';
+    localStorage.setItem('selectedWindow', selectedWindow); 
     console.log("Seleccionat: esquerra");
 });
 
@@ -56,8 +57,30 @@ containerR.addEventListener('click', () => {
     containerR.classList.remove('hidden');
     containerL.classList.add('hidden');
     selectedWindow = 'right';
+    localStorage.setItem('selectedWindow', selectedWindow); 
     console.log("Seleccionat: dreta");
 });
+
+
+function applyStoredSelection() {
+    const stored = localStorage.getItem('selectedWindow');
+    if (!stored) {
+        
+        return;
+    }
+
+    if (stored === 'left') {
+        containerL.classList.remove('hidden');
+        containerR.classList.add('hidden');
+        selectedWindow = 'left';
+        
+    } else if (stored === 'right') {
+        containerR.classList.remove('hidden');
+        containerL.classList.add('hidden');
+        selectedWindow = 'right';
+        
+    }
+}
 
 
 
@@ -130,6 +153,9 @@ exrLoader.setDataType(THREE.FloatType);
 function loadLeftImage(texture = null) {
     // Load image and update luminance values
     if (texture) leftView.loadImage(texture, true);
+
+    applyStoredSelection();
+
     // maxInputLuminance = leftView.maxInputLuminance;
     // avgInputLuminance = leftView.avgInputLuminance;
     // logAvgInputLuminance = leftView.logAvgInputLuminance;
@@ -490,6 +516,8 @@ function syncCameraViews(sourceControls, targetCamera, targetControls) {
 animate();
 
 
+
+
 ///// Image difference
 
 // Reference the existing dialog and close button
@@ -564,4 +592,6 @@ function onMouseUp() {
 function updateDiffParams() {
     difWin.updateDiffParams(params.maxDiff, params.imgOverlay);
 }
+
+window.addEventListener('DOMContentLoaded', applyStoredSelection);
 

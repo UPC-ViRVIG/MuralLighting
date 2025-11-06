@@ -21,7 +21,7 @@ async def set_selected_window(request: Request):
     global selected_window
     data = await request.json()
     selected_window = data.get('selected')
-    print(f"✅ Finestra seleccionada: {selected_window}")
+    #print(f"Finestra seleccionada: {selected_window}")
     return {'status': 'ok', 'selected': selected_window}
 
 
