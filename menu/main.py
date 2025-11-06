@@ -54,6 +54,10 @@ DEFAULT_IMAGE2 = "XII/Artificial/C2-pv2.exr"
 
 
 # Helper functions
+selected_left = None
+selected_right = None
+
+
 def show_selected_images():
     def format_exr(image_name):
         if image_name.startswith('/menu/'):
@@ -69,26 +73,15 @@ def show_selected_images():
             return "<br>".join(str(t) for t in text)
         return str(text)
 
-    if len(selected_cards) == 0:
-        img1 = DEFAULT_IMAGE
-        img2 = DEFAULT_IMAGE2
-        label1 = "Hanging oil lamp"
-        label2 = "Two table candles"
-        url = f"http://127.0.0.1:3006/index.html?img1={img1}"
-    elif len(selected_cards) == 1:
-        img1 = DEFAULT_IMAGE
-        img2 = format_exr(selected_cards[0]["image"])
-        label1 = "Hanging oil lamp"
-        label2 = format_label_text(selected_cards[0]["text"])
-        url = f"http://127.0.0.1:3006/index.html?img1={img1}&img2={img2}"
-    else:
-        img1 = format_exr(selected_cards[0]["image"])
-        img2 = format_exr(selected_cards[1]["image"])
-        label1 = format_label_text(selected_cards[0]["text"])
-        label2 = format_label_text(selected_cards[1]["text"])
-        url = f"http://127.0.0.1:3006/index.html?img1={img1}&img2={img2}"
-
     
+    img1 = format_exr(selected_left["image"]) if selected_left else DEFAULT_IMAGE
+    img2 = format_exr(selected_right["image"]) if selected_right else DEFAULT_IMAGE2
+    label1 = format_label_text(selected_left["text"]) if selected_left else "Hanging oil lamp"
+    label2 = format_label_text(selected_right["text"]) if selected_right else "Two table candles"
+
+   
+    url = f"http://127.0.0.1:3006/index.html?img1={img1}&img2={img2}"
+
     html = f"""
     <div style="position: relative; width: 100%; height: 100%;">
         <iframe 
@@ -97,7 +90,6 @@ def show_selected_images():
             allowfullscreen
             loading="lazy">
         </iframe>
-
 
         <!-- Labels -->
         <div style="
@@ -131,41 +123,76 @@ def show_selected_images():
 
 
 
-
 def update_all_cards_visibility():
-    selected_images = [s["image"] for s in selected_cards]
+    selected_images = []
+    if selected_left:
+        selected_images.append(selected_left["image"])
+    if selected_right:
+        selected_images.append(selected_right["image"])
+
     for image, buttons in all_cards.items():
         for button in buttons:
-            button.set_visibility(image in selected_images)
+            button.set_visibility(False)
+            button.props('flat fab')  
+
+            if image == (selected_left["image"] if selected_left else None):
+                button.set_visibility(True)
+                button.props('color=white')
+                button.classes('absolute top-0 right-0 m-1 bg-white text-black font-bold text-[15px] flex items-center justify-center')
+                button._text = "L"
+
+            elif image == (selected_right["image"] if selected_right else None):
+                button.set_visibility(True)
+                button.props('color=white')
+                button.classes('absolute top-0 right-0 m-1 bg-white text-black font-bold text-[15px] flex items-center justify-center')
+                button._text = "R"
+
+
 
 def card(image, text, classes, max_selected=2):
     with ui.card().tight().classes(classes) as c:
         with ui.image(image) as img:
-            button = ui.button(icon='check_circle').props('flat fab color=white').classes('absolute top-0 right-0 m-1')
+        
+            button = ui.button('', on_click=None).props('flat color=white').classes('absolute top-2 right-2 m-1 bg-white text-black font-bold text-[15px] flex items-center justify-center')
             button.set_visibility(False)
+            button.style('''
+                width: 22px !important;
+                height: 22px !important;
+                min-width: 0 !important;
+                min-height: 0 !important;
+                border-radius: 50% !important;
+                font-size: 10px !important;
+                padding: 0 !important;
+            ''')
+
 
             if image not in all_cards:
                 all_cards[image] = []
             all_cards[image].append(button)
 
             def toggle_selection():
-                global selected_cards, iframe_container
-                found = next((s for s in selected_cards if s["image"] == image), None)
-                if found:
-                    selected_cards = [s for s in selected_cards if s["image"] != image]
-                else:
-                    if len(selected_cards) >= max_selected:
-                        ui.notify(f'⚠️ Only {max_selected} images allowed', color='red')
-                        return
-                    selected_cards.append({"card": c, "image": image, "text": text})
-
-                update_all_cards_visibility()
+                global selected_left, selected_right, iframe_container, selected_window
 
                 
-                if iframe_container:
-                    iframe_container.content = show_selected_images()
+                if not selected_window:
+                    ui.notify("⚠️ Select a window", color='orange')
+                    return
 
+               
+                if selected_window == "left":
+                    selected_left = {"card": c, "image": image, "text": text}
+                    update_all_cards_visibility()
+                    if iframe_container:
+                        iframe_container.content = show_selected_images()
+                    return
 
+                
+                if selected_window == "right":
+                    selected_right = {"card": c, "image": image, "text": text}
+                    update_all_cards_visibility()
+                    if iframe_container:
+                        iframe_container.content = show_selected_images()
+                    return
 
             img.on('click', toggle_selection)
 
@@ -175,6 +202,9 @@ def card(image, text, classes, max_selected=2):
                     ui.markdown(t)
             else:
                 ui.markdown(text)
+
+
+
 
 
 # Category data
