@@ -53,6 +53,7 @@ app.get('/images', (req, res) => {
   res.json(files)
 })
 
+
 // Start the server and then Python
 app.listen(3006, () => {
   console.log('Visit http://127.0.0.1:3006')

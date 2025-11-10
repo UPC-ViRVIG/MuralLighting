@@ -1,5 +1,5 @@
 from nicegui import ui, app
-import os
+import os,json
 from fastapi import Request
 
 from nicegui import app
@@ -14,15 +14,30 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-selected_window = None  
+def load_selected():
+    if os.path.exists("selected.json"):
+        with open("selected.json") as f:
+            return json.load(f).get("selected")
+    return None
+
+def save_selected(value):
+    with open("selected.json", "w") as f:
+        json.dump({"selected": value}, f)
+
+selected_window = load_selected()
 
 @app.post('/set_selected_window')
 async def set_selected_window(request: Request):
     global selected_window
     data = await request.json()
     selected_window = data.get('selected')
-    #print(f"Finestra seleccionada: {selected_window}")
+    save_selected(selected_window)
     return {'status': 'ok', 'selected': selected_window}
+
+
+@app.get('/get_selected_window')
+async def get_selected_window():
+    return {'selected': selected_window}
 
 
 menu_path = os.path.dirname(__file__) 
@@ -53,10 +68,10 @@ DEFAULT_IMAGE2 = "XII/Artificial/C2-pv2.exr"
 
 
 
-# Helper functions
+
 selected_left = None
 selected_right = None
-
+# Helper functions
 
 def show_selected_images():
     def format_exr(image_name):
@@ -73,15 +88,36 @@ def show_selected_images():
             return "<br>".join(str(t) for t in text)
         return str(text)
 
+    def infer_day_from_image(image_path):
+        if not image_path:
+            return None
+        if "D2" in image_path:
+            return "Apr 1st"
+        elif "D3" in image_path:
+            return "Jun 6th"
+        elif "D1" in image_path:
+            return "Dec 25th"
+        return None
+
     
     img1 = format_exr(selected_left["image"]) if selected_left else DEFAULT_IMAGE
     img2 = format_exr(selected_right["image"]) if selected_right else DEFAULT_IMAGE2
-    label1 = format_label_text(selected_left["text"]) if selected_left else "Hanging oil lamp"
-    label2 = format_label_text(selected_right["text"]) if selected_right else "Two table candles"
 
-   
+    label1_main = format_label_text(selected_left["text"]) if selected_left else "Hanging oil lamp"
+    label2_main = format_label_text(selected_right["text"]) if selected_right else "Two table candles"
+
+ 
+    day1 = infer_day_from_image(selected_left["image"]) if selected_left else None
+    day2 = infer_day_from_image(selected_right["image"]) if selected_right else None
+
+ 
+    label1 = f"{day1}<br><span>{label1_main}</span>" if day1 else label1_main
+    label2 = f"{day2}<br><span>{label2_main}</span>" if day2 else label2_main
+
+ 
     url = f"http://127.0.0.1:3006/index.html?img1={img1}&img2={img2}"
 
+   
     html = f"""
     <div style="position: relative; width: 100%; height: 100%;">
         <iframe 
@@ -120,6 +156,7 @@ def show_selected_images():
     </div>
     """
     return html
+
 
 
 
@@ -244,27 +281,58 @@ def main():
 
     ui.add_body_html("""
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+
+async function restoreSelectedWindow() {
     const container = document.getElementById('container');
-    const leftBox = document.getElementById('box-left');
-    const rightBox = document.getElementById('box-right');
+    if (!container) return;
 
-    container.addEventListener('click', (event) => {
+    let saved = localStorage.getItem('selectedWindow');
+
+    if (saved) {
+    
+        updateSelectedWindowHighlight(saved);
+        await fetch('/set_selected_window', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({selected: saved})
+        });
+    } else {
+    
+        await fetch('/set_selected_window', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({selected: null})
+        });
+    }
+
+
+    container.addEventListener('click', async (e) => {
         const rect = container.getBoundingClientRect();
-        const x = event.clientX - rect.left;
+        const x = e.clientX - rect.left;
+        let selectedWindow = (x < rect.width / 2) ? 'left' : 'right';
 
-        // Toggle logic
-        if (x < rect.width / 2) {
-            leftBox.style.display = (leftBox.style.display === 'block') ? 'none' : 'block';
-            rightBox.style.display = 'none';
-        } else {
-            rightBox.style.display = (rightBox.style.display === 'block') ? 'none' : 'block';
-            leftBox.style.display = 'none';
-        }
+        localStorage.setItem('selectedWindow', selectedWindow);
+        updateSelectedWindowHighlight(selectedWindow);
+
+        await fetch('/set_selected_window', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({selected: selectedWindow})
+        });
+
+       
     });
-});
+}
+
+
+window.addEventListener('load', restoreSelectedWindow);
 </script>
-""")    
+
+""")
+
+
+    
+     
 
     ui.add_head_html('''
 <style>

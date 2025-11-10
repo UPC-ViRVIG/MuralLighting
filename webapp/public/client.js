@@ -331,17 +331,21 @@ updateFolders(params.toneMappingMethodName);
 
 // Function to collapse other TM folders and expand the selected one
 function updateFolders(selectedOption) {
-    
     toneMappingFolder.folders.forEach(folder => {
+        const titleElement = folder.domElement.querySelector('.title');
+
         if (folder._title === selectedOption) {
             folder.open(); 
             folder.domElement.style.display = ''; 
+            if (titleElement) titleElement.style.display = 'none'; // 🔹 amaga el títol del mètode actiu
         } else {
             folder.close(); 
             folder.domElement.style.display = 'none'; 
+            if (titleElement) titleElement.style.display = ''; // 🔹 mostra el títol quan no és actiu
         }
     });
 }
+
 
 
 
