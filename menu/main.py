@@ -30,14 +30,14 @@ selected_window = load_selected()
 async def set_selected_window(request: Request):
     global selected_window
     data = await request.json()
-    selected_window = data.get('selected')
+    selected_window = data.get('selected') or "none"
     save_selected(selected_window)
     return {'status': 'ok', 'selected': selected_window}
 
 
 @app.get('/get_selected_window')
 async def get_selected_window():
-    return {'selected': selected_window}
+    return {'selected': selected_window or "none"}  
 
 
 menu_path = os.path.dirname(__file__) 
@@ -353,7 +353,7 @@ body, html {
 
 .dropdown-panel {
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 0;
     right: 0;
     height: 33vh;
@@ -398,16 +398,37 @@ body, html {
     
 }
 
+                     
+              
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' 0,
+  'opsz' 24
+}
+                     
+
+
+
 
                     
 </style>
+                     
+
+
 ''')
 
 
 
+    ui.add_head_html('''
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
+''')
 
-   # RESPONSIVE TOP MENU 
-    with ui.row().classes('menu-row overflow-x-auto no-scrollbar flex-nowrap').style('white-space: nowrap; justify-content: center; gap: 1rem; padding: 0 20px;'):
+
+
+    with ui.row().classes('menu-row overflow-x-auto no-scrollbar flex-nowrap').style('white-space: nowrap; justify-content: center; gap: 2rem; padding: 0 20px;'):
         active_panel = {'name': None}
 
         def show_panel(e, cat):
@@ -420,9 +441,38 @@ body, html {
                 active_panel['name'] = cat
 
         for cat in categories:
-            ui.label(cat)\
-                .classes('cursor-pointer px-3 py-2 rounded hover:bg-gray-100 transition flex-shrink-0')\
-                .on('mouseover', lambda e, cat=cat: show_panel(e, cat))
+            if cat == "Inici":
+                
+                ui.icon('home', size='28px')\
+                    .classes('cursor-pointer px-3 py-2 rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')\
+                    .on('mouseover', lambda e, cat=cat: show_panel(e, cat))
+            elif cat == "Natural illumination":
+               
+                ui.icon('sunny', size='28px')\
+                    .classes('cursor-pointer px-3 py-2 rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')\
+                    .on('mouseover', lambda e, cat=cat: show_panel(e, cat))
+            elif cat == "Artificial illumination":
+                
+                ui.icon('lightbulb_2', size='28px')\
+                    .classes('cursor-pointer px-3 py-2 rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')\
+                    .on('mouseover', lambda e, cat=cat: show_panel(e, cat))
+            elif cat == "Natural + Artificial illumination":
+                
+                with ui.row().classes(
+                    'cursor-pointer px-2 py-2 rounded hover:bg-gray-100 transition flex-shrink-0'
+                ).style('gap: 4px;').on('mouseover', lambda e, cat=cat: show_panel(e, cat)):
+                    ui.icon('sunny', size='28px').classes('material-symbols-outlined')
+                    ui.label('+').style('font-size: 24px; font-weight: 300;')
+                    ui.icon('lightbulb_2', size='28px').classes('material-symbols-outlined')
+
+            elif cat == "All combinations":
+              
+                ui.label('ALL')\
+                    .classes('cursor-pointer px-3 py-2 rounded hover:bg-gray-100 transition flex-shrink-0 items-center')\
+                    .style('font-size: 18px;font-weight: 300;')\
+                    .on('mouseover', lambda e, cat=cat: show_panel(e, cat))
+
+
 
 
     # FOLDABLE PANEL
@@ -594,6 +644,11 @@ body, html {
                     def set_hour(hour):
                         global natural_hour
                         natural_hour = hour
+
+                        if hour == "All":
+                            label_hour.set_text("Hour")
+                        else:
+                            label_hour.set_text(hour)
                         refresh_cards_natural()
 
                     ui.menu_item("All", lambda: set_hour("All"))
@@ -623,6 +678,11 @@ body, html {
                     def set_day(day):
                         global natural_day
                         natural_day = day
+
+                        if day == "All":
+                            label_day.set_text("Day")
+                        else:
+                            label_day.set_text(day)
                         refresh_cards_natural()
 
                     ui.menu_item("All", lambda: set_day("All"))
