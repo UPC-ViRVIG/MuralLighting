@@ -56,10 +56,21 @@ visible_D1T1_natural = True
 visible_D1T2_natural = True
 visible_D1T3_natural = True
 
+visible_D1T3_C2_natart = True
+visible_D1T3_C5_natart = True
+
+visible_D2T3_C2_natart = True
+visible_D2T3_C5_natart = True
+
+
 
 
 natural_hour= None
 natural_day= None
+
+
+natart_hour= None
+natart_day= None
 
 DEFAULT_IMAGE = "XII/Artificial/C1-pv2.exr"
 DEFAULT_IMAGE2 = "XII/Artificial/C2-pv2.exr"
@@ -353,10 +364,10 @@ body, html {
 
 .dropdown-panel {
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 0;
     right: 0;
-    height: 33vh;
+    height: 40vh;
     background-color: white;
     overflow-x: auto;
     overflow-y: hidden;
@@ -582,7 +593,7 @@ body, html {
         (natural_day is None or natural_day == "Apr 1st" or natural_day == "All"):
             with cards_container_natural1:
                 ui.label("Apr 1st").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
-                with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -55px;'):
+                with ui.row().classes('gap-2 items-start').style('margin-top: 20px; margin-left: -55px;'):
                     if visible_D2T1_natural:
                         card("/menu/natural/D2T1-pv2.jpg", [D2T1], classes)
                     if visible_D2T2_natural:
@@ -596,7 +607,7 @@ body, html {
         (natural_day is None or natural_day == "Jun 6th" or natural_day == "All"):
             with cards_container_natural2:
                 ui.label("Jun 6th").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
-                with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -55px;'):
+                with ui.row().classes('gap-2 items-start').style('margin-top: 20px; margin-left: -55px;'):
                     if visible_D3T1_natural:
                         card("/menu/natural/D3T1-pv2.jpg", [D3T1], classes)
                     if visible_D3T2_natural:
@@ -608,8 +619,8 @@ body, html {
         if (visible_D1T1_natural or visible_D1T2_natural or visible_D1T3_natural)and \
         (natural_day is None or natural_day == "Dec 25th" or natural_day == "All"):
             with cards_container_natural3:
-                ui.label("Dec 25th").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
-                with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -55px;'):
+                ui.label("Dec 25th").classes('text-sm').style('margin-bottom: 0px; line-height: 1;')
+                with ui.row().classes('gap-2 items-start').style('margin-top: 20px; margin-left: -55px;'):
                     if visible_D1T1_natural:
                         card("/menu/natural/D1T1-pv2.jpg", [D1T1], classes)
                     if visible_D1T2_natural:
@@ -621,13 +632,68 @@ body, html {
         update_all_cards_visibility()
 
 
+
+    def refresh_cards_natart():
+        
+       #  We delete old content
+        cards_container_natart1.clear()
+        cards_container_natart2.clear()
+       
+
+       #  Update visibility based on time
+       
+        if natural_hour == "12:53":
+            visible_D1T3_C2_natart=True
+            visible_D1T3_C5_natart=True
+            visible_D2T3_C2_natart=False
+            visible_D2T3_C5_natart=False
+        elif natural_hour == "13:56":
+            visible_D1T3_C2_natart=False
+            visible_D1T3_C5_natart=False
+            visible_D2T3_C2_natart=True
+            visible_D2T3_C5_natart=True
+        else:
+            visible_D1T3_C2_natart=True
+            visible_D1T3_C5_natart=True
+            visible_D2T3_C2_natart=True
+            visible_D2T3_C5_natart=True
+            
+
+
+       # First column: Apr 1st
+        if (visible_D2T3_C2_natart or visible_D2T3_C5_natart) and \
+        (natart_day is None or natart_day == "Apr 1st" or natart_day == "All"):
+            with cards_container_natart1:
+                ui.label("Apr 1st").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
+                with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px;transform: scale(0.9); transform-origin: top left;'):
+                    if visible_D2T3_C2_natart:
+                        card("/menu/Natural+Artificial/D2T3-C2-pv2.jpg", [D2T3,C2], classes)
+                    if visible_D2T3_C5_natart:
+                        card("/menu/Natural+Artificial/D2T3-C5-pv2.jpg", [D2T3,C1,C2,C4], classes)
+
+
+        # Second column: Dec 25th 
+        if (visible_D1T3_C5_natart or visible_D1T3_C2_natart) and \
+        (natart_day is None or natart_day == "Dec 25th" or natart_day == "All"):
+            with cards_container_natart2:
+                ui.label("Dec 25th").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
+                with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px;transform: scale(0.9); transform-origin: top left;'):
+                    if visible_D1T3_C2_natart:
+                        card("/menu/Natural+Artificial/D1T3-C2-pv2.jpg", [D1T3,C2], classes)
+                    if visible_D1T3_C5_natart:
+                        card("/menu/Natural+Artificial/D1T3-C5-pv2.jpg", [D1T3,C1,C2,C4], classes)
+
+    
+        update_all_cards_visibility()
+
+
    
     # Natural illumination
     with menu_panels["Natural illumination"]:
         classes = "w-[180px]"
 
         # main container
-        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0 40px; margin-top:-16px;'):
+        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0 40px; margin-top:-30px;'):
             # Relative container for the "Time" menu
             with ui.element('div').classes('relative'):
                 label_hour = ui.label("Hour").classes(
@@ -719,9 +785,7 @@ body, html {
     with menu_panels["Artificial illumination"]:
         classes = "w-[180px] h-[295px]"
 
-        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px;'):
-            ui.label("Hora").classes('text-sm text-gray-500')
-            ui.label("Dia").classes('text-sm text-gray-500')
+        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px; margin-top:-20px'):
             ui.label("Vista").classes('text-sm text-gray-500')
 
         with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 0px;'):
@@ -730,7 +794,7 @@ body, html {
                 
                 with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 0px;'):
                     
-                    with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -55px;'):
+                    with ui.row().classes('gap-2 items-start').style('margin-top: 20px; margin-left: -55px;'):
 
                         card("/menu/artificial/C1-pv2.jpg", [C1], classes)
                         card("/menu/artificial/C2-pv2.jpg", [C2], classes)
@@ -739,10 +803,92 @@ body, html {
                         card("/menu/artificial/C5-pv2.jpg", [C1, C2, C4], classes)
 
 
+    with menu_panels["Natural + Artificial illumination"]:
+        classes = "w-[180px] h-[320px]"
+
+        # main container
+        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px; margin-top:5px'):
+            # Relative container for the "Time" menu
+            with ui.element('div').classes('relative'):
+                label_hour3 = ui.label("Hour").classes(
+                    'text-sm text-gray-500 cursor-pointer hover:text-black select-none'
+                )
+
+                # Time selection menu
+                with ui.menu().props(
+                    'auto-close="false" anchor="bottom middle" self="top middle"'
+                ).classes('bg-white shadow-md rounded-md p-2 z-50 w-40') as hour_menu3:
+                    ui.label("Selecciona hora").classes('text-sm text-gray-600 px-2 py-1')
+                    ui.separator()
+
+                    def set_hour3(hour3):
+                        global natart_hour
+                        natart_hour = hour3
+
+                        if hour3 == "All":
+                            label_hour3.set_text("Hour")
+                        else:
+                            label_hour3.set_text(hour3)
+                        refresh_cards_natart()
+
+                    ui.menu_item("All", lambda: set_hour3("All"))
+                    ui.menu_item("12:53 pm", lambda: set_hour3("12:53"))
+                    ui.menu_item("13:56 pm", lambda: set_hour3("13:56"))
+
+                label_hour3.on('click', hour_menu3.toggle)
+
+           # Relative container for the "Day" menu
+            with ui.element('div').classes('relative'):
+                label_day3 = ui.label("Day").classes(
+                    'text-sm text-gray-500 cursor-pointer hover:text-black select-none'
+                )
+
+               # Day selection menu
+                with ui.menu().props(
+                    'auto-close="false" anchor="bottom middle" self="top middle"'
+                ).classes('bg-white shadow-md rounded-md p-2 z-50 w-40') as day_menu3:
+                    ui.label("Selecciona dia").classes('text-sm text-gray-600 px-2 py-1')
+                    ui.separator()
+
+                    def set_day3(day3):
+                        global natart_day
+                        natart_day = day3
+
+                        if day3 == "All":
+                            label_day3.set_text("Day")
+                        else:
+                            label_day3.set_text(day3)
+                        refresh_cards_natart()
+
+                    ui.menu_item("All", lambda: set_day3("All"))
+                    ui.menu_item("Apr 1st", lambda: set_day3("Apr 1st"))
+                    ui.menu_item("Jun 6th", lambda: set_day3("Jun 6th"))
+                    ui.menu_item("Dec 25th", lambda: set_day3("Dec 25th"))
+                    
+
+                label_day3.on('click', day_menu3.toggle)
+
+          # view label 
+            ui.label("View").classes('text-sm text-gray-500')
+
+        #Content with horizontal scroll
+        with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 0px;'):
+            with ui.row().classes('justify-start gap-1 items-start flex-nowrap').style('display: inline-flex;'):
+
+                # First column: Apr 1st
+                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 0px;') as cards_container_natart1:
+                    pass
+
+                # Third column: Dec 25th
+                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: -10px;') as cards_container_natart2:
+                    pass
+
+        
+        refresh_cards_natart()
   
 
     # Natural + Artificial illumination
-    with menu_panels["Natural + Artificial illumination"]:
+    """with menu_panels["Natural + Artificial illumination"]:
         classes = "w-[180px] h-[320px]"
         scale = "transform: scale(0.85); transform-origin: top center; transition: transform 0.3s ease;"
 
@@ -770,7 +916,7 @@ body, html {
                     ui.label("Dec 25th").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
                     with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px;transform: scale(0.80); transform-origin: top left;'):
                         card("/menu/Natural+Artificial/D1T3-C2-pv2.jpg", [D1T3,C2], classes)
-                        card("/menu/Natural+Artificial/D1T3-C5-pv2.jpg", [D1T3,C1,C2,C4], classes)
+                        card("/menu/Natural+Artificial/D1T3-C5-pv2.jpg", [D1T3,C1,C2,C4], classes)"""
 
     
     #All Combinations
@@ -783,12 +929,12 @@ body, html {
             ui.label("Vista").classes('text-sm text-gray-500')
 
         #Container with horizontal scroll
-        with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 0px;'):
+        with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 10px;'):
             with ui.row().classes('justify-start gap-16 items-start flex-nowrap').style('display: inline-flex;'):
 
                 #Natural
                 with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start;'):
-                    ui.label("Natural illumination").classes('text-black text-sm font-semibold').style('margin-bottom: 10px;')
+                    ui.label("Natural illumination").classes('text-black text-sm font-semibold').style('margin-bottom: 0px;')
 
                     with ui.row().classes('justify-start gap-1 items-start flex-nowrap').style('display: inline-flex;'):
 
@@ -819,7 +965,7 @@ body, html {
 
                 #Artificial
                 with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left:-110px'):
-                    ui.label("Artificial illumination").classes('text-black text-sm font-semibold').style('margin-bottom: 10px;')
+                    ui.label("Artificial illumination").classes('text-black text-sm font-semibold').style('margin-bottom: 0px;')
 
                     with ui.row().classes('gap-2 items-start').style('margin-left: -40px; margin-top: -10px; transform: scale(0.80); transform-origin: top left;'):
                         card("/menu/artificial/C1-pv2.jpg", [C1], "h-[295px] w-[180px]")
@@ -831,7 +977,7 @@ body, html {
                 
                 #Natural + Artificial
                 with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left:-150px'):
-                    ui.label("Natural + Artificial illumination").classes('text-black text-sm font-semibold').style('margin-bottom: 10px;')
+                    ui.label("Natural + Artificial illumination").classes('text-black text-sm font-semibold').style('margin-bottom: 0px;')
 
                     with ui.row().classes('justify-start gap-1 items-start flex-nowrap').style('display: inline-flex;'):
                         
