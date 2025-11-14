@@ -58,7 +58,6 @@ visible_D1T3_natural = True
 
 visible_D1T3_C2_natart = True
 visible_D1T3_C5_natart = True
-
 visible_D2T3_C2_natart = True
 visible_D2T3_C5_natart = True
 
@@ -74,9 +73,15 @@ visible_D1T3_all = True
 
 visible_D1T3_C2_all = True
 visible_D1T3_C5_all = True
-
 visible_D2T3_C2_all = True
 visible_D2T3_C5_all = True
+
+
+visible_C1_all = True
+visible_C2_all = True
+visible_C3_all = True
+visible_C4_all = True
+visible_C5_all = True
 
 
 natural_hour= None
@@ -378,20 +383,43 @@ body, html {
     justify-content: center;
     background-color: white;
 }
+                     
+
+
 
 .dropdown-panel {
     position: absolute;
     top: 70px;
     left: 0;
     right: 0;
-    height: 45vh;
+    height: 46vh;
     background-color: white;
-    overflow-x: auto;
-    overflow-y: hidden;
     z-index: 50;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* controles arriba, cards abajo */
+    align-items: stretch;
+}
+
+/* Controles fijos arriba */
+.dropdown-panel .controls {
+    flex-shrink: 0; /* que no se reduzca */
+    padding: 0 40px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
     align-items: center;
+}
+
+/* Scroll solo para cards */
+.dropdown-panel .cards-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: flex;
+    gap: 2.5rem;
+    padding: 10px;
+    flex-shrink: 0; /* importante para que no empuje controles */
 }
 
 /* Fixed size for all cards */
@@ -425,9 +453,7 @@ body, html {
     justify-content:center;
     
 }
-
-                     
-              
+                              
 
 .material-symbols-outlined {
   font-variation-settings:
@@ -709,32 +735,168 @@ body, html {
        #  We delete old content
         cards_container_all1.clear()
         cards_container_all2.clear()
+        cards_container_all3.clear()
+        cards_container_all4.clear()
+        cards_container_all5.clear()
+        cards_container_all6.clear()
        
 
        #  Update visibility based on time
        
-        if all_hour == "12:53":
+        if all_hour == "10:00":
+            visible_D2T1_all = True
+            visible_D2T2_all = False
+            visible_D2T3_all = False
+            visible_D3T1_all = True
+            visible_D3T2_all = False
+            visible_D3T3_all = False
+            visible_D1T1_all = True
+            visible_D1T2_all = False
+            visible_D1T3_all = False
+        elif all_hour == "10:53":
+            visible_D2T1_all = False
+            visible_D2T2_all = False
+            visible_D2T3_all = False
+            visible_D3T1_all = False
+            visible_D3T2_all = False
+            visible_D3T3_all = False
+            visible_D1T1_all = False
+            visible_D1T2_all = True
+            visible_D1T3_all = False
+        elif all_hour == "10:56":
+            visible_D2T1_all = False
+            visible_D2T2_all = True
+            visible_D2T3_all = False
+            visible_D3T1_all = False
+            visible_D3T2_all = False
+            visible_D3T3_all = False
+            visible_D1T1_all = False
+            visible_D1T2_all = False
+            visible_D1T3_all = False
+        elif all_hour == "11:53":
+            visible_D2T1_all = False
+            visible_D2T2_all = False
+            visible_D2T3_all = False
+            visible_D3T1_all = False
+            visible_D3T2_all = True
+            visible_D3T3_all = False
+            visible_D1T1_all = False
+            visible_D1T2_all = False
+            visible_D1T3_all = False
+        elif all_hour == "12:53":
+            visible_D2T1_all = False
+            visible_D2T2_all = False
+            visible_D2T3_all = False
+            visible_D3T1_all = False
+            visible_D3T2_all = False
+            visible_D3T3_all = False
+            visible_D1T1_all = False
+            visible_D1T2_all = False
+            visible_D1T3_all = True
             visible_D1T3_C2_all=True
             visible_D1T3_C5_all=True
             visible_D2T3_C2_all=False
             visible_D2T3_C5_all=False
+        elif all_hour == "13:53":
+            visible_D2T1_all = False
+            visible_D2T2_all = False
+            visible_D2T3_all = False
+            visible_D3T1_all = False
+            visible_D3T2_all = False
+            visible_D3T3_all = True
+            visible_D1T1_all = False
+            visible_D1T2_all = False
+            visible_D1T3_all = False
         elif all_hour == "13:56":
+            visible_D2T1_all = False
+            visible_D2T2_all = False
+            visible_D2T3_all= True
+            visible_D3T1_all = False
+            visible_D3T2_all = False
+            visible_D3T3_all= False
+            visible_D1T1_all = False
+            visible_D1T2_all = False
+            visible_D1T3_all = False
             visible_D1T3_C2_all=False
             visible_D1T3_C5_all=False
             visible_D2T3_C2_all=True
             visible_D2T3_C5_all=True
         else:
+            visible_D2T1_all= True
+            visible_D2T2_all = True
+            visible_D2T3_all = True
+            visible_D3T1_all = True
+            visible_D3T2_all = True
+            visible_D3T3_all = True
+            visible_D1T1_all = True
+            visible_D1T2_all = True
+            visible_D1T3_all = True
             visible_D1T3_C2_all=True
             visible_D1T3_C5_all=True
             visible_D2T3_C2_all=True
             visible_D2T3_C5_all=True
             
 
+        #Natural
 
        # First column: Apr 1st
-        if (visible_D2T3_C2_all or visible_D2T3_C5_all) and \
+        if (visible_D2T1_all or visible_D2T2_all or visible_D2T3_all) and \
         (all_day is None or all_day == "Apr 1st" or all_day == "All"):
             with cards_container_all1:
+                ui.label("Apr 1st").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
+                with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px;transform: scale(0.9); transform-origin: top left;'):
+                    if visible_D2T1_all:
+                        card("/menu/natural/D2T1-pv2.jpg", [D2T1], classes)
+                    if visible_D2T2_all:
+                        card("/menu/natural/D2T2-pv2.jpg", [D2T2], classes)
+                    if visible_D2T3_all:
+                        card("/menu/natural/D2T3-pv2.jpg", [D2T3], classes)
+
+
+        # Second column: Jun 6th 
+        if (visible_D3T1_all or visible_D3T2_all or visible_D3T3_all) and \
+        (all_day is None or all_day == "Jun 6th" or all_day == "All"):
+            with cards_container_all2:
+                ui.label("Jun 6th").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
+                with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px;transform: scale(0.9); transform-origin: top left;'):
+                    if visible_D3T1_all:
+                        card("/menu/natural/D3T1-pv2.jpg", [D3T1], classes)
+                    if visible_D3T2_all:
+                        card("/menu/natural/D3T2-pv2.jpg", [D3T2], classes)
+                    if visible_D3T3_all:
+                        card("/menu/natural/D3T3-pv2.jpg", [D3T3], classes)
+
+        # Third column: Dec 25th 
+        if (visible_D1T1_all or visible_D1T2_all or visible_D1T3_all)and \
+        (all_day is None or all_day == "Dec 25th" or all_day == "All"):
+            with cards_container_all3:
+                ui.label("Dec 25th").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
+                with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px;transform: scale(0.9); transform-origin: top left;'):
+                    if visible_D1T1_all:
+                        card("/menu/natural/D1T1-pv2.jpg", [D1T1], classes)
+                    if visible_D1T2_all:
+                        card("/menu/natural/D1T2-pv2.jpg", [D1T2], classes)
+                    if visible_D1T3_all:
+                        card("/menu/natural/D1T3-pv2.jpg", [D1T3], classes)
+
+        #Artificial
+
+        with cards_container_all4:
+                with ui.row().classes('gap-2 items-start').style('margin-top: 18px; margin-left: -45px;transform: scale(0.9); transform-origin: top left;'):
+                   
+                    card("/menu/artificial/C1-pv2.jpg", [C1], classes)
+                    card("/menu/artificial/C2-pv2.jpg", [C2], classes)
+                    card("/menu/artificial/C3-pv2.jpg", [C3], classes)
+                    card("/menu/artificial/C4-pv2.jpg", [C4], classes)
+                    card("/menu/artificial/C5-pv2.jpg", [C1, C2, C4], classes)
+        
+
+        #Nat+Art
+
+        # First column: Apr 1st
+        if (visible_D2T3_C2_all or visible_D2T3_C5_all) and \
+        (all_day is None or all_day == "Apr 1st" or all_day == "All"):
+            with cards_container_all5:
                 ui.label("Apr 1st").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
                 with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px;transform: scale(0.9); transform-origin: top left;'):
                     if visible_D2T3_C2_all:
@@ -742,11 +904,10 @@ body, html {
                     if visible_D2T3_C5_all:
                         card("/menu/Natural+Artificial/D2T3-C5-pv2.jpg", [D2T3,C1,C2,C4], classes)
 
-
-        # Second column: Dec 25th 
+        # Second column: Dec 25st
         if (visible_D1T3_C5_all or visible_D1T3_C2_all) and \
         (all_day is None or all_day == "Dec 25th" or all_day == "All"):
-            with cards_container_all2:
+            with cards_container_all6:
                 ui.label("Dec 25th").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
                 with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px;transform: scale(0.9); transform-origin: top left;'):
                     if visible_D1T3_C2_all:
@@ -764,7 +925,7 @@ body, html {
         classes = "w-[180px] h-[320px]"
 
         # main container
-        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px; margin-top:5px'):
+        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px;margin-top:5px'):
             # Relative container for the "Time" menu
             with ui.element('div').classes('relative'):
                 label_hour = ui.label("Hour").classes(
@@ -834,7 +995,7 @@ body, html {
             ui.label("View").classes('text-sm text-gray-500')
 
         #Content with horizontal scroll
-        with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 0px;'):
+        with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 15px;'):
             with ui.row().classes('justify-start gap-1 items-start flex-nowrap').style('display: inline-flex;'):
 
                 # First column: Apr 1st
@@ -854,10 +1015,10 @@ body, html {
 
     # Artificial illumination
     with menu_panels["Artificial illumination"]:
-        classes = "w-[180px] h-[295px]"
+        classes = "w-[180px] h-[320px]"
 
-        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px; margin-top:-20px'):
-            ui.label("Vista").classes('text-sm text-gray-500')
+        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px; margin-top:5px'):
+            ui.label("View").classes('text-sm text-gray-500')
 
         with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 0px;'):
             with ui.row().classes('justify-start gap-8 items-start flex-nowrap').style('display: inline-flex;'):
@@ -878,7 +1039,7 @@ body, html {
         classes = "w-[180px] h-[320px]"
 
         # main container
-        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px; margin-top:-16px'):
+        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px; margin-top:5px'):
             # Relative container for the "Time" menu
             with ui.element('div').classes('relative'):
                 label_hour3 = ui.label("Hour").classes(
@@ -992,96 +1153,119 @@ body, html {
     
     #All Combinations
 
+    # --- Controls (fixed in place above the cards) ---
     with menu_panels["All combinations"]:
         classes = "w-[180px] h-[320px]"
 
-        # main container
-        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px; margin-top:5px'):
-            # Relative container for the "Time" menu
+        with ui.row().classes(' controls w-full justify-end items-center gap-6').style('padding: 0px 40px; margin-top:5px'):
+            # Hour menu
             with ui.element('div').classes('relative'):
-                label_hour4 = ui.label("Hour").classes(
-                    'text-sm text-gray-500 cursor-pointer hover:text-black select-none'
-                )
-
-                # Time selection menu
-                with ui.menu().props(
-                    'auto-close="false" anchor="bottom middle" self="top middle"'
-                ).classes('bg-white shadow-md rounded-md p-2 z-50 w-40') as hour_menu4:
+                label_hour4 = ui.label("Hour").classes('text-sm text-gray-500 cursor-pointer hover:text-black select-none')
+                with ui.menu().props('auto-close="false" anchor="bottom middle" self="top middle"') \
+                        .classes('bg-white shadow-md rounded-md p-2 z-50 w-40') as hour_menu4:
                     ui.label("Selecciona hora").classes('text-sm text-gray-600 px-2 py-1')
                     ui.separator()
-
                     def set_hour4(hour4):
                         global all_hour
                         all_hour = hour4
-
-                        if hour4== "All":
-                            label_hour4.set_text("Hour")
-                        else:
-                            label_hour4.set_text(hour4)
+                        label_hour4.set_text(hour4 if hour4 != "All" else "Hour")
                         refresh_cards_all()
-
                     ui.menu_item("All", lambda: set_hour4("All"))
                     ui.menu_item("12:53 pm", lambda: set_hour4("12:53"))
                     ui.menu_item("13:56 pm", lambda: set_hour4("13:56"))
-
                 label_hour4.on('click', hour_menu4.toggle)
 
-           # Relative container for the "Day" menu
+            # Day menu
             with ui.element('div').classes('relative'):
-                label_day4 = ui.label("Day").classes(
-                    'text-sm text-gray-500 cursor-pointer hover:text-black select-none'
-                )
-
-               # Day selection menu
-                with ui.menu().props(
-                    'auto-close="false" anchor="bottom middle" self="top middle"'
-                ).classes('bg-white shadow-md rounded-md p-2 z-50 w-40') as day_menu4:
+                label_day4 = ui.label("Day").classes('text-sm text-gray-500 cursor-pointer hover:text-black select-none')
+                with ui.menu().props('auto-close="false" anchor="bottom middle" self="top middle"') \
+                        .classes('bg-white shadow-md rounded-md p-2 z-50 w-40') as day_menu4:
                     ui.label("Selecciona dia").classes('text-sm text-gray-600 px-2 py-1')
                     ui.separator()
-
                     def set_day4(day4):
                         global all_day
                         all_day = day4
-
-                        if day4 == "All":
-                            label_day4.set_text("Day")
-                        else:
-                            label_day4.set_text(day4)
+                        label_day4.set_text(day4 if day4 != "All" else "Day")
                         refresh_cards_all()
-
                     ui.menu_item("All", lambda: set_day4("All"))
                     ui.menu_item("Apr 1st", lambda: set_day4("Apr 1st"))
                     ui.menu_item("Jun 6th", lambda: set_day4("Jun 6th"))
                     ui.menu_item("Dec 25th", lambda: set_day4("Dec 25th"))
-                    
-
                 label_day4.on('click', day_menu4.toggle)
 
-          # view label 
+            # View label
             ui.label("View").classes('text-sm text-gray-500')
 
+        # --- Scrollable Cards Row ---
+        with ui.row().classes(
+            'cards-wrapper w-full overflow-x-auto no-scrollbar flex-nowrap gap-10 pl-10 pr-10 items-start'
+        ).style('white-space: nowrap;'):
+            
+            # Natural
+            with ui.column().classes('items-start w-auto flex-shrink-0'):
+                ui.label("Natural illumination").classes('text-black text-sm font-semibold mb-2')
+                with ui.row().classes('gap-1 items-start'):
+                    with ui.column().classes('flex-shrink-0') as cards_container_all1: pass
+                    with ui.column().classes('flex-shrink-0') as cards_container_all2: pass
+                    with ui.column().classes('flex-shrink-0') as cards_container_all3: pass
 
-        ui.label("Natural illumination") \
+            # Artificial
+            with ui.column().classes('items-start w-auto flex-shrink-0'):
+                ui.label("Artificial illumination").classes('text-black text-sm font-semibold mb-2')
+                with ui.row().classes('gap-1 items-start'):
+                    with ui.column().classes('flex-shrink-0') as cards_container_all4: pass
+
+            # Natural + Artificial
+            with ui.column().classes('items-start w-auto flex-shrink-0'):
+                ui.label("Natural+Artificial illumination").classes('text-black text-sm font-semibold mb-2')
+                with ui.row().classes('gap-1 items-start'):
+                    with ui.column().classes('flex-shrink-0') as cards_container_all5: pass
+                    with ui.column().classes('flex-shrink-0') as cards_container_all6: pass
+
+            refresh_cards_all()
+
+
+
+                
+         
+
+        
+        """ui.label("Artificial illuminatiom") \
         .classes('text-black text-sm font-semibold self-start') \
         .style('margin-top: - 10px; padding-left: 40px; text-align: left;')
 
         
-        #Content with horizontal scroll
+        #Content with horizontal scroll artificial
         with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 0px;'):
             with ui.row().classes('justify-start gap-1 items-start flex-nowrap').style('display: inline-flex;'):
-                # First column: Apr 1st
-                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 0px;') as cards_container_all1:
+                
+                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 0px;') as cards_container_all4:
                    
                     pass
 
-                # Third column: Dec 25th
-                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: -10px;') as cards_container_all2:
+        
+        
+        ui.label("Natural+Artificial illumination") \
+        .classes('text-black text-sm font-semibold self-start') \
+        .style('margin-top: - 10px; padding-left: 40px; text-align: left;')
+
+        
+        #Content with horizontal scroll natural+artificial
+        with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 0px;'):
+            with ui.row().classes('justify-start gap-1 items-start flex-nowrap').style('display: inline-flex;'):
+                # First column: Apr 1st
+                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 0px;') as cards_container_all5:
+                   
                     pass
 
+                # Second column: Dec 25th
+                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: -10px;') as cards_container_all6:
+                    pass"""
                
 
         
-        refresh_cards_all()
+  
+  
 
     """with menu_panels["All combinations"]:
         classes = "w-[180px]"
@@ -1171,8 +1355,5 @@ body, html {
 
 
 
-    # Hide panels only when we stop hovering over the panel
-    for panel in menu_panels.values():
-        panel.on('mouseleave', lambda e, p=panel: p.set_visibility(False))
 
 ui.run()
