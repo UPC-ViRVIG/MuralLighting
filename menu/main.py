@@ -7,6 +7,7 @@ from fastapi import Request
 
 from fastapi.middleware.cors import CORSMiddleware
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -14,7 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-def load_selected():
+"""def load_selected():
     if os.path.exists("selected.json"):
         with open("selected.json") as f:
             return json.load(f).get("selected")
@@ -22,16 +23,16 @@ def load_selected():
 
 def save_selected(value):
     with open("selected.json", "w") as f:
-        json.dump({"selected": value}, f)
+        json.dump({"selected": value}, f)"""
 
-selected_window = load_selected()
+selected_window = None #load_selected()
 
 @app.post('/set_selected_window')
 async def set_selected_window(request: Request):
     global selected_window
     data = await request.json()
     selected_window = data.get('selected') or "none"
-    save_selected(selected_window)
+    #save_selected(selected_window)
     return {'status': 'ok', 'selected': selected_window}
 
 
@@ -96,10 +97,6 @@ all_day= None
 
 DEFAULT_IMAGE = "XII/Artificial/C1-pv2.exr"
 DEFAULT_IMAGE2 = "XII/Artificial/C2-pv2.exr"
-
-
-
-
 
 
 selected_left = None
@@ -396,13 +393,13 @@ body, html {
     background-color: white;
     z-index: 50;
     display: flex;
-    flex-direction: column; /* controles arriba, cards abajo */
+    flex-direction: column; 
     align-items: stretch;
 }
 
-/* Controles fijos arriba */
+
 .dropdown-panel .controls {
-    flex-shrink: 0; /* que no se reduzca */
+    flex-shrink: 0; 
     padding: 0 40px;
     margin-top: 5px;
     display: flex;
@@ -411,7 +408,7 @@ body, html {
     align-items: center;
 }
 
-/* Scroll solo para cards */
+
 .dropdown-panel .cards-wrapper {
     overflow-x: auto;
     overflow-y: hidden;
@@ -419,7 +416,8 @@ body, html {
     display: flex;
     gap: 2.5rem;
     padding: 10px;
-    flex-shrink: 0; /* importante para que no empuje controles */
+    flex-shrink: 0; 
+    padding-left:50px;
 }
 
 /* Fixed size for all cards */
@@ -753,6 +751,10 @@ body, html {
             visible_D1T1_all = True
             visible_D1T2_all = False
             visible_D1T3_all = False
+            visible_D1T3_C2_all=False
+            visible_D1T3_C5_all=False
+            visible_D2T3_C2_all=False
+            visible_D2T3_C5_all=False
         elif all_hour == "10:53":
             visible_D2T1_all = False
             visible_D2T2_all = False
@@ -763,6 +765,10 @@ body, html {
             visible_D1T1_all = False
             visible_D1T2_all = True
             visible_D1T3_all = False
+            visible_D1T3_C2_all=False
+            visible_D1T3_C5_all=False
+            visible_D2T3_C2_all=False
+            visible_D2T3_C5_all=False
         elif all_hour == "10:56":
             visible_D2T1_all = False
             visible_D2T2_all = True
@@ -773,6 +779,10 @@ body, html {
             visible_D1T1_all = False
             visible_D1T2_all = False
             visible_D1T3_all = False
+            visible_D1T3_C2_all=False
+            visible_D1T3_C5_all=False
+            visible_D2T3_C2_all=False
+            visible_D2T3_C5_all=False
         elif all_hour == "11:53":
             visible_D2T1_all = False
             visible_D2T2_all = False
@@ -783,6 +793,10 @@ body, html {
             visible_D1T1_all = False
             visible_D1T2_all = False
             visible_D1T3_all = False
+            visible_D1T3_C2_all=False
+            visible_D1T3_C5_all=False
+            visible_D2T3_C2_all=False
+            visible_D2T3_C5_all=False
         elif all_hour == "12:53":
             visible_D2T1_all = False
             visible_D2T2_all = False
@@ -807,6 +821,10 @@ body, html {
             visible_D1T1_all = False
             visible_D1T2_all = False
             visible_D1T3_all = False
+            visible_D1T3_C2_all=False
+            visible_D1T3_C5_all=False
+            visible_D2T3_C2_all=False
+            visible_D2T3_C5_all=False
         elif all_hour == "13:56":
             visible_D2T1_all = False
             visible_D2T2_all = False
@@ -918,6 +936,11 @@ body, html {
     
         update_all_cards_visibility()
 
+        
+
+            
+
+
 
    
     # Natural illumination
@@ -928,6 +951,8 @@ body, html {
         with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px;margin-top:5px'):
             # Relative container for the "Time" menu
             with ui.element('div').classes('relative'):
+
+                icon_hour= ui.icon('access_time', size="20px").classes('cursor-pointer rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')
                 label_hour = ui.label("Hour").classes(
                     'text-sm text-gray-500 cursor-pointer hover:text-black select-none'
                 )
@@ -936,17 +961,22 @@ body, html {
                 with ui.menu().props(
                     'auto-close="false" anchor="bottom middle" self="top middle"'
                 ).classes('bg-white shadow-md rounded-md p-2 z-50 w-40') as hour_menu:
-                    ui.label("Selecciona hora").classes('text-sm text-gray-600 px-2 py-1')
+                    ui.label("Select hour").classes('text-sm text-gray-600 px-2 py-1')
                     ui.separator()
 
                     def set_hour(hour):
                         global natural_hour
                         natural_hour = hour
 
+
+                        ui.run_javascript(f'localStorage.setItem("natural_hour", "{hour}")')
+
                         if hour == "All":
-                            label_hour.set_text("Hour")
+                            icon_hour.set_visibility(True)
+                            label_hour.set_text("")
                         else:
                             label_hour.set_text(hour)
+                            icon_hour.set_visibility(False)
                         refresh_cards_natural()
 
                     ui.menu_item("All", lambda: set_hour("All"))
@@ -959,9 +989,30 @@ body, html {
                     ui.menu_item("13:56 pm", lambda: set_hour("13:56"))
 
                 label_hour.on('click', hour_menu.toggle)
+                icon_hour.on('click', hour_menu.toggle)
+
+
+                async def restore_hour_from_localstorage():
+                    saved_hour = await ui.run_javascript('localStorage.getItem("natural_hour")')
+                    if not saved_hour or saved_hour == "All":
+                        icon_hour.set_visibility(True)
+                        label_hour.set_text("")
+                    else:
+                        icon_hour.set_visibility(False)
+                        label_hour.set_text(saved_hour)
+                        global natural_hour
+                        natural_hour = saved_hour
+                        refresh_cards_natural()
+
+                ui.timer(0.1, restore_hour_from_localstorage, once=True)
+
+            
+
 
            # Relative container for the "Day" menu
             with ui.element('div').classes('relative'):
+
+                icon_day= ui.icon('calendar_today', size="20px").classes('cursor-pointer rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')
                 label_day = ui.label("Day").classes(
                     'text-sm text-gray-500 cursor-pointer hover:text-black select-none'
                 )
@@ -970,17 +1021,19 @@ body, html {
                 with ui.menu().props(
                     'auto-close="false" anchor="bottom middle" self="top middle"'
                 ).classes('bg-white shadow-md rounded-md p-2 z-50 w-40') as day_menu:
-                    ui.label("Selecciona dia").classes('text-sm text-gray-600 px-2 py-1')
+                    ui.label("Select day ").classes('text-sm text-gray-600 px-2 py-1')
                     ui.separator()
 
                     def set_day(day):
                         global natural_day
                         natural_day = day
-
+                        ui.run_javascript(f'localStorage.setItem("natural_day", "{day}")')
                         if day == "All":
-                            label_day.set_text("Day")
+                            label_day.set_text("")
+                            icon_day.set_visibility(True)
                         else:
                             label_day.set_text(day)
+                            icon_day.set_visibility(False)
                         refresh_cards_natural()
 
                     ui.menu_item("All", lambda: set_day("All"))
@@ -990,9 +1043,28 @@ body, html {
                     
 
                 label_day.on('click', day_menu.toggle)
+                icon_day.on('click', day_menu.toggle)
+
+
+                async def restore_day_from_localstorage():
+                    saved_day = await ui.run_javascript('localStorage.getItem("natural_day")')
+                    if not saved_day or saved_day == "All":
+                        icon_day.set_visibility(True)
+                        label_day.set_text("")
+                    else:
+                        icon_day.set_visibility(False)
+                        label_day.set_text(saved_day)
+                        global natural_day
+                        natural_day = saved_day
+                        refresh_cards_natural()
+
+                ui.timer(0.1, restore_day_from_localstorage, once=True)
 
           # view label 
-            ui.label("View").classes('text-sm text-gray-500')
+            ui.icon('visibility', size="20px").classes('cursor-pointer rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')
+        
+
+        
 
         #Content with horizontal scroll
         with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 15px;'):
@@ -1002,10 +1074,11 @@ body, html {
                 with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 0px;') as cards_container_natural1:
                     pass
 
-                # Third column: Dec 25th
+                # Second column: Jun 6th
                 with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 20px;') as cards_container_natural2:
                     pass
 
+                #Third column: Dec 25th
                 with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 20px;') as cards_container_natural3:
                     pass
 
@@ -1018,9 +1091,9 @@ body, html {
         classes = "w-[180px] h-[320px]"
 
         with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px; margin-top:5px'):
-            ui.label("View").classes('text-sm text-gray-500')
+            ui.icon('visibility', size="20px").classes('cursor-pointer rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')
 
-        with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 0px;'):
+        with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 50px; white-space: nowrap; padding-top: 0px;'):
             with ui.row().classes('justify-start gap-8 items-start flex-nowrap').style('display: inline-flex;'):
                 
                 
@@ -1035,6 +1108,10 @@ body, html {
                         card("/menu/artificial/C5-pv2.jpg", [C1, C2, C4], classes)
 
 
+
+
+    # Natural + Artificial illumination
+
     with menu_panels["Natural + Artificial illumination"]:
         classes = "w-[180px] h-[320px]"
 
@@ -1042,6 +1119,7 @@ body, html {
         with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px; margin-top:5px'):
             # Relative container for the "Time" menu
             with ui.element('div').classes('relative'):
+                icon_hour3= ui.icon('access_time', size="20px").classes('cursor-pointer rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')
                 label_hour3 = ui.label("Hour").classes(
                     'text-sm text-gray-500 cursor-pointer hover:text-black select-none'
                 )
@@ -1050,17 +1128,21 @@ body, html {
                 with ui.menu().props(
                     'auto-close="false" anchor="bottom middle" self="top middle"'
                 ).classes('bg-white shadow-md rounded-md p-2 z-50 w-40') as hour_menu3:
-                    ui.label("Selecciona hora").classes('text-sm text-gray-600 px-2 py-1')
+                    ui.label("Select hour").classes('text-sm text-gray-600 px-2 py-1')
                     ui.separator()
 
                     def set_hour3(hour3):
                         global natart_hour
                         natart_hour = hour3
 
+                        ui.run_javascript(f'localStorage.setItem("natart_hour", "{hour3}")')
+
                         if hour3 == "All":
-                            label_hour3.set_text("Hour")
+                            icon_hour3.set_visibility(True)
+                            label_hour3.set_text("")
                         else:
                             label_hour3.set_text(hour3)
+                            icon_hour3.set_visibility(False)
                         refresh_cards_natart()
 
                     ui.menu_item("All", lambda: set_hour3("All"))
@@ -1068,9 +1150,28 @@ body, html {
                     ui.menu_item("13:56 pm", lambda: set_hour3("13:56"))
 
                 label_hour3.on('click', hour_menu3.toggle)
+                icon_hour3.on('click', hour_menu3.toggle)
+
+
+                async def restore_hour3_from_localstorage():
+                    saved_hour3 = await ui.run_javascript('localStorage.getItem("natart_hour")')
+                    if not saved_hour3 or saved_hour3 == "All":
+                        icon_hour3.set_visibility(True)
+                        label_hour3.set_text("")
+                    else:
+                        icon_hour3.set_visibility(False)
+                        label_hour3.set_text(saved_hour3)
+                        global natart_hour
+                        natart_hour = saved_hour3
+                        refresh_cards_natural()
+
+                ui.timer(0.1, restore_hour3_from_localstorage, once=True)
+
+
 
            # Relative container for the "Day" menu
             with ui.element('div').classes('relative'):
+                icon_day3= ui.icon('calendar_today', size="20px").classes('cursor-pointer rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')
                 label_day3 = ui.label("Day").classes(
                     'text-sm text-gray-500 cursor-pointer hover:text-black select-none'
                 )
@@ -1079,29 +1180,47 @@ body, html {
                 with ui.menu().props(
                     'auto-close="false" anchor="bottom middle" self="top middle"'
                 ).classes('bg-white shadow-md rounded-md p-2 z-50 w-40') as day_menu3:
-                    ui.label("Selecciona dia").classes('text-sm text-gray-600 px-2 py-1')
+                    ui.label("Select day").classes('text-sm text-gray-600 px-2 py-1')
                     ui.separator()
 
                     def set_day3(day3):
                         global natart_day
                         natart_day = day3
 
+                        ui.run_javascript(f'localStorage.setItem("natart_day", "{day3}")')
+
                         if day3 == "All":
-                            label_day3.set_text("Day")
+                            label_day3.set_text("")
+                            icon_day3.set_visibility(True)
                         else:
                             label_day3.set_text(day3)
+                            icon_day3.set_visibility(False)
                         refresh_cards_natart()
 
                     ui.menu_item("All", lambda: set_day3("All"))
                     ui.menu_item("Apr 1st", lambda: set_day3("Apr 1st"))
-                    ui.menu_item("Jun 6th", lambda: set_day3("Jun 6th"))
                     ui.menu_item("Dec 25th", lambda: set_day3("Dec 25th"))
                     
 
                 label_day3.on('click', day_menu3.toggle)
+                icon_day3.on('click', day_menu3.toggle)
+
+                async def restore_day3_from_localstorage():
+                    saved_day3 = await ui.run_javascript('localStorage.getItem("natart_day")')
+                    if not saved_day3 or saved_day3 == "All":
+                        icon_day3.set_visibility(True)
+                        label_day3.set_text("")
+                    else:
+                        icon_day3.set_visibility(False)
+                        label_day3.set_text(saved_day3)
+                        global natart_day
+                        natart_day = saved_day3
+                        refresh_cards_natart()
+
+                ui.timer(0.1, restore_day3_from_localstorage, once=True)
 
           # view label 
-            ui.label("View").classes('text-sm text-gray-500')
+            ui.icon('visibility', size="20px").classes('cursor-pointer rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')
 
         #Content with horizontal scroll
         with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 15px;'):
@@ -1111,7 +1230,7 @@ body, html {
                 with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 0px;') as cards_container_natart1:
                     pass
 
-                # Third column: Dec 25th
+                # Second column: Dec 25th
                 with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 20px;') as cards_container_natart2:
                     pass
 
@@ -1119,82 +1238,111 @@ body, html {
         refresh_cards_natart()
   
 
-    # Natural + Artificial illumination
-    """with menu_panels["Natural + Artificial illumination"]:
-        classes = "w-[180px] h-[320px]"
-        scale = "transform: scale(0.85); transform-origin: top center; transition: transform 0.3s ease;"
-
-        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px; margin-top:5px'):
-            ui.label("Hora").classes('text-sm text-gray-500')
-            ui.label("Dia").classes('text-sm text-gray-500')
-            ui.label("Vista").classes('text-sm text-gray-500')
-
-        
-
-
-       #Container with horizontal scroll if they don't all fit
-        with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 0px;'):
-            with ui.row().classes('justify-start gap-1 items-start flex-nowrap').style('display: inline-flex;'):
-
-                # First column: Apr 1st
-                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 0px;'):
-                    ui.label("Apr 1st").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
-                    with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px;transform: scale(0.80); transform-origin: top left;'):
-                        card("/menu/Natural+Artificial/D2T3-C2-pv2.jpg", [D2T3,C2], classes)
-                        card("/menu/Natural+Artificial/D2T3-C5-pv2.jpg", [D2T3,C1,C2,C4], classes)
-            
-                # Third column: Dec 25th
-                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: -30px;'):
-                    ui.label("Dec 25th").classes('text-sm').style('margin-bottom: 5px; line-height: 1;')
-                    with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px;transform: scale(0.80); transform-origin: top left;'):
-                        card("/menu/Natural+Artificial/D1T3-C2-pv2.jpg", [D1T3,C2], classes)
-                        card("/menu/Natural+Artificial/D1T3-C5-pv2.jpg", [D1T3,C1,C2,C4], classes)"""
 
     
     #All Combinations
 
-    # --- Controls (fixed in place above the cards) ---
+
     with menu_panels["All combinations"]:
         classes = "w-[180px] h-[320px]"
 
         with ui.row().classes(' controls w-full justify-end items-center gap-6').style('padding: 0px 40px; margin-top:5px'):
             # Hour menu
             with ui.element('div').classes('relative'):
+
+                icon_hour4= ui.icon('access_time', size="20px").classes('cursor-pointer rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')
                 label_hour4 = ui.label("Hour").classes('text-sm text-gray-500 cursor-pointer hover:text-black select-none')
                 with ui.menu().props('auto-close="false" anchor="bottom middle" self="top middle"') \
                         .classes('bg-white shadow-md rounded-md p-2 z-50 w-40') as hour_menu4:
-                    ui.label("Selecciona hora").classes('text-sm text-gray-600 px-2 py-1')
+                    ui.label("Select hour").classes('text-sm text-gray-600 px-2 py-1')
                     ui.separator()
                     def set_hour4(hour4):
                         global all_hour
                         all_hour = hour4
-                        label_hour4.set_text(hour4 if hour4 != "All" else "Hour")
+
+                        ui.run_javascript(f'localStorage.setItem("all_hour", "{hour4}")')
+                        
+                        if hour4 =="All":
+                            icon_hour4.set_visibility(True)
+                            label_hour4.set_text("")
+                        else:
+                            label_hour4.set_text(hour4)
+                            icon_hour4.set_visibility(False)
+
+
                         refresh_cards_all()
                     ui.menu_item("All", lambda: set_hour4("All"))
+                    ui.menu_item("10:00 am", lambda: set_hour4("10:00"))
+                    ui.menu_item("10:53 am", lambda: set_hour4("10:53"))
+                    ui.menu_item("10:56 am", lambda: set_hour4("10:56"))
+                    ui.menu_item("11:53 am", lambda: set_hour4("11:53"))
                     ui.menu_item("12:53 pm", lambda: set_hour4("12:53"))
+                    ui.menu_item("13:53 pm", lambda: set_hour4("13:53"))
                     ui.menu_item("13:56 pm", lambda: set_hour4("13:56"))
-                label_hour4.on('click', hour_menu4.toggle)
 
+
+                label_hour4.on('click', hour_menu4.toggle)
+                icon_hour4.on('click', hour_menu4.toggle)
+
+                async def restore_hour4_from_localstorage():
+                    saved_hour4 = await ui.run_javascript('localStorage.getItem("all_hour")')
+                    if not saved_hour4 or saved_hour4 == "All":
+                        icon_hour4.set_visibility(True)
+                        label_hour4.set_text("")
+                    else:
+                        icon_hour4.set_visibility(False)
+                        label_hour4.set_text(saved_hour4)
+                        global all_hour
+                        all_hour = saved_hour4
+                        refresh_cards_all()
+
+                ui.timer(0.1, restore_hour4_from_localstorage, once=True)
             # Day menu
             with ui.element('div').classes('relative'):
+
+                icon_day4= ui.icon('calendar_today', size="20px").classes('cursor-pointer rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')
                 label_day4 = ui.label("Day").classes('text-sm text-gray-500 cursor-pointer hover:text-black select-none')
                 with ui.menu().props('auto-close="false" anchor="bottom middle" self="top middle"') \
                         .classes('bg-white shadow-md rounded-md p-2 z-50 w-40') as day_menu4:
-                    ui.label("Selecciona dia").classes('text-sm text-gray-600 px-2 py-1')
+                    ui.label("Select day").classes('text-sm text-gray-600 px-2 py-1')
                     ui.separator()
                     def set_day4(day4):
                         global all_day
                         all_day = day4
-                        label_day4.set_text(day4 if day4 != "All" else "Day")
+
+                        ui.run_javascript(f'localStorage.setItem("all_day", "{day4}")')
+
+                        if day4 =="All":
+                            icon_day4.set_visibility(True)
+                            label_day4.set_text("")
+                        else:
+                            label_day4.set_text(day4)
+                            icon_day4.set_visibility(False)
                         refresh_cards_all()
                     ui.menu_item("All", lambda: set_day4("All"))
                     ui.menu_item("Apr 1st", lambda: set_day4("Apr 1st"))
                     ui.menu_item("Jun 6th", lambda: set_day4("Jun 6th"))
                     ui.menu_item("Dec 25th", lambda: set_day4("Dec 25th"))
                 label_day4.on('click', day_menu4.toggle)
+                icon_day4.on('click', day_menu4.toggle)
+
+
+                async def restore_day4_from_localstorage():
+                    saved_day4 = await ui.run_javascript('localStorage.getItem("all_day")')
+                    if not saved_day4 or saved_day4 == "All":
+                        icon_day4.set_visibility(True)
+                        label_day4.set_text("")
+                    else:
+                        icon_day4.set_visibility(False)
+                        label_day4.set_text(saved_day4)
+                        global all_day
+                        all_day = saved_day4
+                        refresh_cards_all()
+
+                ui.timer(0.1, restore_day4_from_localstorage, once=True)
 
             # View label
-            ui.label("View").classes('text-sm text-gray-500')
+            ui.icon('visibility', size="20px").classes('cursor-pointer rounded hover:bg-gray-100 transition flex-shrink-0 material-symbols-outlined')
 
         # --- Scrollable Cards Row ---
         with ui.row().classes(
@@ -1216,144 +1364,19 @@ body, html {
                     with ui.column().classes('flex-shrink-0') as cards_container_all4: pass
 
             # Natural + Artificial
-            with ui.column().classes('items-start w-auto flex-shrink-0'):
+            with ui.column().classes('items-start w-auto flex-shrink-0 -ml-6'):
                 ui.label("Natural+Artificial illumination").classes('text-black text-sm font-semibold mb-2')
                 with ui.row().classes('gap-1 items-start'):
                     with ui.column().classes('flex-shrink-0') as cards_container_all5: pass
                     with ui.column().classes('flex-shrink-0') as cards_container_all6: pass
 
-            refresh_cards_all()
-
-
-
-                
-         
-
-        
-        """ui.label("Artificial illuminatiom") \
-        .classes('text-black text-sm font-semibold self-start') \
-        .style('margin-top: - 10px; padding-left: 40px; text-align: left;')
-
-        
-        #Content with horizontal scroll artificial
-        with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 0px;'):
-            with ui.row().classes('justify-start gap-1 items-start flex-nowrap').style('display: inline-flex;'):
-                
-                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 0px;') as cards_container_all4:
-                   
-                    pass
-
-        
-        
-        ui.label("Natural+Artificial illumination") \
-        .classes('text-black text-sm font-semibold self-start') \
-        .style('margin-top: - 10px; padding-left: 40px; text-align: left;')
-
-        
-        #Content with horizontal scroll natural+artificial
-        with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 0px;'):
-            with ui.row().classes('justify-start gap-1 items-start flex-nowrap').style('display: inline-flex;'):
-                # First column: Apr 1st
-                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 0px;') as cards_container_all5:
-                   
-                    pass
-
-                # Second column: Dec 25th
-                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: -10px;') as cards_container_all6:
-                    pass"""
-               
-
-        
-  
-  
-
-    """with menu_panels["All combinations"]:
-        classes = "w-[180px]"
-
-        with ui.row().classes('w-full justify-end items-center gap-6').style('padding: 0px 40px 0 40px; margin-top:5px'):
-            ui.label("Hora").classes('text-sm text-gray-500')
-            ui.label("Dia").classes('text-sm text-gray-500')
-            ui.label("Vista").classes('text-sm text-gray-500')
-
-        #Container with horizontal scroll
-        with ui.row().classes('w-full overflow-x-auto no-scrollbar').style('padding-left: 40px; white-space: nowrap; padding-top: 10px;'):
-            with ui.row().classes('justify-start gap-16 items-start flex-nowrap').style('display: inline-flex;'):
-
-                #Natural
-                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start;'):
-                    ui.label("Natural illumination").classes('text-black text-sm font-semibold').style('margin-bottom: 0px;')
-
-                    with ui.row().classes('justify-start gap-1 items-start flex-nowrap').style('display: inline-flex;'):
-
-                        # First column: Apr 1st
-                        with ui.column().classes('items-start flex-shrink-0'):
-                            ui.label("Apr 1st").classes('text-sm').style('margin-bottom: 5px;')
-                            with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px; transform: scale(0.80); transform-origin: top left;'):
-                                card("/menu/natural/D2T1-pv2.jpg", [D2T1], classes)
-                                card("/menu/natural/D2T2-pv2.jpg", [D2T2], classes)
-                                card("/menu/natural/D2T3-pv2.jpg", [D2T3], classes)
-
-                        # Second column: Jun 6th
-                        with ui.column().classes('items-start flex-shrink-0').style('margin-left: -55px;'):
-                            ui.label("Jun 6th").classes('text-sm').style('margin-bottom: 5px;')
-                            with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px; transform: scale(0.80); transform-origin: top left;'):
-                                card("/menu/natural/D3T1-pv2.jpg", [D3T1], classes)
-                                card("/menu/natural/D3T2-pv2.jpg", [D3T2], classes)
-                                card("/menu/natural/D3T3-pv2.jpg", [D3T3], classes)
-
-                        # Third column: Dec 25th
-                        with ui.column().classes('items-start flex-shrink-0').style('margin-left: -55px;'):
-                            ui.label("Dec 25th").classes('text-sm').style('margin-bottom: 5px;')
-                            with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -45px; transform: scale(0.80); transform-origin: top left;'):
-                                card("/menu/natural/D1T1-pv2.jpg", [D1T1], classes)
-                                card("/menu/natural/D1T2-pv2.jpg", [D1T2], classes)
-                                card("/menu/natural/D1T3-pv2.jpg", [D1T3], classes)
-
-
-                #Artificial
-                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left:-110px'):
-                    ui.label("Artificial illumination").classes('text-black text-sm font-semibold').style('margin-bottom: 0px;')
-
-                    with ui.row().classes('gap-2 items-start').style('margin-left: -40px; margin-top: -10px; transform: scale(0.80); transform-origin: top left;'):
-                        card("/menu/artificial/C1-pv2.jpg", [C1], "h-[295px] w-[180px]")
-                        card("/menu/artificial/C2-pv2.jpg", [C2], "h-[295px] w-[180px]")
-                        card("/menu/artificial/C3-pv2.jpg", [C3], "h-[295px] w-[180px]")
-                        card("/menu/artificial/C4-pv2.jpg", [C4], "h-[295px] w-[180px]")
-                        card("/menu/artificial/C5-pv2.jpg", [C1, C2, C4], "h-[295px] w-[180px]")
-
-                
-                #Natural + Artificial
-                with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left:-150px'):
-                    ui.label("Natural + Artificial illumination").classes('text-black text-sm font-semibold').style('margin-bottom: 0px;')
-
-                    with ui.row().classes('justify-start gap-1 items-start flex-nowrap').style('display: inline-flex;'):
-                        
-                        #  First column: Apr 1st
-                        with ui.column().classes('items-start flex-shrink-0').style('margin-left: 0px;'):
-                            ui.label("Apr 1st").classes('text-sm').style('margin-bottom: 5px;')
-                            with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -35px; transform: scale(0.59); transform-origin: top left;'):
-                                card("/menu/Natural+Artificial/D2T3-C2-pv2.jpg", [D2T3, C2], "w-[180px] h-[320px]")
-                                card("/menu/Natural+Artificial/D2T3-C5-pv2.jpg", [D2T3, C1, C2, C4], "w-[180px] h-[320px]")
-
-                        # Second column: Dec 25th
-                        with ui.column().classes('items-start flex-shrink-0').style('margin-left: -90px;'):
-                            ui.label("Dec 25th").classes('text-sm').style('margin-bottom: 5px;')
-                            with ui.row().classes('gap-2 items-start').style('margin-top: -18px; margin-left: -35px; transform: scale(0.59); transform-origin: top left;'):
-                                card("/menu/Natural+Artificial/D1T3-C2-pv2.jpg", [D1T3, C2], "w-[180px] h-[320px]")
-                                card("/menu/Natural+Artificial/D1T3-C5-pv2.jpg", [D1T3, C1, C2, C4], "w-[180px] h-[320px]")"""
-
-
-
-            
+            refresh_cards_all()     
 
 
     # Main viewer occupying all the rest of the screen
     iframe_container = ui.html(show_selected_images(), sanitize=False)\
     .classes('w-screen')\
     .style('height: calc(100vh - 50px); position: relative; z-index: 0; margin-left: -16px;')
-
-
-
 
 
 ui.run()
