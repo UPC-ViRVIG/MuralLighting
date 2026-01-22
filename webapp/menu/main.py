@@ -496,6 +496,56 @@ async def main():
     categories = ["Inici", "Natural illumination", "Artificial illumination", "Natural + Artificial illumination", "All combinations"]
     menu_panels = {}
 
+   
+    # --- HOME INFO DIALOG ---
+    with ui.dialog() as home_dialog, ui.card().classes('w-[600px] max-w-[90vw] p-0'):
+        # Header with Title and Close 'X'
+        with ui.row().classes('w-full items-center justify-between p-4 bg-gray-100 border-b'):
+            ui.label('About the Application').classes('text-lg font-bold text-gray-800')
+            # The 'X' to close
+            ui.icon('close').classes('cursor-pointer text-gray-500 hover:text-black hover:bg-gray-200 rounded-full p-1 transition') \
+                .on('click', home_dialog.close)
+        
+        # Scrollable Content Area
+        with ui.scroll_area().classes('h-[50vh] p-6'):
+            # Style definition for the icons inside markdown
+            icon_style = "vertical-align: text-bottom; font-size: 1.2rem; margin-right: 4px; color: #555;"
+
+            ui.markdown(f"""
+            ### Mural Lighting Viewer
+            
+            This tool allows you to rediscover the original perception of mural paintings through the simulation of historical light, both natural and artificial.
+            
+            #### How does it work?
+            
+            1. **Window Selection (Split Screen):**
+               - Click on the **Left** or **Right** half of the screen to activate it.
+               - Once selected, a **yellow border** will appear around that half.
+               - Select an image from the menu to load it on that side.
+               
+            2. **Lighting Menus:**
+               Hover over the top icons to view the options:
+               - <span class="material-symbols-outlined" style="{icon_style}">sunny</span> **Natural:** Different times and months of the year.
+               - <span class="material-symbols-outlined" style="{icon_style}">lightbulb_2</span> **Artificial:** Candles, oil lamps, and chandeliers.
+               - <span class="material-symbols-outlined" style="{icon_style}">sunny</span><span style="vertical-align: text-bottom;">+</span><span class="material-symbols-outlined" style="{icon_style}">lightbulb_2</span> **Combinacions:** Mixture of natural and artificial light.
+               - <span style=" font-size: 0.9rem;">ALL</span> **All Combinations:** All options in a single large panel.
+            
+            3. **Global Filters:**
+               - <span class="material-symbols-outlined" style="{icon_style}">access_time</span> **Clock**: Filter by time.
+               - <span class="material-symbols-outlined" style="{icon_style}">calendar_today</span> **Calendar**: Filter by date.
+            
+            4. **Tools (Left):**
+               - <span class="material-symbols-outlined" style="{icon_style}">link</span> **Sync (Link):** Moves both cameras simultaneously if enabled.
+               - <span class="material-symbols-outlined" style="{icon_style}">tune</span> **Tone Mapping:** Opens a dropdown menu where you can adjust image processing settings.
+               - <span class="material-symbols-outlined" style="{icon_style}">difference</span> **Difference:** Visualizes the changes between the two images.
+            """).classes('text-gray-700 leading-relaxed')
+
+    ui.timer(0.1, home_dialog.open, once=True)
+
+
+            
+        
+
     # --- 5. UI LAYOUT CONSTRUCTION ---
     with ui.column().classes('absolute-full gap-0 no-wrap'):
 
@@ -661,9 +711,16 @@ async def main():
                 icon_size = '24px' 
                 for cat in categories:
                     # Render icons for each category with mouseover events
-                    if cat == "Inici": ui.icon('home', size=icon_size).classes('cursor-pointer text-gray-700 hover:text-black hover:bg-gray-100 p-1 rounded transition material-symbols-outlined').on('mouseover', lambda e, cat=cat: show_panel(e, cat))
-                    elif cat == "Natural illumination": ui.icon('sunny', size=icon_size).classes('cursor-pointer text-gray-700 hover:text-black hover:bg-gray-100 p-1 rounded transition material-symbols-outlined').on('mouseover', lambda e, cat=cat: show_panel(e, cat))
-                    elif cat == "Artificial illumination": ui.icon('lightbulb_2', size=icon_size).classes('cursor-pointer text-gray-700 hover:text-black hover:bg-gray-100 p-1 rounded transition material-symbols-outlined').on('mouseover', lambda e, cat=cat: show_panel(e, cat))
+                    if cat == "Inici": 
+                        
+                        ui.icon('info', size=icon_size).classes('cursor-pointer text-gray-700 hover:text-black hover:bg-gray-100 p-1 rounded transition material-symbols-outlined') \
+                            .on('mouseover', lambda e, cat=cat: show_panel(e, cat)) \
+                            .on('click', home_dialog.open) 
+
+                    elif cat == "Natural illumination": 
+                        ui.icon('sunny', size=icon_size).classes('cursor-pointer text-gray-700 hover:text-black hover:bg-gray-100 p-1 rounded transition material-symbols-outlined').on('mouseover', lambda e, cat=cat: show_panel(e, cat))
+                    elif cat == "Artificial illumination": 
+                        ui.icon('lightbulb_2', size=icon_size).classes('cursor-pointer text-gray-700 hover:text-black hover:bg-gray-100 p-1 rounded transition material-symbols-outlined').on('mouseover', lambda e, cat=cat: show_panel(e, cat))
                     elif cat == "Natural + Artificial illumination":
                         with ui.row().classes('cursor-pointer hover:bg-gray-100 p-1 rounded transition items-center gap-1').on('mouseover', lambda e, cat=cat: show_panel(e, cat)):
                             ui.icon('sunny', size=icon_size).classes('material-symbols-outlined text-gray-700')
@@ -671,7 +728,6 @@ async def main():
                             ui.icon('lightbulb_2', size=icon_size).classes('material-symbols-outlined text-gray-700')
                     elif cat == "All combinations":
                         ui.label('ALL').classes('cursor-pointer hover:bg-gray-100 px-2 py-1 rounded transition text-gray-700 font-light text-md').on('mouseover', lambda e, cat=cat: show_panel(e, cat))
-
 
             # --- [3] RIGHT: FILTERS (HOUR / DAY) ---
             with ui.row().classes('w-full md:w-auto flex justify-center md:justify-end gap-6 md:ml-auto items-center flex-nowrap mt-2 md:mt-0'):
@@ -709,8 +765,8 @@ async def main():
                         ui.menu_item("Jun 6th", lambda: set_global_day_fn("Jun 6th")); ui.menu_item("Dec 25th", lambda: set_global_day_fn("Dec 25th"))
 
                 # --- [D] VISIBILITY ICON (Placeholder) ---
-                with ui.element('div').classes('relative flex items-center justify-center w-10'):
-                    ui.icon('visibility', size="22px").classes('cursor-pointer text-gray-600 hover:text-black material-symbols-outlined')
+                #with ui.element('div').classes('relative flex items-center justify-center w-10'):
+                    #ui.icon('visibility', size="22px").classes('cursor-pointer text-gray-600 hover:text-black material-symbols-outlined')
 
                 # --- LIFECYCLE: RESTORE STATE FROM LOCALSTORAGE ---
                 async def restore_globals():
