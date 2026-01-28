@@ -1,0 +1,12 @@
+[
+    {
+        "timestamp": "2026-01-28 13:23:09",
+        "ip": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15"
+    },
+    {
+        "timestamp": "2026-01-28 13:23:15",
+        "ip": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0"
+    }
+]
