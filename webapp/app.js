@@ -31,7 +31,7 @@ app.get('/images', (req, res) => {
 })
 
 app.listen(3006, () => {
-  console.log('✅ Node Server: Visit http://127.0.0.1:3006')
+  console.log('Node Server: Visit http://127.0.0.1:3006')
 
   // --- PYTHON AUTOMATION ---
 
@@ -52,7 +52,7 @@ app.listen(3006, () => {
   // Full command: enter directory -> install dependencies -> execute
   const fullCommand = `${cdCmd} && ${pipCmd} install nicegui fastapi uvicorn && ${pythonCmd} main.py`;
 
-  console.log(`🚀 Executing command: ${fullCommand}`);
+  console.log(`Executing command: ${fullCommand}`);
 
   const pythonProcess = spawn(fullCommand, {
     shell: true,
@@ -60,12 +60,12 @@ app.listen(3006, () => {
   });
 
   pythonProcess.on('error', (err) => {
-    console.error('❌ Critical error launching process:', err);
+    console.error('Critical error launching process:', err);
   });
 
   pythonProcess.on('exit', (code) => {
     if (code !== 0 && code !== null) {
-      console.error(`⚠️ Python closed with error code: ${code}`);
+      console.error(`Python closed with error code: ${code}`);
       console.error(`   -> Check that the 'menu' folder actually exists inside 'webapp'.`);
     } else {
       console.log('Python closed successfully.');

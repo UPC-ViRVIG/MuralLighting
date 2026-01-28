@@ -177,11 +177,11 @@ function loadLeftImage(filename) {
     // Wait 200ms to avoid blocking interface if user scrolls mouse quickly
     leftTimeout = setTimeout(() => {
         const fullUrl = TEXTURE_BASE_PATH + baseName + '.exr';
-        console.log(`🚀 [ID:${myRequestID}] Starting Full EXR (Background): ${baseName}`);
+        console.log(`[ID:${myRequestID}] Starting Full EXR (Background): ${baseName}`);
 
         exrLoader.load(fullUrl, (texture) => {
             if (myRequestID === leftRequestID) {
-                console.log(`✅ [ID:${myRequestID}] Full EXR loaded and applied.`);
+                console.log(`[ID:${myRequestID}] Full EXR loaded and applied.`);
                 
                 // Optional: Ensure small memory is released:
                 if(leftView.texture) leftView.texture.dispose();
@@ -255,21 +255,21 @@ function loadRightImage(filename) {
     
     exrLoader.load(smallUrl, (texture) => {
         if (myRequestID === rightRequestID) {
-            // console.log("✅ Small EXR loaded (Right)");
+            // console.log("Small EXR loaded (Right)");
             updateRightView(texture);
         }
     }, undefined, (err) => {
-        console.warn(`⚠️ ${baseName}_small.exr not found (Right)`);
+        console.warn(`${baseName}_small.exr not found (Right)`);
     });
 
     // 2. FULL (.exr)
     rightTimeout = setTimeout(() => {
         const fullUrl = TEXTURE_BASE_PATH + baseName + '.exr';
-        console.log(`🚀 [ID:${myRequestID}] Starting Full EXR Right...`);
+        console.log(`[ID:${myRequestID}] Starting Full EXR Right...`);
 
         exrLoader.load(fullUrl, (texture) => {
             if (myRequestID === rightRequestID) {
-                console.log(`✅ [ID:${myRequestID}] Full EXR Right loaded.`);
+                console.log(`[ID:${myRequestID}] Full EXR Right loaded.`);
                 
                 if(rightView.texture) rightView.texture.dispose();
                 
@@ -326,7 +326,7 @@ function loadImagesFromUrlParams() {
     const { img1, img2 } = getQueryParams();
 
     if (img1 && img2) {
-        console.log("📥 Loading from URL (Python):", img1, img2);
+        console.log("Loading from URL (Python):", img1, img2);
         
         params.leftImage = img1;
         params.rightImage = img2;
@@ -396,7 +396,7 @@ fetch('/app/images')
         }
     })
     .catch(error => {
-        console.warn('⚠️ Error loading fetch menu.', error);
+        console.warn('Error loading fetch menu.', error);
         loadImagesFromUrlParams();
     });
 
@@ -555,7 +555,7 @@ async function notifyPython(selection) {
         // LOCAL Mode: Point to NiceGUI port (8080)
         url = 'http://127.0.0.1:8080/set_selected_window';
     } else {
-        // PRODUCTION Mode: Assume same domain
+        
         url = '/set_selected_window';
     }
 
@@ -573,7 +573,7 @@ async function notifyPython(selection) {
         if (!response.ok) throw new Error(response.status);
 
     } catch (error) {
-        console.warn("⚠️ Error connecting to Python:", error);
+        console.warn("Error connecting to Python:", error);
     }
 }
 
@@ -588,17 +588,17 @@ window.addEventListener('message', function(event) {
     const data = event.data;
 
     if (data.type === 'change_left') {
-        console.log("📨 Received command change Left:", data.path);
+        console.log("Received command change Left:", data.path);
         loadLeftImage(data.path);
     } 
     else if (data.type === 'change_right') {
-        console.log("📨 Received command change Right:", data.path);
+        console.log("Received command change Right:", data.path);
         loadRightImage(data.path);
     }
 
     // --- NEW CODE FOR SYNC ---
     if (data.type === 'toggle_sync') {
-        console.log("🔄 Sync changed to:", data.value);
+        console.log("Sync changed to:", data.value);
         
         // 1. Update logic variable
         params.syncViews = data.value;
@@ -673,7 +673,7 @@ window.addEventListener('message', function(event) {
                     // TRICK: Pick the first parameter the shader has, whatever it's called.
                     // This fixes unknown name errors.
                     const realName = paramKeys[0]; 
-                    console.log("🔗 Connecting slider to:", realName);
+                    console.log("Connecting slider to:", realName);
                     methodObj.parameters[realName].value = data.maxLum;
                 } else {
                     console.warn("⚠️ No parameters found in toneMappingLuminance");
@@ -689,7 +689,7 @@ window.addEventListener('message', function(event) {
 
     // --- IMAGE DIFFERENCE BLOCK ---
     if (data.type === 'open_diff') {
-        console.log("🔘 Opening Difference Dialog from Menu");
+        console.log("Opening Difference Dialog from Menu");
         // Call global function openDialog() defined in client.js
         if (typeof openDialog === 'function') {
             openDialog();
@@ -743,7 +743,7 @@ window.addEventListener('message', function(event) {
 
         // --- IMAGE DIFFERENCE BLOCK (TOGGLE FIXED) ---
         if (data.type === 'toggle_diff') {
-            console.log("🔘 Toggle Difference Window");
+            console.log("Toggle Difference Window");
             
             const dialog = document.getElementById('differenceDialog');
             if (dialog) {
