@@ -1,0 +1,79 @@
+[
+    {
+        "timestamp": "2026-02-28 18:29:24",
+        "ip": "127.0.0.1",
+        "session_id": "39f664a7-703c-4b3b-bc1e-864060405b04",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-02-28 18:31:02",
+        "ip": "127.0.0.1",
+        "session_id": "39f664a7-703c-4b3b-bc1e-864060405b04",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'Two table candles']"
+    },
+    {
+        "timestamp": "2026-02-28 18:31:06",
+        "ip": "127.0.0.1",
+        "session_id": "39f664a7-703c-4b3b-bc1e-864060405b04",
+        "action": "Select Image",
+        "detail": "['Time: 10:00 am']"
+    },
+    {
+        "timestamp": "2026-02-28 18:31:26",
+        "ip": "127.0.0.1",
+        "session_id": "39f664a7-703c-4b3b-bc1e-864060405b04",
+        "action": "Tool Sync",
+        "detail": "Off"
+    },
+    {
+        "timestamp": "2026-02-28 18:31:27",
+        "ip": "127.0.0.1",
+        "session_id": "39f664a7-703c-4b3b-bc1e-864060405b04",
+        "action": "Tool Sync",
+        "detail": "On"
+    },
+    {
+        "timestamp": "2026-02-28 18:31:32",
+        "ip": "127.0.0.1",
+        "session_id": "39f664a7-703c-4b3b-bc1e-864060405b04",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: Off"
+    },
+    {
+        "timestamp": "2026-02-28 18:31:34",
+        "ip": "127.0.0.1",
+        "session_id": "39f664a7-703c-4b3b-bc1e-864060405b04",
+        "action": "Select Image",
+        "detail": "['All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-02-28 18:31:38",
+        "ip": "127.0.0.1",
+        "session_id": "39f664a7-703c-4b3b-bc1e-864060405b04",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-02-28 18:32:01",
+        "ip": "127.0.0.1",
+        "session_id": "39f664a7-703c-4b3b-bc1e-864060405b04",
+        "action": "Tool Sync",
+        "detail": "Off"
+    },
+    {
+        "timestamp": "2026-02-28 18:32:03",
+        "ip": "127.0.0.1",
+        "session_id": "39f664a7-703c-4b3b-bc1e-864060405b04",
+        "action": "Tool Sync",
+        "detail": "On"
+    },
+    {
+        "timestamp": "2026-02-28 18:43:46",
+        "ip": "127.0.0.1",
+        "session_id": "39f664a7-703c-4b3b-bc1e-864060405b04",
+        "action": "Open Info",
+        "detail": "Home Icon"
+    }
+]
