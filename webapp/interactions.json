@@ -1,0 +1,58 @@
+[
+    {
+        "timestamp": "2026-03-06 11:49:03",
+        "ip": "127.0.0.1",
+        "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
+        "action": "Select Image",
+        "detail": "['All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-03-06 11:49:04",
+        "ip": "127.0.0.1",
+        "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
+        "action": "Select Window",
+        "detail": "Right View"
+    },
+    {
+        "timestamp": "2026-03-06 11:49:06",
+        "ip": "127.0.0.1",
+        "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
+        "action": "Select Image",
+        "detail": "['Four floor chandeliers']"
+    },
+    {
+        "timestamp": "2026-03-06 11:49:07",
+        "ip": "127.0.0.1",
+        "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
+        "action": "Select Window",
+        "detail": "Left View"
+    },
+    {
+        "timestamp": "2026-03-06 11:51:09",
+        "ip": "127.0.0.1",
+        "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
+        "action": "Select Window",
+        "detail": "Deselected (None)"
+    },
+    {
+        "timestamp": "2026-03-06 11:52:44",
+        "ip": "127.0.0.1",
+        "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
+        "action": "Select Window",
+        "detail": "Right View"
+    },
+    {
+        "timestamp": "2026-03-06 11:52:54",
+        "ip": "127.0.0.1",
+        "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
+        "action": "Select Image",
+        "detail": "['Time: 13:53 pm']"
+    },
+    {
+        "timestamp": "2026-03-06 11:52:55",
+        "ip": "127.0.0.1",
+        "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
+        "action": "Select Window",
+        "detail": "Left View"
+    }
+]

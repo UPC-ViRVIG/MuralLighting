@@ -1,10 +1,10 @@
 console.log("Client started");
 
 import * as THREE from 'three';
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import Stats from './jsm/libs/stats.module.js';
-import { GUI } from './jsm/libs/lil-gui.module.min.js'; 
-import { EXRLoader } from './jsm/loaders/EXRLoader.js'; 
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import Stats from 'three/addons/libs/stats.module.js';
+import { GUI } from 'three/addons/libs/lil-gui.module.min.js'; 
+import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
 import toneMappingLinear from './toneMappingLinear.js';
 import toneMappingReinhardBasic from './toneMappingReinhardBasic.js'; 
 import toneMappingReinhardExtended from './toneMappingReinhardExtended.js'

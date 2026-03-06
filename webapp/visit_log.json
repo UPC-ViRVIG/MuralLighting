@@ -1,0 +1,26 @@
+[
+    {
+        "timestamp": "2026-03-06 11:48:55",
+        "ip": "127.0.0.1",
+        "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
+        "user_agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:148.0) Gecko/20100101 Firefox/148.0"
+    },
+    {
+        "timestamp": "2026-03-06 11:51:01",
+        "ip": "127.0.0.1",
+        "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
+        "user_agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:148.0) Gecko/20100101 Firefox/148.0"
+    },
+    {
+        "timestamp": "2026-03-06 11:52:36",
+        "ip": "127.0.0.1",
+        "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
+        "user_agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:148.0) Gecko/20100101 Firefox/148.0"
+    },
+    {
+        "timestamp": "2026-03-06 11:58:04",
+        "ip": "127.0.0.1",
+        "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
+        "user_agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:148.0) Gecko/20100101 Firefox/148.0"
+    }
+]
