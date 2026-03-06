@@ -23,7 +23,7 @@ function ensureNiceguiInstalled() {
 // Start main.py
 function startPythonApp() {
   // Absolute path to main.py inside the /menu folder
-  const mainPath = path.join(__dirname, '../menu/main.py')
+  const mainPath = path.join(__dirname, './menu/main.py')
   
 
   const pythonProcess = spawn('python3', [mainPath], { stdio: 'inherit' })
