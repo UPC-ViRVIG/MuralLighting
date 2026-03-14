@@ -54,5 +54,537 @@
         "session_id": "fc6e3c68-6fdc-4f37-811c-4613b3962d7c",
         "action": "Select Window",
         "detail": "Left View"
+    },
+    {
+        "timestamp": "2026-03-14 13:16:55",
+        "ip": "127.0.0.1",
+        "session_id": "f5f4bb8c-2c48-4b8b-a566-670a1b96f7fb",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:17:32",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:17:34",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:24:56",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tool Sync",
+        "detail": "Off"
+    },
+    {
+        "timestamp": "2026-03-14 13:24:59",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tool Sync",
+        "detail": "On"
+    },
+    {
+        "timestamp": "2026-03-14 13:25:04",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-03-14 13:25:05",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Window",
+        "detail": "Right View"
+    },
+    {
+        "timestamp": "2026-03-14 13:25:07",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'Two table candles']"
+    },
+    {
+        "timestamp": "2026-03-14 13:28:17",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:28:20",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:00",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:02",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'Two table candles']"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:03",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Time: 13:56 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:04",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Window",
+        "detail": "Left View"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:06",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Four floor chandeliers']"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:07",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:08",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Hanging oil lamp']"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:09",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:12",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:15",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tool Sync",
+        "detail": "Off"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:51",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: Off"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:56",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: Off"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:57",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Window",
+        "detail": "Deselected (None)"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:57",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Window",
+        "detail": "Left View"
+    },
+    {
+        "timestamp": "2026-03-14 13:30:58",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:00",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:02",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:07",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Window",
+        "detail": "Right View"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:08",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:09",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Window",
+        "detail": "Left View"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:12",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Time: 10:00 am']"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:14",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Time: 10:56 am']"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:16",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Hanging oil lamp']"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:18",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:20",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:20",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:22",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:22",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:30",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:32",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:33",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:35",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:35",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:37",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:38",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:40",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:41",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:42",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:43",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:43",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:44",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:45",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:31:46",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:32:02",
+        "ip": "127.0.0.1",
+        "session_id": "f5f4bb8c-2c48-4b8b-a566-670a1b96f7fb",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:32:05",
+        "ip": "127.0.0.1",
+        "session_id": "f5f4bb8c-2c48-4b8b-a566-670a1b96f7fb",
+        "action": "Tone Mapping Tool",
+        "detail": "Fix Normalization: On"
+    },
+    {
+        "timestamp": "2026-03-14 13:32:47",
+        "ip": "127.0.0.1",
+        "session_id": "f5f4bb8c-2c48-4b8b-a566-670a1b96f7fb",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:32:49",
+        "ip": "127.0.0.1",
+        "session_id": "f5f4bb8c-2c48-4b8b-a566-670a1b96f7fb",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:32:51",
+        "ip": "127.0.0.1",
+        "session_id": "f5f4bb8c-2c48-4b8b-a566-670a1b96f7fb",
+        "action": "Select Window",
+        "detail": "Right View"
+    },
+    {
+        "timestamp": "2026-03-14 13:32:52",
+        "ip": "127.0.0.1",
+        "session_id": "f5f4bb8c-2c48-4b8b-a566-670a1b96f7fb",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-03-14 13:32:53",
+        "ip": "127.0.0.1",
+        "session_id": "f5f4bb8c-2c48-4b8b-a566-670a1b96f7fb",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:32:56",
+        "ip": "127.0.0.1",
+        "session_id": "f5f4bb8c-2c48-4b8b-a566-670a1b96f7fb",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-03-14 13:34:23",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:34:27",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Algorithm: toneMappingLuminance"
+    },
+    {
+        "timestamp": "2026-03-14 13:34:31",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:34:31",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Algorithm: toneMappingReinhardBasic"
+    },
+    {
+        "timestamp": "2026-03-14 13:34:34",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Tone Mapping Tool",
+        "detail": "Algorithm: toneMappingLuminance"
+    },
+    {
+        "timestamp": "2026-03-14 13:34:44",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Window",
+        "detail": "Right View"
+    },
+    {
+        "timestamp": "2026-03-14 13:39:32",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Window",
+        "detail": "Left View"
+    },
+    {
+        "timestamp": "2026-03-14 13:39:33",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-03-14 13:39:35",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'Two table candles']"
+    },
+    {
+        "timestamp": "2026-03-14 13:39:38",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:39:41",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Window",
+        "detail": "Right View"
+    },
+    {
+        "timestamp": "2026-03-14 13:39:43",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Time: 10:00 am']"
+    },
+    {
+        "timestamp": "2026-03-14 13:39:44",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-03-14 13:39:47",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Window",
+        "detail": "Left View"
+    },
+    {
+        "timestamp": "2026-03-14 13:39:48",
+        "ip": "127.0.0.1",
+        "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'All artificial lighting']"
     }
 ]

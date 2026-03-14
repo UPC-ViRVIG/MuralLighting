@@ -24,11 +24,9 @@ app.add_middleware(
 menu_path = os.path.join(os.path.dirname(__file__), 'menu')
 app.add_static_files('/menu', menu_path)
 
-public_path = os.path.join(os.path.dirname(__file__), 'public')
-
 # --- NEW: Serve the Three.js frontend ---
 public_path = os.path.join(os.path.dirname(__file__), 'public')
-app.add_static_files('/public', public_path)
+app.add_static_files('/asgi/public', public_path)
 
 # --- NEW: Recreate the Node.js /images endpoint ---
 @app.get('/app/images')
@@ -662,7 +660,7 @@ async def main(request: Request):
                     await ui.run_javascript(f'var iframe = document.getElementById("viewer-iframe"); if(iframe) {{ iframe.contentWindow.postMessage({{ "type": "toggle_sync", "value": {str(sync_state["active"]).lower()} }}, "*"); }}')
                 with ui.element('div').classes('relative flex items-center justify-center w-10'):
                     icon_sync = ui.icon('link', size="22px").classes('cursor-pointer text-black hover:text-gray-600 material-symbols-outlined transition-colors').on('click', toggle_sync)
-                    with ui.tooltip('Sync Views'): pass
+                    with ui.tooltip('View Sync'): pass
 
                 # TONE MAPPING
                 def log_tm_selection(category, value): log_interaction(request, "Tone Mapping Tool", f"{category}: {value}", session_id)
@@ -683,6 +681,7 @@ async def main(request: Request):
                         ui.select(options={'both': 'Both Windows', 'window1': 'Window 1', 'window2': 'Window 2'}, value=tm_state['target'], label="Apply To") \
                             .bind_value(tm_state, 'target').on_value_change(lambda e: [update_tm_js(), log_tm_selection("Target", e.value)]).classes('w-full mb-2 text-sm')
                         ui.select(options={"toneMappingLinear": "Linear", "toneMappingReinhardBasic": "Reinhard Basic", "toneMappingReinhardExtended": "Reinhard Extended", "toneMappingLuminance": "Luminance"}, value=tm_state['algo'], label="Algorithm") \
+                            .bind_value(tm_state, 'algo') \
                             .on_value_change(on_algo_change).classes('w-full mb-2 text-sm')
                         
                         with ui.column().classes('w-full p-0 m-0 gap-0').bind_visibility_from(tm_state, 'algo', backward=lambda x: x in ['toneMappingLinear', 'toneMappingReinhardBasic']):
@@ -703,10 +702,10 @@ async def main(request: Request):
                                 ui.slider(min=0.00001, max=0.001, step=0.00001, value=tm_state['maxLum']).bind_value(tm_state, 'maxLum').on_value_change(update_tm_js).classes('col-grow')
                                 ui.label().bind_text_from(tm_state, 'maxLum', backward=lambda x: f"{x:.5f}".rstrip('0').rstrip('.')).classes('text-xs w-12 text-right')
 
-                        ui.separator().classes('my-2')
+                        #ui.separator().classes('my-2')
                         # MODIFICAT PER USAR LA FUNCIO ASYNC AMB FILTRE DE LOG
-                        ui.switch('Fix Normalization', value=tm_state['fix']).bind_value(tm_state, 'fix') \
-                            .on_value_change(handle_switch_log).props('dense').classes('text-sm text-gray-700 w-full') 
+                        #ui.switch('Fix Normalization', value=tm_state['fix']).bind_value(tm_state, 'fix') \
+                            #.on_value_change(handle_switch_log).props('dense').classes('text-sm text-gray-700 w-full') 
                     with ui.tooltip('Tone Mapping'): pass
                 
                 # DIFFERENCE TOOL
