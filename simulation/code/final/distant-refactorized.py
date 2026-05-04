@@ -432,7 +432,7 @@ def my_render(scene, spp, integrator, exposure, basename, save_albedo = False, s
     to_sensor_matrix = np.array(dr.detach(to_sensor.matrix), dtype=np.float32, order='C')
     np.save("renderPedret/"+basename+"-to_sensor.npy", to_sensor_matrix)
 
-"""
+    """
     # Denoise the rendered image
     mi.set_variant("cuda_ad_spectral")
     to_sensor = mi.cuda_ad_rgb.Transform4f(to_sensor_matrix)
@@ -441,6 +441,8 @@ def my_render(scene, spp, integrator, exposure, basename, save_albedo = False, s
     denoised = denoiser(noisy_multichannel, albedo_ch="albedo", normals_ch="normals", to_sensor=to_sensor)
     # save denoised image
     mi.util.write_bitmap("renderPedret/" + basename + "-denoised.exr", denoised)
+    """
+
 
     if save_albedo:  # save also albedo and normal map
         #print(noisy_multichannel)
@@ -459,11 +461,11 @@ def my_render(scene, spp, integrator, exposure, basename, save_albedo = False, s
         mi.util.write_bitmap("renderPedret/carlos2-denoised-no-albedo.exr", denoised2)
         denoised2 = None
 
-    if exposure != 1:
-        print("Adjusting exposure...")
-        denoised = np.array(denoised)
-        denoised *= pow(2, exposure)
-        mi.util.write_bitmap("renderPedret/" + basename + "-denoised-adjusted.exr", denoised)
+#    if exposure != 1:
+#        print("Adjusting exposure...")
+#        denoised = np.array(denoised)
+#        denoised *= pow(2, exposure)
+#        mi.util.write_bitmap("renderPedret/" + basename + "-denoised-adjusted.exr", denoised)
 
     if save_noisy:
         noisy = dict(noisy_multichannel.split())['<root>']        
@@ -474,7 +476,6 @@ def my_render(scene, spp, integrator, exposure, basename, save_albedo = False, s
             mi.util.write_bitmap("renderPedret/" + basename + "-noisy.exr", noisy)
 
     mi.set_variant("llvm_ad_spectral")
-"""
 
 def generate_shapes(load_church_model, use_gray_albedo):
     shapes = []
