@@ -118,7 +118,7 @@ def create_obj_shape(filename, normal_texture, color_texture):
         #'bsdf': {
         #    'type': 'twosided',
             'bsdf': {
-                'type': 'normalmap',#mynormalmap
+                'type': 'normalmap',
                 'normalmap': {
                     'type': 'bitmap',
                     'raw': True,
@@ -432,6 +432,7 @@ def my_render(scene, spp, integrator, exposure, basename, save_albedo = False, s
     to_sensor_matrix = np.array(dr.detach(to_sensor.matrix), dtype=np.float32, order='C')
     np.save("renderPedret/"+basename+"-to_sensor.npy", to_sensor_matrix)
 
+"""
     # Denoise the rendered image
     mi.set_variant("cuda_ad_spectral")
     to_sensor = mi.cuda_ad_rgb.Transform4f(to_sensor_matrix)
@@ -473,6 +474,7 @@ def my_render(scene, spp, integrator, exposure, basename, save_albedo = False, s
             mi.util.write_bitmap("renderPedret/" + basename + "-noisy.exr", noisy)
 
     mi.set_variant("llvm_ad_spectral")
+"""
 
 def generate_shapes(load_church_model, use_gray_albedo):
     shapes = []
@@ -564,7 +566,7 @@ exposure = 13 # 18
     #pass
 
 # high-quality C% natural
-spp = 8096 # 2048
+spp = 512 # 2048
 #render("C5-natural-and-artificial-pv1", upscale=2.5, shape_generator = generate_C5_shapes, emitter_generator = generate_natural_light, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv1(), save_noisy=False, save_albedo = False, use_gray_albedo=False)
 #render("C1-natural-and-artificial-pv2", upscale=0.25, shape_generator = generate_C1_shapes, emitter_generator = generate_natural_light, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = False, use_gray_albedo=False)
 #render("C1-natural-and-artificial-pv2", upscale=2, shape_generator = generate_C1_shapes, emitter_generator = generate_natural_light, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = False, use_gray_albedo=False)
@@ -600,11 +602,14 @@ spp = 8096 # 2048
 #    render(str(moment)+"-artificial"+str(artLightConfig).split('_')[1]+"-pv2", upscale=2, building_shape_generator = generate_sXII_shapes, artificial_lighting_shape_generator = artLightConfig, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = False, use_gray_albedo=False, save_normals=False)
 
 #Natural+Articficial
-spp=8096
-for moment in ["D1T3", "D2T3"]:
-    for artLightConfig in [generate_C2_shapes, generate_C5_shapes]:#generate_C4_shapes
-        print(str(moment)+" "+str(artLightConfig).split('_')[1])
-        render(str(moment)+"-atificial"+str(artLightConfig).split('_')[1]+"-pv2", upscale=2, building_shape_generator = generate_sXII_shapes, artificial_lighting_shape_generator = artLightConfig, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = False, use_gray_albedo=False, save_normals=False)
+#spp=8096
+#for moment in ["D1T3", "D2T3"]:
+#    for artLightConfig in [generate_C2_shapes, generate_C5_shapes]:#generate_C4_shapes
+#        print(str(moment)+" "+str(artLightConfig).split('_')[1])
+#        render(str(moment)+"-atificial"+str(artLightConfig).split('_')[1]+"-pv2", upscale=2, building_shape_generator = generate_sXII_shapes, artificial_lighting_shape_generator = artLightConfig, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = False, use_gray_albedo=False, save_normals=False)
+
+moment = "D3T3"
+render(str(moment)+"-natural-pv2", upscale=1, model = add_SXII_shapes, artificial_lighting_shape_generator = False, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = True, use_gray_albedo=False, save_normals=True)
 
 print("Finished")
 
