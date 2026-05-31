@@ -586,5 +586,292 @@
         "session_id": "3cea3d76-9a92-4afc-8e60-a4190e6cc6f0",
         "action": "Select Image",
         "detail": "['Time: 12:53 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-05-31 12:09:53",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Window",
+        "detail": "Right View"
+    },
+    {
+        "timestamp": "2026-05-31 12:20:51",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'Two table candles']"
+    },
+    {
+        "timestamp": "2026-05-31 12:20:56",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 13:56 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-05-31 12:20:57",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 13:56 pm', 'Two table candles']"
+    },
+    {
+        "timestamp": "2026-05-31 12:20:58",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'Two table candles']"
+    },
+    {
+        "timestamp": "2026-05-31 12:21:29",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 11:53 am']"
+    },
+    {
+        "timestamp": "2026-05-31 12:25:40",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'Two table candles']"
+    },
+    {
+        "timestamp": "2026-05-31 12:25:44",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 13:56 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-05-31 12:35:36",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-05-31 12:35:40",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Four floor chandeliers']"
+    },
+    {
+        "timestamp": "2026-05-31 12:35:54",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Window",
+        "detail": "Left View"
+    },
+    {
+        "timestamp": "2026-05-31 12:35:56",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-05-31 12:37:23",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Global Reset",
+        "detail": "Clicked"
+    },
+    {
+        "timestamp": "2026-05-31 12:38:15",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 11:53 am']"
+    },
+    {
+        "timestamp": "2026-05-31 13:18:43",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter View",
+        "detail": "Central Abscissa"
+    },
+    {
+        "timestamp": "2026-05-31 13:18:47",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 13:53 pm']"
+    },
+    {
+        "timestamp": "2026-05-31 13:18:49",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 10:00 am']"
+    },
+    {
+        "timestamp": "2026-05-31 13:18:50",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 10:53 am']"
+    },
+    {
+        "timestamp": "2026-05-31 13:18:52",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm']"
+    },
+    {
+        "timestamp": "2026-05-31 13:18:54",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter View",
+        "detail": "Central Nave"
+    },
+    {
+        "timestamp": "2026-05-31 13:18:57",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter Hour",
+        "detail": "10:53"
+    },
+    {
+        "timestamp": "2026-05-31 13:18:59",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter View",
+        "detail": "Central Abscissa"
+    },
+    {
+        "timestamp": "2026-05-31 13:19:04",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter View",
+        "detail": "Central Nave"
+    },
+    {
+        "timestamp": "2026-05-31 13:19:06",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter Hour",
+        "detail": "All"
+    },
+    {
+        "timestamp": "2026-05-31 13:19:10",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter View",
+        "detail": "Central Nave"
+    },
+    {
+        "timestamp": "2026-05-31 13:19:12",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 11:53 am']"
+    },
+    {
+        "timestamp": "2026-05-31 13:21:42",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter View",
+        "detail": "Central Abscissa"
+    },
+    {
+        "timestamp": "2026-05-31 13:21:44",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter Hour",
+        "detail": "10:00"
+    },
+    {
+        "timestamp": "2026-05-31 13:21:47",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter Hour",
+        "detail": "All"
+    },
+    {
+        "timestamp": "2026-05-31 13:21:49",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter View",
+        "detail": "Central Nave"
+    },
+    {
+        "timestamp": "2026-05-31 13:23:10",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-05-31 13:23:13",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Window",
+        "detail": "Right View"
+    },
+    {
+        "timestamp": "2026-05-31 13:23:15",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'Two table candles']"
+    },
+    {
+        "timestamp": "2026-05-31 13:23:16",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 13:56 pm', 'All artificial lighting']"
+    },
+    {
+        "timestamp": "2026-05-31 13:23:17",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 13:56 pm', 'Two table candles']"
+    },
+    {
+        "timestamp": "2026-05-31 13:36:16",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter Century",
+        "detail": "IX"
+    },
+    {
+        "timestamp": "2026-05-31 13:36:19",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter Century",
+        "detail": "XII"
+    },
+    {
+        "timestamp": "2026-05-31 13:36:23",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Four floor chandeliers']"
+    },
+    {
+        "timestamp": "2026-05-31 13:36:24",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Window",
+        "detail": "Left View"
+    },
+    {
+        "timestamp": "2026-05-31 13:36:25",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Select Image",
+        "detail": "['Time: 12:53 pm', 'Two table candles']"
+    },
+    {
+        "timestamp": "2026-05-31 13:36:28",
+        "ip": "127.0.0.1",
+        "session_id": "39b8ce99-d614-4819-a268-0041d3ac4204",
+        "action": "Filter Century",
+        "detail": "IX"
     }
 ]

@@ -105,8 +105,8 @@ C1, C2, C3, C4 = "Hanging oil lamp", "Two table candles", "Two floor chandeliers
 D1T1, D1T2, D1T3 = "Time: 10:00 am", "Time: 10:53 am", "Time: 12:53 pm" # Dec 25th
 D2T1, D2T2, D2T3 = "Time: 10:00 am", "Time: 10:56 am", "Time: 13:56 pm" # Apr 1st
 D3T1, D3T2, D3T3 = "Time: 10:00 am", "Time: 11:53 am", "Time: 13:53 pm" # Jun 6th
-DEFAULT_IMAGE = "XII/Artificial/C1-pv2.exr"
-DEFAULT_IMAGE2 = "XII/Artificial/C2-pv2.exr"
+#DEFAULT_IMAGE = "XII/centralnave/Artificial/C1-pv2.exr"
+#DEFAULT_IMAGE2 = "XII/centralnave/Artificial/C2-pv2.exr"
 
 # --- MAIN PAGE ENTRY POINT ---
 
@@ -148,11 +148,13 @@ async def main(request: Request):
         def __init__(self):
             self.hour = None
             self.day = None
+            self.century = "XII" # AFEGIT: Segle per defecte
+            self.view = "centralnave"
             self.selected_left = None
             self.selected_right = None
             self.all_cards = {}
             self.iframe_container = None
-            self.ignore_logs = False  # Flag to prevent logs when system updates state
+            self.ignore_logs = False
             self.c_nat1 = self.c_nat2 = self.c_nat3 = None
             self.c_na1 = self.c_na2 = None
             self.c_all1 = self.c_all2 = self.c_all3 = self.c_all4 = self.c_all5 = self.c_all6 = None
@@ -187,12 +189,13 @@ async def main(request: Request):
             }}
         ''')
 
+    
     # --- 2. HELPER FUNCTIONS ---
     def format_exr(image_name):
         if image_name.startswith('/menu/'): image_name = image_name[len('/menu/'):]
         parts = image_name.rsplit('/', 1)
         folder = parts[0].replace('+', '%2B')
-        return f"XII/{folder}/{parts[1].rsplit('.', 1)[0]}.exr"
+        return f"{folder}/{parts[1].rsplit('.', 1)[0]}.exr"
     
     def format_label_html(text, image_path):
         text_str = "<br>".join(str(t) for t in text) if isinstance(text, list) else str(text)
@@ -208,7 +211,7 @@ async def main(request: Request):
             if image_name.startswith('/menu/'): image_name = image_name[len('/menu/'):]
             parts = image_name.rsplit('/', 1)
             folder = parts[0].replace('+', '%2B')
-            return f"XII/{folder}/{parts[1].rsplit('.', 1)[0]}.exr"
+            return f"{folder}/{parts[1].rsplit('.', 1)[0]}.exr"
         
         def infer_day(p): 
             if not p: return None
@@ -217,8 +220,8 @@ async def main(request: Request):
             if "D1" in p: return "Dec 25th"
             return None
 
-        img1 = format_exr_inner(state.selected_left["image"]) if state.selected_left else DEFAULT_IMAGE
-        img2 = format_exr_inner(state.selected_right["image"]) if state.selected_right else DEFAULT_IMAGE2
+        img1 = format_exr_inner(state.selected_left["image"]) if state.selected_left else f"{state.century}/{state.view}/Artificial/C1-pv2.exr"
+        img2 = format_exr_inner(state.selected_right["image"]) if state.selected_right else f"{state.century}/{state.view}/Artificial/C2-pv2.exr"
         
         lbl1_txt = "<br>".join(state.selected_left["text"]) if state.selected_left and isinstance(state.selected_left["text"], list) else (state.selected_left["text"] if state.selected_left else "Hanging oil lamp")
         lbl2_txt = "<br>".join(state.selected_right["text"]) if state.selected_right and isinstance(state.selected_right["text"], list) else (state.selected_right["text"] if state.selected_right else "Two table candles")
@@ -353,9 +356,9 @@ async def main(request: Request):
             with state.c_nat1:
                 ui.label("Apr 1st").style(lbl_style)
                 with ui.row().classes('gap-2 items-start'):
-                    if v_D2T1: create_card("/menu/Natural/D2T1-pv2.jpg", [D2T1], classes_card)
-                    if v_D2T2: create_card("/menu/Natural/D2T2-pv2.jpg", [D2T2], classes_card)
-                    if v_D2T3: create_card("/menu/Natural/D2T3-pv2.jpg", [D2T3], classes_card)
+                    if v_D2T1: create_card(f"/menu/{state.century}/{state.view}/Natural/D2T1-pv2.jpg", [D2T1], classes_card)
+                    if v_D2T2: create_card(f"/menu/{state.century}/{state.view}/Natural/D2T2-pv2.jpg", [D2T2], classes_card)
+                    if v_D2T3: create_card(f"/menu/{state.century}/{state.view}/Natural/D2T3-pv2.jpg", [D2T3], classes_card)
         
         show_nat2 = (state.day is None or state.day == "Jun 6th" or state.day == "All") and (v_D3T1 or v_D3T2 or v_D3T3)
         state.c_nat2.set_visibility(show_nat2); state.c_nat2.clear()
@@ -363,9 +366,9 @@ async def main(request: Request):
             with state.c_nat2:
                 ui.label("Jun 6th").style(lbl_style)
                 with ui.row().classes('gap-2 items-start'):
-                    if v_D3T1: create_card("/menu/Natural/D3T1-pv2.jpg", [D3T1], classes_card)
-                    if v_D3T2: create_card("/menu/Natural/D3T2-pv2.jpg", [D3T2], classes_card)
-                    if v_D3T3: create_card("/menu/Natural/D3T3-pv2.jpg", [D3T3], classes_card)
+                    if v_D3T1: create_card(f"/menu/{state.century}/{state.view}/Natural/D3T1-pv2.jpg", [D3T1], classes_card)
+                    if v_D3T2: create_card(f"/menu/{state.century}/{state.view}/Natural/D3T2-pv2.jpg", [D3T2], classes_card)
+                    if v_D3T3: create_card(f"/menu/{state.century}/{state.view}/Natural/D3T3-pv2.jpg", [D3T3], classes_card)
         
         show_nat3 = (state.day is None or state.day == "Dec 25th" or state.day == "All") and (v_D1T1 or v_D1T2 or v_D1T3)
         state.c_nat3.set_visibility(show_nat3); state.c_nat3.clear()
@@ -373,9 +376,9 @@ async def main(request: Request):
             with state.c_nat3:
                 ui.label("Dec 25th").style(lbl_style)
                 with ui.row().classes('gap-2 items-start'):
-                    if v_D1T1: create_card("/menu/Natural/D1T1-pv2.jpg", [D1T1], classes_card)
-                    if v_D1T2: create_card("/menu/Natural/D1T2-pv2.jpg", [D1T2], classes_card)
-                    if v_D1T3: create_card("/menu/Natural/D1T3-pv2.jpg", [D1T3], classes_card)
+                    if v_D1T1: create_card(f"/menu/{state.century}/{state.view}/Natural/D1T1-pv2.jpg", [D1T1], classes_card)
+                    if v_D1T2: create_card(f"/menu/{state.century}/{state.view}/Natural/D1T2-pv2.jpg", [D1T2], classes_card)
+                    if v_D1T3: create_card(f"/menu/{state.century}/{state.view}/Natural/D1T3-pv2.jpg", [D1T3], classes_card)
         update_all_cards_visibility()
 
     def refresh_cards_natart():
@@ -394,8 +397,8 @@ async def main(request: Request):
             with state.c_na1:
                 ui.label("Apr 1st").style(lbl_style)
                 with ui.row().classes('gap-2 items-start'):
-                    if v_D2T3_C2: create_card("/menu/Natural+Artificial/D2T3-C2-pv2.jpg", [D2T3,C2], classes_card)
-                    if v_D2T3_C5: create_card("/menu/Natural+Artificial/D2T3-C5-pv2.jpg", [D2T3,"All artificial lighting"], classes_card)
+                    if v_D2T3_C2: create_card(f"/menu/{state.century}/{state.view}/Natural+Artificial/D2T3-C2-pv2.jpg", [D2T3,C2], classes_card)
+                    if v_D2T3_C5: create_card(f"/menu/{state.century}/{state.view}/Natural+Artificial/D2T3-C5-pv2.jpg", [D2T3,"All artificial lighting"], classes_card)
         
         show_na2 = (v_D1T3_C5 or v_D1T3_C2) and (state.day is None or state.day == "Dec 25th" or state.day == "All")
         state.c_na2.set_visibility(show_na2); state.c_na2.clear()
@@ -403,8 +406,8 @@ async def main(request: Request):
             with state.c_na2:
                 ui.label("Dec 25th").style(lbl_style)
                 with ui.row().classes('gap-2 items-start'):
-                    if v_D1T3_C2: create_card("/menu/Natural+Artificial/D1T3-C2-pv2.jpg", [D1T3,C2], classes_card)
-                    if v_D1T3_C5: create_card("/menu/Natural+Artificial/D1T3-C5-pv2.jpg", [D1T3,"All artificial lighting"], classes_card)
+                    if v_D1T3_C2: create_card(f"/menu/{state.century}/{state.view}/Natural+Artificial/D1T3-C2-pv2.jpg", [D1T3,C2], classes_card)
+                    if v_D1T3_C5: create_card(f"/menu/{state.century}/{state.view}/Natural+Artificial/D1T3-C5-pv2.jpg", [D1T3,"All artificial lighting"], classes_card)
         update_all_cards_visibility()
 
     def refresh_cards_all():
@@ -443,9 +446,9 @@ async def main(request: Request):
             with state.c_all1:
                 ui.label("Apr 1st").style(lbl_style)
                 with ui.row().classes('gap-2 items-start'):
-                    if v_nat_D2T1: create_card("/menu/Natural/D2T1-pv2.jpg", [D2T1], classes_card)
-                    if v_nat_D2T2: create_card("/menu/Natural/D2T2-pv2.jpg", [D2T2], classes_card)
-                    if v_nat_D2T3: create_card("/menu/Natural/D2T3-pv2.jpg", [D2T3], classes_card)
+                    if v_nat_D2T1: create_card(f"/menu/{state.century}/{state.view}/Natural/D2T1-pv2.jpg", [D2T1], classes_card)
+                    if v_nat_D2T2: create_card(f"/menu/{state.century}/{state.view}/Natural/D2T2-pv2.jpg", [D2T2], classes_card)
+                    if v_nat_D2T3: create_card(f"/menu/{state.century}/{state.view}/Natural/D2T3-pv2.jpg", [D2T3], classes_card)
         
         show_all2 = (state.day is None or state.day == "Jun 6th" or state.day == "All") and (v_nat_D3T1 or v_nat_D3T2 or v_nat_D3T3)
         state.c_all2.set_visibility(show_all2); state.c_all2.clear()
@@ -453,9 +456,9 @@ async def main(request: Request):
             with state.c_all2:
                 ui.label("Jun 6th").style(lbl_style)
                 with ui.row().classes('gap-2 items-start'):
-                    if v_nat_D3T1: create_card("/menu/Natural/D3T1-pv2.jpg", [D3T1], classes_card)
-                    if v_nat_D3T2: create_card("/menu/Natural/D3T2-pv2.jpg", [D3T2], classes_card)
-                    if v_nat_D3T3: create_card("/menu/Natural/D3T3-pv2.jpg", [D3T3], classes_card)
+                    if v_nat_D3T1: create_card(f"/menu/{state.century}/{state.view}/Natural/D3T1-pv2.jpg", [D3T1], classes_card)
+                    if v_nat_D3T2: create_card(f"/menu/{state.century}/{state.view}/Natural/D3T2-pv2.jpg", [D3T2], classes_card)
+                    if v_nat_D3T3: create_card(f"/menu/{state.century}/{state.view}/Natural/D3T3-pv2.jpg", [D3T3], classes_card)
         
         show_all3 = (state.day is None or state.day == "Dec 25th" or state.day == "All") and (v_nat_D1T1 or v_nat_D1T2 or v_nat_D1T3)
         state.c_all3.set_visibility(show_all3); state.c_all3.clear()
@@ -463,19 +466,19 @@ async def main(request: Request):
             with state.c_all3:
                 ui.label("Dec 25th").style(lbl_style)
                 with ui.row().classes('gap-2 items-start'):
-                    if v_nat_D1T1: create_card("/menu/Natural/D1T1-pv2.jpg", [D1T1], classes_card)
-                    if v_nat_D1T2: create_card("/menu/Natural/D1T2-pv2.jpg", [D1T2], classes_card)
-                    if v_nat_D1T3: create_card("/menu/Natural/D1T3-pv2.jpg", [D1T3], classes_card)
+                    if v_nat_D1T1: create_card(f"/menu/{state.century}/{state.view}/Natural/D1T1-pv2.jpg", [D1T1], classes_card)
+                    if v_nat_D1T2: create_card(f"/menu/{state.century}/{state.view}/Natural/D1T2-pv2.jpg", [D1T2], classes_card)
+                    if v_nat_D1T3: create_card(f"/menu/{state.century}/{state.view}/Natural/D1T3-pv2.jpg", [D1T3], classes_card)
         
         state.c_all4.clear()
         with state.c_all4:
              ui.label("Spacer").style(lbl_style + "visibility: hidden;")
              with ui.row().classes('gap-2 items-start'): 
-                create_card("/menu/Artificial/C1-pv2.jpg", [C1], classes_card)
-                create_card("/menu/Artificial/C2-pv2.jpg", [C2], classes_card)
-                create_card("/menu/Artificial/C3-pv2.jpg", [C3], classes_card)
-                create_card("/menu/Artificial/C4-pv2.jpg", [C4], classes_card)
-                create_card("/menu/Artificial/C5-pv2.jpg", ["All artificial lighting"], classes_card)
+                create_card(f"/menu/{state.century}/{state.view}/Artificial/C1-pv2.jpg", [C1], classes_card)
+                create_card(f"/menu/{state.century}/{state.view}/Artificial/C2-pv2.jpg", [C2], classes_card)
+                create_card(f"/menu/{state.century}/{state.view}/Artificial/C3-pv2.jpg", [C3], classes_card)
+                create_card(f"/menu/{state.century}/{state.view}/Artificial/C4-pv2.jpg", [C4], classes_card)
+                create_card(f"/menu/{state.century}/{state.view}/Artificial/C5-pv2.jpg", ["All artificial lighting"], classes_card)
         
         show_all5 = (v_na_D2T3_C2 or v_na_D2T3_C5) and (state.day is None or state.day == "Apr 1st" or state.day == "All")
         state.c_all5.set_visibility(show_all5); state.c_all5.clear()
@@ -483,8 +486,8 @@ async def main(request: Request):
             with state.c_all5:
                 ui.label("Apr 1st").style(lbl_style)
                 with ui.row().classes('gap-2 items-start'):
-                    if v_na_D2T3_C2: create_card("/menu/Natural+Artificial/D2T3-C2-pv2.jpg", [D2T3,C2], classes_card)
-                    if v_na_D2T3_C5: create_card("/menu/Natural+Artificial/D2T3-C5-pv2.jpg", [D2T3,"All artificial lighting"], classes_card)
+                    if v_na_D2T3_C2: create_card(f"/menu/{state.century}/{state.view}/Natural+Artificial/D2T3-C2-pv2.jpg", [D2T3,C2], classes_card)
+                    if v_na_D2T3_C5: create_card(f"/menu/{state.century}/{state.view}/Natural+Artificial/D2T3-C5-pv2.jpg", [D2T3,"All artificial lighting"], classes_card)
         
         show_all6 = (v_na_D1T3_C5 or v_na_D1T3_C2) and (state.day is None or state.day == "Dec 25th" or state.day == "All")
         state.c_all6.set_visibility(show_all6); state.c_all6.clear()
@@ -492,8 +495,8 @@ async def main(request: Request):
             with state.c_all6:
                 ui.label("Dec 25th").style(lbl_style)
                 with ui.row().classes('gap-2 items-start'):
-                    if v_na_D1T3_C2: create_card("/menu/Natural+Artificial/D1T3-C2-pv2.jpg", [D1T3,C2], classes_card)
-                    if v_na_D1T3_C5: create_card("/menu/Natural+Artificial/D1T3-C5-pv2.jpg", [D1T3,"All artificial lighting"], classes_card)
+                    if v_na_D1T3_C2: create_card(f"/menu/{state.century}/{state.view}/Natural+Artificial/D1T3-C2-pv2.jpg", [D1T3,C2], classes_card)
+                    if v_na_D1T3_C5: create_card(f"/menu/{state.century}/{state.view}/Natural+Artificial/D1T3-C5-pv2.jpg", [D1T3,"All artificial lighting"], classes_card)
         update_all_cards_visibility()
 
     def refresh_all_views():
@@ -600,10 +603,12 @@ async def main(request: Request):
                     
                     state.hour = None
                     state.day = None
+                    state.century = "XII" # Reset Segle
+                    state.view = "centralnave"
                     
                     # --- RESTORE DEFAULT SELECTION IN PYTHON STATE ---
-                    default_menu_L = "/menu/Artificial/C1-pv2.jpg"
-                    default_menu_R = "/menu/Artificial/C2-pv2.jpg"
+                    default_menu_L = f"/menu/{state.century}/{state.view}/Artificial/C1-pv2.jpg"
+                    default_menu_R = f"/menu/{state.century}/{state.view}/Artificial/C2-pv2.jpg"
                     state.selected_left = {"image": default_menu_L, "text": [C1]}
                     state.selected_right = {"image": default_menu_R, "text": [C2]}
                     
@@ -613,11 +618,15 @@ async def main(request: Request):
                     icon_sync.classes('text-black', remove='text-gray-300')
                     icon_hour.set_visibility(True); label_hour.set_visibility(False)
                     icon_day.set_visibility(True); label_day.set_visibility(False)
+                    icon_century.set_visibility(True); label_century.set_visibility(False) # Reset botó segle
+                    icon_view.set_visibility(True); label_view.set_visibility(False)
                     
                     # Clear Storage (EXCEPT selectedWindow)
                     await ui.run_javascript(f'''
                         localStorage.removeItem("global_hour"); 
                         localStorage.removeItem("global_day");
+                        localStorage.removeItem("global_century");
+                        localStorage.removeItem("global_view");
                         localStorage.removeItem("saved_L_img"); 
                         localStorage.removeItem("saved_L_txt"); 
                         localStorage.removeItem("saved_R_img"); 
@@ -628,8 +637,8 @@ async def main(request: Request):
                             iframe.contentWindow.postMessage({{ "type": "toggle_sync", "value": true }}, "*");
                             
                             // FORCE IMMEDIATE IMAGE LOAD
-                            iframe.contentWindow.postMessage({{ "type": "change_left", "path": "{DEFAULT_IMAGE}" }}, "*");
-                            iframe.contentWindow.postMessage({{ "type": "change_right", "path": "{DEFAULT_IMAGE2}" }}, "*");
+                            iframe.contentWindow.postMessage({{ "type": "change_left", "path": "{state.century}/{state.view}/Artificial/C1-pv2.exr" }}, "*");
+                            iframe.contentWindow.postMessage({{ "type": "change_right", "path": "{state.century}/{state.view}/Artificial/C2-pv2.exr" }}, "*");
                         }}
                     ''')
                     
@@ -741,8 +750,84 @@ async def main(request: Request):
 
             # --- RIGHT FILTERS ---
             with ui.row().classes('w-full md:w-auto flex justify-center md:justify-end gap-6 md:ml-auto items-center flex-nowrap mt-2 md:mt-0'):
+                # CENTURY (HISTORY)
+                with ui.element('div').classes('relative flex items-center justify-center w-auto min-w-[40px] px-1'):
+                    def toggle_century_menu(): century_menu.toggle()
+                    icon_century = ui.icon('history_edu', size="22px").classes('cursor-pointer text-gray-600 hover:text-black material-symbols-outlined').on('click', toggle_century_menu)
+                    label_century = ui.label("Century XII").classes('text-sm text-black cursor-pointer hover:text-black whitespace-nowrap').on('click', toggle_century_menu); label_century.set_visibility(False)
+                    with ui.menu().props('auto-close="false" anchor="bottom middle" self="top middle"').classes('bg-white shadow-xl rounded-md p-2 z-50 w-48') as century_menu:
+                        ui.label("Global Century").classes('text-xs font-bold text-gray-400 px-2 py-1 uppercase'); ui.separator().classes('mb-1')
+                        
+                        def set_global_century_fn(c_val):
+                            log_interaction(request, "Filter Century", c_val, session_id)
+                            old_c = state.century
+                            state.century = c_val
+                            ui.run_javascript(f'localStorage.setItem("global_century", "{c_val}")')
+                            icon_century.set_visibility(False); label_century.set_text(f"Century {c_val}"); label_century.set_visibility(True)
+                            
+                            # Reemplacem la ruta de l'arxiu antic pel nou segle
+                            if state.selected_left:
+                                new_l = state.selected_left["image"].replace(f"/menu/{old_c}/", f"/menu/{c_val}/")
+                                state.selected_left["image"] = new_l
+                                ui.run_javascript(f'localStorage.setItem("saved_L_img", "{new_l}")')
+                            if state.selected_right:
+                                new_r = state.selected_right["image"].replace(f"/menu/{old_c}/", f"/menu/{c_val}/")
+                                state.selected_right["image"] = new_r
+                                ui.run_javascript(f'localStorage.setItem("saved_R_img", "{new_r}")')
+
+                            refresh_all_views()
+                            
+                            js_updates = f'''
+                                var iframe = document.getElementById("viewer-iframe"); 
+                                if(iframe) {{ 
+                                    iframe.contentWindow.postMessage({{ "type": "change_left", "path": "{format_exr(state.selected_left["image"]) if state.selected_left else f"{state.century}/{state.view}/Artificial/C1-pv2.exr"}" }}, "*");
+                                    iframe.contentWindow.postMessage({{ "type": "change_right", "path": "{format_exr(state.selected_right["image"]) if state.selected_right else f"{state.century}/{state.view}/Artificial/C2-pv2.exr"}" }}, "*");
+                                }}
+                            '''
+                            ui.run_javascript(js_updates)
+
+                        ui.menu_item("Century IX", lambda: set_global_century_fn("IX"))
+                        ui.menu_item("Century XII", lambda: set_global_century_fn("XII"))
+                        ui.menu_item("Century XIII", lambda: set_global_century_fn("XIII"))
+                # VIEW (EYE)
+                with ui.element('div').classes('relative flex items-center justify-center w-auto min-w-[40px] px-1'):
+                    def toggle_view_menu(): view_menu.toggle()
+                    icon_view = ui.icon('visibility', size="22px").classes('cursor-pointer text-gray-600 hover:text-black material-symbols-outlined').on('click', toggle_view_menu)
+                    label_view = ui.label("Central Nave").classes('text-sm text-black cursor-pointer hover:text-black whitespace-nowrap').on('click', toggle_view_menu); label_view.set_visibility(False)
+                    with ui.menu().props('auto-close="false" anchor="bottom middle" self="top middle"').classes('bg-white shadow-xl rounded-md p-2 z-50 w-48') as view_menu:
+                        ui.label("Global View").classes('text-xs font-bold text-gray-400 px-2 py-1 uppercase'); ui.separator().classes('mb-1')
+                        
+                        def set_global_view_fn(v_val, v_label):
+                            log_interaction(request, "Filter View", v_label, session_id); state.view = v_val
+                            ui.run_javascript(f'localStorage.setItem("global_view", "{v_val}")')
+                            icon_view.set_visibility(False); label_view.set_text(v_label); label_view.set_visibility(True)
+                            
+                            # Canviem la selecció activa per substituir l'arxiu de base automàticament
+                            if state.selected_left:
+                                new_l = state.selected_left["image"].replace("centralnave", v_val).replace("centralabscissa", v_val)
+                                state.selected_left["image"] = new_l
+                                ui.run_javascript(f'localStorage.setItem("saved_L_img", "{new_l}")')
+                            if state.selected_right:
+                                new_r = state.selected_right["image"].replace("centralnave", v_val).replace("centralabscissa", v_val)
+                                state.selected_right["image"] = new_r
+                                ui.run_javascript(f'localStorage.setItem("saved_R_img", "{new_r}")')
+
+                            refresh_all_views()
+                            
+                            # Actualitzem l'iframe immediatament perquè l'usuari no hagi de tornar a clicar la targeta
+                            js_updates = f'''
+                                var iframe = document.getElementById("viewer-iframe"); 
+                                if(iframe) {{ 
+                                    iframe.contentWindow.postMessage({{ "type": "change_left", "path": "{format_exr(state.selected_left["image"]) if state.selected_left else f"{state.century}/{state.view}/Artificial/C1-pv2.exr"}" }}, "*");
+                                    iframe.contentWindow.postMessage({{ "type": "change_right", "path": "{format_exr(state.selected_right["image"]) if state.selected_right else f"{state.century}/{state.view}/Artificial/C2-pv2.exr"}" }}, "*");
+                                }}
+                            '''
+                            ui.run_javascript(js_updates)
+
+                        ui.menu_item("Central Nave", lambda: set_global_view_fn("centralnave", "Central Nave"))
+                        ui.menu_item("Central Abscissa", lambda: set_global_view_fn("centralabscissa", "Central Abscissa"))
                 # HOUR
-                with ui.element('div').classes('relative flex items-center justify-center w-10'):
+                with ui.element('div').classes('relative flex items-center justify-center w-auto min-w-[40px] px-1'):
                     def toggle_hour_menu(): hour_menu.toggle()
                     icon_hour = ui.icon('access_time', size="22px").classes('cursor-pointer text-gray-600 hover:text-black material-symbols-outlined').on('click', toggle_hour_menu)
                     label_hour = ui.label("").classes('text-sm text-black cursor-pointer hover:text-black whitespace-nowrap').on('click', toggle_hour_menu); label_hour.set_visibility(False)
@@ -756,7 +841,7 @@ async def main(request: Request):
                         for h in ["All", "10:00", "10:53", "10:56", "11:53", "12:53", "13:53", "13:56"]: ui.menu_item(h if h=="All" else (h+" am" if int(h[:2])<12 else h+" pm"), lambda h=h: set_global_hour_fn(h))
                 
                 # DAY
-                with ui.element('div').classes('relative flex items-center justify-center w-10'):
+                with ui.element('div').classes('relative flex items-center justify-center w-auto min-w-[40px] px-1'):
                     def toggle_day_menu(): day_menu.toggle()
                     icon_day = ui.icon('calendar_today', size="22px").classes('cursor-pointer text-gray-600 hover:text-black material-symbols-outlined').on('click', toggle_day_menu)
                     label_day = ui.label("").classes('text-sm text-black cursor-pointer hover:text-black whitespace-nowrap').on('click', toggle_day_menu); label_day.set_visibility(False)
@@ -771,8 +856,18 @@ async def main(request: Request):
 
                 # RESTORE LOGIC
                 async def restore_globals():
+                    g_century = await ui.run_javascript('return localStorage.getItem("global_century")')
+                    g_view = await ui.run_javascript('return localStorage.getItem("global_view")')
                     g_hour = await ui.run_javascript('return localStorage.getItem("global_hour")')
                     g_day = await ui.run_javascript('return localStorage.getItem("global_day")')
+                    
+                    if g_century and g_century != "null": 
+                        state.century = g_century
+                        icon_century.set_visibility(False); label_century.set_text(f"Century {g_century}"); label_century.set_visibility(True)
+                    if g_view and g_view != "null": 
+                        state.view = g_view
+                        v_lbl = "Central Abscissa" if g_view == "centralabscissa" else "Central Nave"
+                        icon_view.set_visibility(False); label_view.set_text(v_lbl); label_view.set_visibility(True)
                     if g_hour and g_hour != "All" and g_hour != "null": state.hour = g_hour; icon_hour.set_visibility(False); label_hour.set_text(g_hour); label_hour.set_visibility(True)
                     if g_day and g_day != "All" and g_day != "null": state.day = g_day; icon_day.set_visibility(False); label_day.set_text(g_day); label_day.set_visibility(True)
                     refresh_all_views()
@@ -789,7 +884,7 @@ async def main(request: Request):
                     if l_img and l_img != "null": 
                         state.selected_left = {"card": None, "image": l_img, "text": l_txt if l_txt else "Loading..."}
                     else:
-                        state.selected_left = {"card": None, "image": "/menu/Artificial/C1-pv2.jpg", "text": [C1]}
+                        state.selected_left = {"card": None, "image": f"/menu/{state.century}/{state.view}/Artificial/C1-pv2.jpg", "text": [C1]}
                     
                     r_img = await ui.run_javascript('return localStorage.getItem("saved_R_img");')
                     r_txt = None; r_txt_raw = await ui.run_javascript('return localStorage.getItem("saved_R_txt");')
@@ -801,7 +896,7 @@ async def main(request: Request):
                     if r_img and r_img != "null": 
                         state.selected_right = {"card": None, "image": r_img, "text": r_txt if r_txt else "Loading..."}
                     else:
-                        state.selected_right = {"card": None, "image": "/menu/Artificial/C2-pv2.jpg", "text": [C2]}
+                        state.selected_right = {"card": None, "image": f"/menu/{state.century}/{state.view}/Artificial/C2-pv2.jpg", "text": [C2]}
 
                     # Always run update now that defaults are set
                     update_all_cards_visibility()
@@ -845,9 +940,9 @@ async def main(request: Request):
                     with ui.row().classes('justify-start gap-2 items-start flex-nowrap').style('display: inline-flex;'):
                         with ui.column().classes('items-start flex-shrink-0').style('align-items: flex-start; margin-left: 0px;'):
                             with ui.row().classes('gap-2 items-start'):
-                                create_card("/menu/Artificial/C1-pv2.jpg", [C1], classes_card); create_card("/menu/Artificial/C2-pv2.jpg", [C2], classes_card)
-                                create_card("/menu/Artificial/C3-pv2.jpg", [C3], classes_card); create_card("/menu/Artificial/C4-pv2.jpg", [C4], classes_card)
-                                create_card("/menu/Artificial/C5-pv2.jpg", ["All artificial lighting"], classes_card)
+                                create_card(f"/menu/{state.century}/{state.view}/Artificial/C1-pv2.jpg", [C1], classes_card); create_card(f"/menu/{state.century}/{state.view}/Artificial/C2-pv2.jpg", [C2], classes_card)
+                                create_card(f"/menu/{state.century}/{state.view}/Artificial/C3-pv2.jpg", [C3], classes_card); create_card(f"/menu/{state.century}/{state.view}/Artificial/C4-pv2.jpg", [C4], classes_card)
+                                create_card(f"/menu/{state.century}/{state.view}/Artificial/C5-pv2.jpg", ["All artificial lighting"], classes_card)
             
             # 3. Nat + Art
             with ui.column().classes('dropdown-panel') as panel:
