@@ -596,11 +596,11 @@ spp = 512 # 2048
 
 
 #Artificial
-#moment = False
-#spp=8096
-#for artLightConfig in [generate_C2_shapes, generate_C3_shapes, generate_C5_shapes]:#, generate_C4_shapes, generate_C1_shapes]:
-#    print(str(artLightConfig).split('_')[1])
-#    render(str(moment)+"-artificial"+str(artLightConfig).split('_')[1]+"-pv2", upscale=2, building_shape_generator = generate_sXII_shapes, artificial_lighting_shape_generator = artLightConfig, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = False, use_gray_albedo=False, save_normals=False)
+moment = False
+spp=8096
+for artLightConfig in [generate_C1_shapes, generate_C2_shapes, generate_C3_shapes, generate_C4_shapes, generate_C5_shapes]:
+    print(str(artLightConfig).split('_')[1])
+    render(str(moment)+"-artificial"+str(artLightConfig).split('_')[1]+"-pv7", upscale=2, building_shape_generator = generate_sXII_shapes, artificial_lighting_shape_generator = artLightConfig, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv7(), save_noisy=True, save_albedo = True, use_gray_albedo=True, save_normals=True)
 
 #Natural+Articficial
 #spp=8096
