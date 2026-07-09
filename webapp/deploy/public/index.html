@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<script type="importmap">
+        {
+            "imports": {
+                "three": "./build/three.module.js",
+                "three/addons/": "./jsm/"
+            }
+        }
+    </script>
+    <style>
+        body {
+            overflow: hidden;
+            margin: 0px;
+            display: flex;
+            background-color: #000;
+        }
+
+        .threejs-window {
+            width: 50%;
+            height: 100vh;
+        }
+
+        /* --- DIALOG STYLES --- */
+        .dialog {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0); /* Transparent background for click-through if desired */
+            justify-content: center; align-items: center;
+            pointer-events: none; /* Allow clicks outside */
+            z-index: 1000;
+        }
+
+        .dialog-content {
+            background-color: #222; /* Darker, more professional background */
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.8);
+            width: 40%; height: 80%; /* Size adjustment */
+            max-width: 90%; max-height: 90%;
+            position: relative;
+            z-index: 1001;
+            pointer-events: all;
+            
+            /* FLEXBOX TO ORGANIZE: HEADER - VIEWER - CONTROLS */
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #444;
+        }
+
+        .dialog-header {
+            cursor: grab;
+            background: #333;
+            padding: 10px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px solid #444;
+            flex-shrink: 0; /* Do not shrink */
+        }
+
+        .close-button {
+            position: absolute; top: 5px; right: 10px;
+            font-size: 20px; cursor: pointer; color: #aaa;
+        }
+        .close-button:hover { color: white; }
+
+        /* 3D VIEWER INSIDE THE DIALOG */
+        #winDiff {
+            width: 100%;
+            flex-grow: 1; /* Occupies all available space */
+            background: #000;
+            position: relative;
+        }
+
+        /* --- NEW CONTROLS AREA (SLIDERS) --- */
+        .controls-area {
+            padding: 15px;
+            background: #2a2a2a;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border-top: 1px solid #444;
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+            flex-shrink: 0; /* Do not shrink */
+        }
+
+        .control-group {
+            display: flex; flex-direction: column; width: 45%;
+        }
+
+        .control-group label {
+            font-size: 12px; margin-bottom: 5px; color: #ccc; text-align: left;
+        }
+
+        input[type=range] {
+            width: 100%; cursor: pointer;
+        }
+
+        /* Selection borders */
+        .image-frame {
+            border: 5px solid transparent;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+        .image-frame.selected {
+            border-color: #fffc54;
+            box-shadow: 0 0 15px white;
+        }
+    </style>
+
+    <script async src="https://unpkg.com/es-module-shims@1.6.2/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./build/three.module.js"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="window1" class="threejs-window image-frame"></div>
+    <div id="window2" class="threejs-window image-frame"></div>
+
+    <div id="differenceDialog" class="dialog">
+        <div id="differenceView" class="dialog-content">
+            <div id="drag-handle" class="dialog-header">Image Difference</div>
+            <span id="closeDialog" class="close-button">&times;</span>
+            
+            <div id="winDiff"></div>
+
+            <div class="controls-area">
+                <div class="control-group">
+                    <label>Max Difference: <span id="val_maxDiff">0.10</span></label>
+                    <input type="range" id="slider_maxDiff" min="0.001" max="1.0" step="0.001" value="0.1">
+                </div>
+                <div class="control-group">
+                    <label>Image Overlay: <span id="val_overlay">0.00</span></label>
+                    <input type="range" id="slider_overlay" min="0.0" max="1.0" step="0.01" value="0.0">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="client.js"></script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const containerL = document.getElementById('window1');
+            const containerR = document.getElementById('window2');
+            
+            function updateVisualSelection(selected) {
+                containerL.classList.remove('selected'); containerR.classList.remove('selected');
+                if (selected === 'left') containerL.classList.add('selected');
+                else if (selected === 'right') containerR.classList.add('selected');
+            }
+
+            function handleSelection(clickedWindow) {
+                const current = localStorage.getItem('selectedWindow');
+                let final = (current === clickedWindow) ? null : clickedWindow;
+                if (final) localStorage.setItem('selectedWindow', final);
+                else localStorage.removeItem('selectedWindow');
+                updateVisualSelection(final);
+                window.parent.postMessage({ type: 'window_selected', value: final }, '*');
+            }
+
+            const saved = localStorage.getItem('selectedWindow');
+            if (saved) updateVisualSelection(saved);
+            containerL.addEventListener('click', () => handleSelection('left'));
+            containerR.addEventListener('click', () => handleSelection('right'));
+        });
+    </script>
+</body>
+</html>
