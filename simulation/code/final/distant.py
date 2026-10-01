@@ -452,46 +452,46 @@ def create_sceneC1(emitters):
     obj_shape6 = create_obj_shape('model/XII_2/Pedret_XII.baked-nau.obj', 'textures/pedret_XII/Pedret_XII_normals_nau.png', 'textures/pedret_XII/Pedret_XII_color_nau.png')
 
     #corona
-    anella = create_shape_rgb('iluminació/c1/Corona/Anella.obj', [0.05, 0.05, 0.05])
-    anella2 = create_shape_rgb('iluminació/c1/Corona/Anella2.obj', [0.05, 0.05, 0.05])
-    baseCorona = create_shape_rgb('iluminació/c1/Corona/Base.obj', [0.05, 0.05, 0.05])
-    cadena = create_shape_rgb('iluminació/c1/Corona/Cadena.obj', [0.05, 0.05, 0.05])
-    cadena2 = create_shape_rgb('iluminació/c1/Corona/Cadena2.obj', [0.05, 0.05, 0.05])
-    cadena3 = create_shape_rgb('iluminació/c1/Corona/Cadena3.obj', [0.05, 0.05, 0.05])
-    ganxo = create_shape_rgb('iluminació/c1/Corona/Ganxo.obj', [0.05, 0.05, 0.05])
-    ganxo2 = create_shape_rgb('iluminació/c1/Corona/Ganxo2.obj', [0.05, 0.05, 0.05])
-    ganxo3 = create_shape_rgb('iluminació/c1/Corona/Ganxo3.obj', [0.05, 0.05, 0.05])
-    ganxo4 = create_shape_rgb('iluminació/c1/Corona/Ganxo4.obj', [0.05, 0.05, 0.05])
-    llums = create_shape_dielectric('iluminació/c1/Corona/Llums.obj') 
-    flama1 = create_obj_file_light_file('iluminació/c1/Corona/flama1.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama2 = create_obj_file_light_file('iluminació/c1/Corona/flama2.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama3 = create_obj_file_light_file('iluminació/c1/Corona/flama3.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama4 = create_obj_file_light_file('iluminació/c1/Corona/flama4.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama5 = create_obj_file_light_file('iluminació/c1/Corona/flama5.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama6 = create_obj_file_light_file('iluminació/c1/Corona/flama6.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    anella = create_shape_rgb('iluminacio/c1/Corona/Anella.obj', [0.05, 0.05, 0.05])
+    anella2 = create_shape_rgb('iluminacio/c1/Corona/Anella2.obj', [0.05, 0.05, 0.05])
+    baseCorona = create_shape_rgb('iluminacio/c1/Corona/Base.obj', [0.05, 0.05, 0.05])
+    cadena = create_shape_rgb('iluminacio/c1/Corona/Cadena.obj', [0.05, 0.05, 0.05])
+    cadena2 = create_shape_rgb('iluminacio/c1/Corona/Cadena2.obj', [0.05, 0.05, 0.05])
+    cadena3 = create_shape_rgb('iluminacio/c1/Corona/Cadena3.obj', [0.05, 0.05, 0.05])
+    ganxo = create_shape_rgb('iluminacio/c1/Corona/Ganxo.obj', [0.05, 0.05, 0.05])
+    ganxo2 = create_shape_rgb('iluminacio/c1/Corona/Ganxo2.obj', [0.05, 0.05, 0.05])
+    ganxo3 = create_shape_rgb('iluminacio/c1/Corona/Ganxo3.obj', [0.05, 0.05, 0.05])
+    ganxo4 = create_shape_rgb('iluminacio/c1/Corona/Ganxo4.obj', [0.05, 0.05, 0.05])
+    llums = create_shape_dielectric('iluminacio/c1/Corona/Llums.obj') 
+    flama1 = create_obj_file_light_file('iluminacio/c1/Corona/flama1.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama2 = create_obj_file_light_file('iluminacio/c1/Corona/flama2.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama3 = create_obj_file_light_file('iluminacio/c1/Corona/flama3.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama4 = create_obj_file_light_file('iluminacio/c1/Corona/flama4.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama5 = create_obj_file_light_file('iluminacio/c1/Corona/flama5.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama6 = create_obj_file_light_file('iluminacio/c1/Corona/flama6.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
 
     #llantia1
-    argolla_l1 = create_shape_rgb('iluminació/c1/Llantia1/Argolla.obj', [0.05, 0.05, 0.05])
-    cordill1Mesh_l1 = create_shape_rgb('iluminació/c1/Llantia1/Cordill1Mesh.obj', [0.05, 0.05, 0.05])
-    cordill2Mesh_l1 = create_shape_rgb('iluminació/c1/Llantia1/Cordill2Mesh.obj', [0.05, 0.05, 0.05])
-    cordill3Mesh_l1 = create_shape_rgb('iluminació/c1/Llantia1/Cordill3Mesh.obj', [0.05, 0.05, 0.05])
-    cordill4Mesh_l1 = create_shape_rgb('iluminació/c1/Llantia1/Cordill4Mesh.obj', [0.05, 0.05, 0.05])
-    llum_l1 = create_shape_dielectric('iluminació/c1/Llantia1/Llum.obj')
-    flama_l1 = create_obj_file_light_file('iluminació/c1/Llantia1/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    argolla_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Argolla.obj', [0.05, 0.05, 0.05])
+    cordill1Mesh_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Cordill1Mesh.obj', [0.05, 0.05, 0.05])
+    cordill2Mesh_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Cordill2Mesh.obj', [0.05, 0.05, 0.05])
+    cordill3Mesh_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Cordill3Mesh.obj', [0.05, 0.05, 0.05])
+    cordill4Mesh_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Cordill4Mesh.obj', [0.05, 0.05, 0.05])
+    llum_l1 = create_shape_dielectric('iluminacio/c1/Llantia1/Llum.obj')
+    flama_l1 = create_obj_file_light_file('iluminacio/c1/Llantia1/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
 
     #llantia2
-    argolla_l2 = create_shape_rgb('iluminació/c1/Llantia2/Argolla.obj', [0.05, 0.05, 0.05])
-    cordill1Mesh_l2 = create_shape_rgb('iluminació/c1/Llantia2/Cordill1Mesh.obj', [0.05, 0.05, 0.05])
-    cordill2Mesh_l2 = create_shape_rgb('iluminació/c1/Llantia2/Cordill2Mesh.obj', [0.05, 0.05, 0.05])
-    cordill3Mesh_l2 = create_shape_rgb('iluminació/c1/Llantia2/Cordill3Mesh.obj', [0.05, 0.05, 0.05])
-    cordill4Mesh_l2 = create_shape_rgb('iluminació/c1/Llantia2/Cordill4Mesh.obj', [0.05, 0.05, 0.05])
-    llum_l2 = create_shape_dielectric('iluminació/c1/Llantia2/Llum.obj')
-    flama_l2 = create_obj_file_light_file('iluminació/c1/Llantia2/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    argolla_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Argolla.obj', [0.05, 0.05, 0.05])
+    cordill1Mesh_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Cordill1Mesh.obj', [0.05, 0.05, 0.05])
+    cordill2Mesh_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Cordill2Mesh.obj', [0.05, 0.05, 0.05])
+    cordill3Mesh_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Cordill3Mesh.obj', [0.05, 0.05, 0.05])
+    cordill4Mesh_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Cordill4Mesh.obj', [0.05, 0.05, 0.05])
+    llum_l2 = create_shape_dielectric('iluminacio/c1/Llantia2/Llum.obj')
+    flama_l2 = create_obj_file_light_file('iluminacio/c1/Llantia2/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
 
 
     #altar
-    base = create_shape_rgb('iluminació/Base.obj', [0.8, 0.8, 0.8])
-    llosa = create_shape_rgb('iluminació/Llosa.obj', [0.8, 0.8, 0.8])
+    base = create_shape_rgb('iluminacio/Base.obj', [0.8, 0.8, 0.8])
+    llosa = create_shape_rgb('iluminacio/Llosa.obj', [0.8, 0.8, 0.8])
 
     scene_definition = {
         'type': 'scene',
@@ -603,20 +603,20 @@ def create_sceneC2(emitters):
     obj_shape6 = create_obj_shape('model/XII_2/Pedret_XII.baked-nau.obj', 'textures/pedret_XII/Pedret_XII_normals_nau.png', 'textures/pedret_XII/Pedret_XII_color_nau.png')
 
     #candeler 1
-    support_1 =create_shape_rgb('iluminació/c2/candeler1/holder_1.obj', [0.05, 0.05, 0.05])
-    espelma_1 = create_shape_rgb('iluminació/c2/candeler1/candle_1.obj', [0.8, 0.58, 0.33])
-    metxa_1 = create_shape_rgb('iluminació/c2/candeler1/candle_wick_1.obj', [0.80, 0.48, 0.28])
-    flama_1 = create_obj_file_light_file('iluminació/c2/candeler1/flame_1.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_1 =create_shape_rgb('iluminacio/c2/candeler1/holder_1.obj', [0.05, 0.05, 0.05])
+    espelma_1 = create_shape_rgb('iluminacio/c2/candeler1/candle_1.obj', [0.8, 0.58, 0.33])
+    metxa_1 = create_shape_rgb('iluminacio/c2/candeler1/candle_wick_1.obj', [0.80, 0.48, 0.28])
+    flama_1 = create_obj_file_light_file('iluminacio/c2/candeler1/flame_1.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #candeler 2
-    support_2 = create_shape_rgb('iluminació/c2/candeler2/holder_2.obj', [0.05, 0.05, 0.05])
-    espelma_2 = create_shape_rgb('iluminació/c2/candeler2/candle_2.obj', [0.8, 0.58, 0.33])
-    metxa_2 = create_shape_rgb('iluminació/c2/candeler2/candle_wick_2.obj', [0.80, 0.48, 0.28])
-    flama_2 = create_obj_file_light_file('iluminació/c2/candeler2/flame_2.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_2 = create_shape_rgb('iluminacio/c2/candeler2/holder_2.obj', [0.05, 0.05, 0.05])
+    espelma_2 = create_shape_rgb('iluminacio/c2/candeler2/candle_2.obj', [0.8, 0.58, 0.33])
+    metxa_2 = create_shape_rgb('iluminacio/c2/candeler2/candle_wick_2.obj', [0.80, 0.48, 0.28])
+    flama_2 = create_obj_file_light_file('iluminacio/c2/candeler2/flame_2.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #altar
-    base = create_shape_rgb('iluminació/Base.obj', [0.8, 0.8, 0.8])
-    llosa = create_shape_rgb('iluminació/Llosa.obj', [0.8, 0.8, 0.8])
+    base = create_shape_rgb('iluminacio/Base.obj', [0.8, 0.8, 0.8])
+    llosa = create_shape_rgb('iluminacio/Llosa.obj', [0.8, 0.8, 0.8])
 
     scene_definition = {
         'type': 'scene',
@@ -713,20 +713,20 @@ def create_sceneC3(emitters):
     obj_shape6 = create_obj_shape('model/XII_2/Pedret_XII.baked-nau.obj', 'textures/pedret_XII/Pedret_XII_normals_nau.png', 'textures/pedret_XII/Pedret_XII_color_nau.png')
 
     #canelobre 1
-    support_1 =create_shape_rgb('iluminació/c3/canelobre1/holder.obj', [0.05, 0.05, 0.05])
-    espelma_1 = create_shape_rgb('iluminació/c3/canelobre1/candle_2.obj', [0.8, 0.58, 0.33])
-    metxa_1 = create_shape_rgb('iluminació/c3/canelobre1/candle_wick_2.obj', [0.80, 0.48, 0.28])
-    flama_1 = create_obj_file_light_file('iluminació/c3/canelobre1/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_1 =create_shape_rgb('iluminacio/c3/canelobre1/holder.obj', [0.05, 0.05, 0.05])
+    espelma_1 = create_shape_rgb('iluminacio/c3/canelobre1/candle_2.obj', [0.8, 0.58, 0.33])
+    metxa_1 = create_shape_rgb('iluminacio/c3/canelobre1/candle_wick_2.obj', [0.80, 0.48, 0.28])
+    flama_1 = create_obj_file_light_file('iluminacio/c3/canelobre1/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #canelobre 2
-    support_2 = create_shape_rgb('iluminació/c3/canelobre2/holder.obj', [0.05, 0.05, 0.05])
-    espelma_2 = create_shape_rgb('iluminació/c3/canelobre2/candle_2.obj', [0.8, 0.58, 0.33])
-    metxa_2 = create_shape_rgb('iluminació/c3/canelobre2/candle_wick_2.obj', [0.80, 0.48, 0.28])
-    flama_2 = create_obj_file_light_file('iluminació/c3/canelobre2/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_2 = create_shape_rgb('iluminacio/c3/canelobre2/holder.obj', [0.05, 0.05, 0.05])
+    espelma_2 = create_shape_rgb('iluminacio/c3/canelobre2/candle_2.obj', [0.8, 0.58, 0.33])
+    metxa_2 = create_shape_rgb('iluminacio/c3/canelobre2/candle_wick_2.obj', [0.80, 0.48, 0.28])
+    flama_2 = create_obj_file_light_file('iluminacio/c3/canelobre2/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #altar
-    base = create_shape_rgb('iluminació/Base.obj', [0.8, 0.8, 0.8])
-    llosa = create_shape_rgb('iluminació/Llosa.obj', [0.8, 0.8, 0.8])
+    base = create_shape_rgb('iluminacio/Base.obj', [0.8, 0.8, 0.8])
+    llosa = create_shape_rgb('iluminacio/Llosa.obj', [0.8, 0.8, 0.8])
 
     
     scene_definition = {
@@ -791,32 +791,32 @@ def create_sceneC4(emitters):
     obj_shape6 = create_obj_shape('model/XII_2/Pedret_XII.baked-nau.obj', 'textures/pedret_XII/Pedret_XII_normals_nau.png', 'textures/pedret_XII/Pedret_XII_color_nau.png')
 
     #canelobre 1
-    support_1 =create_shape_rgb('iluminació/c3/canelobre1/holder.obj', [0.05, 0.05, 0.05])
-    espelma_1 = create_shape_rgb('iluminació/c3/canelobre1/candle_2.obj', [0.8, 0.58, 0.33])
-    metxa_1 = create_shape_rgb('iluminació/c3/canelobre1/candle_wick_2.obj', [0.80, 0.48, 0.28])
-    flama_1 = create_obj_file_light_file('iluminació/c3/canelobre1/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_1 =create_shape_rgb('iluminacio/c3/canelobre1/holder.obj', [0.05, 0.05, 0.05])
+    espelma_1 = create_shape_rgb('iluminacio/c3/canelobre1/candle_2.obj', [0.8, 0.58, 0.33])
+    metxa_1 = create_shape_rgb('iluminacio/c3/canelobre1/candle_wick_2.obj', [0.80, 0.48, 0.28])
+    flama_1 = create_obj_file_light_file('iluminacio/c3/canelobre1/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #canelobre 2
-    support_2 = create_shape_rgb('iluminació/c3/canelobre2/holder.obj', [0.05, 0.05, 0.05])
-    espelma_2 = create_shape_rgb('iluminació/c3/canelobre2/candle_2.obj', [0.8, 0.58, 0.33])
-    metxa_2 = create_shape_rgb('iluminació/c3/canelobre2/candle_wick_2.obj', [0.80, 0.48, 0.28])
-    flama_2 = create_obj_file_light_file('iluminació/c3/canelobre2/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_2 = create_shape_rgb('iluminacio/c3/canelobre2/holder.obj', [0.05, 0.05, 0.05])
+    espelma_2 = create_shape_rgb('iluminacio/c3/canelobre2/candle_2.obj', [0.8, 0.58, 0.33])
+    metxa_2 = create_shape_rgb('iluminacio/c3/canelobre2/candle_wick_2.obj', [0.80, 0.48, 0.28])
+    flama_2 = create_obj_file_light_file('iluminacio/c3/canelobre2/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #canelobre 3
-    support_3 = create_shape_rgb('iluminació/c4/canelobre3/holder_3.obj', [0.05, 0.05, 0.05])
-    espelma_3 = create_shape_rgb('iluminació/c4/canelobre3/candle_3.obj', [0.8, 0.58, 0.33])
-    metxa_3 = create_shape_rgb('iluminació/c4/canelobre3/candle_wick_3.obj', [0.80, 0.48, 0.28])
-    flama_3 = create_obj_file_light_file('iluminació/c4/canelobre3/flame_3.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_3 = create_shape_rgb('iluminacio/c4/canelobre3/holder_3.obj', [0.05, 0.05, 0.05])
+    espelma_3 = create_shape_rgb('iluminacio/c4/canelobre3/candle_3.obj', [0.8, 0.58, 0.33])
+    metxa_3 = create_shape_rgb('iluminacio/c4/canelobre3/candle_wick_3.obj', [0.80, 0.48, 0.28])
+    flama_3 = create_obj_file_light_file('iluminacio/c4/canelobre3/flame_3.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #canelobre 4
-    support_4 = create_shape_rgb('iluminació/c4/canelobre4/holder_4.obj', [0.05, 0.05, 0.05])
-    espelma_4 = create_shape_rgb('iluminació/c4/canelobre4/candle_4.obj', [0.8, 0.58, 0.33])
-    metxa_4 = create_shape_rgb('iluminació/c4/canelobre4/candle_wick_4.obj', [0.80, 0.48, 0.28])
-    flama_4 = create_obj_file_light_file('iluminació/c4/canelobre4/flame_4.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_4 = create_shape_rgb('iluminacio/c4/canelobre4/holder_4.obj', [0.05, 0.05, 0.05])
+    espelma_4 = create_shape_rgb('iluminacio/c4/canelobre4/candle_4.obj', [0.8, 0.58, 0.33])
+    metxa_4 = create_shape_rgb('iluminacio/c4/canelobre4/candle_wick_4.obj', [0.80, 0.48, 0.28])
+    flama_4 = create_obj_file_light_file('iluminacio/c4/canelobre4/flame_4.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
     
     #altar
-    base = create_shape_rgb('iluminació/Base.obj', [0.8, 0.8, 0.8])
-    llosa = create_shape_rgb('iluminació/Llosa.obj', [0.8, 0.8, 0.8])
+    base = create_shape_rgb('iluminacio/Base.obj', [0.8, 0.8, 0.8])
+    llosa = create_shape_rgb('iluminacio/Llosa.obj', [0.8, 0.8, 0.8])
 
     scene_definition = {
         'type': 'scene',
@@ -908,82 +908,82 @@ def create_sceneC5(emitters):
     obj_shape6 = create_obj_shape('model/XII_2/Pedret_XII.baked-nau.obj', 'textures/pedret_XII/Pedret_XII_normals_nau.png', 'textures/pedret_XII/Pedret_XII_color_nau.png')
 
     #corona
-    anella = create_shape_rgb('iluminació/c1/Corona/Anella.obj', [0.05, 0.05, 0.05])
-    anella2 = create_shape_rgb('iluminació/c1/Corona/Anella2.obj', [0.05, 0.05, 0.05])
-    baseCorona = create_shape_rgb('iluminació/c1/Corona/Base.obj', [0.05, 0.05, 0.05])
-    cadena = create_shape_rgb('iluminació/c1/Corona/Cadena.obj', [0.05, 0.05, 0.05])
-    cadena2 = create_shape_rgb('iluminació/c1/Corona/Cadena2.obj', [0.05, 0.05, 0.05])
-    cadena3 = create_shape_rgb('iluminació/c1/Corona/Cadena3.obj', [0.05, 0.05, 0.05])
-    ganxo = create_shape_rgb('iluminació/c1/Corona/Ganxo.obj', [0.05, 0.05, 0.05])
-    ganxo2 = create_shape_rgb('iluminació/c1/Corona/Ganxo2.obj', [0.05, 0.05, 0.05])
-    ganxo3 = create_shape_rgb('iluminació/c1/Corona/Ganxo3.obj', [0.05, 0.05, 0.05])
-    ganxo4 = create_shape_rgb('iluminació/c1/Corona/Ganxo4.obj', [0.05, 0.05, 0.05])
-    llums = create_shape_dielectric('iluminació/c1/Corona/Llums.obj') 
-    flama1 = create_obj_file_light_file('iluminació/c1/Corona/flama1.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama2 = create_obj_file_light_file('iluminació/c1/Corona/flama2.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama3 = create_obj_file_light_file('iluminació/c1/Corona/flama3.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama4 = create_obj_file_light_file('iluminació/c1/Corona/flama4.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama5 = create_obj_file_light_file('iluminació/c1/Corona/flama5.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama6 = create_obj_file_light_file('iluminació/c1/Corona/flama6.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    anella = create_shape_rgb('iluminacio/c1/Corona/Anella.obj', [0.05, 0.05, 0.05])
+    anella2 = create_shape_rgb('iluminacio/c1/Corona/Anella2.obj', [0.05, 0.05, 0.05])
+    baseCorona = create_shape_rgb('iluminacio/c1/Corona/Base.obj', [0.05, 0.05, 0.05])
+    cadena = create_shape_rgb('iluminacio/c1/Corona/Cadena.obj', [0.05, 0.05, 0.05])
+    cadena2 = create_shape_rgb('iluminacio/c1/Corona/Cadena2.obj', [0.05, 0.05, 0.05])
+    cadena3 = create_shape_rgb('iluminacio/c1/Corona/Cadena3.obj', [0.05, 0.05, 0.05])
+    ganxo = create_shape_rgb('iluminacio/c1/Corona/Ganxo.obj', [0.05, 0.05, 0.05])
+    ganxo2 = create_shape_rgb('iluminacio/c1/Corona/Ganxo2.obj', [0.05, 0.05, 0.05])
+    ganxo3 = create_shape_rgb('iluminacio/c1/Corona/Ganxo3.obj', [0.05, 0.05, 0.05])
+    ganxo4 = create_shape_rgb('iluminacio/c1/Corona/Ganxo4.obj', [0.05, 0.05, 0.05])
+    llums = create_shape_dielectric('iluminacio/c1/Corona/Llums.obj') 
+    flama1 = create_obj_file_light_file('iluminacio/c1/Corona/flama1.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama2 = create_obj_file_light_file('iluminacio/c1/Corona/flama2.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama3 = create_obj_file_light_file('iluminacio/c1/Corona/flama3.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama4 = create_obj_file_light_file('iluminacio/c1/Corona/flama4.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama5 = create_obj_file_light_file('iluminacio/c1/Corona/flama5.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama6 = create_obj_file_light_file('iluminacio/c1/Corona/flama6.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
 
     #llantia1
-    argolla_l1 = create_shape_rgb('iluminació/c1/Llantia1/Argolla.obj', [0.05, 0.05, 0.05])
-    cordill1Mesh_l1 = create_shape_rgb('iluminació/c1/Llantia1/Cordill1Mesh.obj', [0.05, 0.05, 0.05])
-    cordill2Mesh_l1 = create_shape_rgb('iluminació/c1/Llantia1/Cordill2Mesh.obj', [0.05, 0.05, 0.05])
-    cordill3Mesh_l1 = create_shape_rgb('iluminació/c1/Llantia1/Cordill3Mesh.obj', [0.05, 0.05, 0.05])
-    cordill4Mesh_l1 = create_shape_rgb('iluminació/c1/Llantia1/Cordill4Mesh.obj', [0.05, 0.05, 0.05])
-    llum_l1 = create_shape_dielectric('iluminació/c1/Llantia1/Llum.obj')
-    flama_l1 = create_obj_file_light_file('iluminació/c1/Llantia1/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    argolla_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Argolla.obj', [0.05, 0.05, 0.05])
+    cordill1Mesh_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Cordill1Mesh.obj', [0.05, 0.05, 0.05])
+    cordill2Mesh_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Cordill2Mesh.obj', [0.05, 0.05, 0.05])
+    cordill3Mesh_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Cordill3Mesh.obj', [0.05, 0.05, 0.05])
+    cordill4Mesh_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Cordill4Mesh.obj', [0.05, 0.05, 0.05])
+    llum_l1 = create_shape_dielectric('iluminacio/c1/Llantia1/Llum.obj')
+    flama_l1 = create_obj_file_light_file('iluminacio/c1/Llantia1/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
 
     #llantia2
-    argolla_l2 = create_shape_rgb('iluminació/c1/Llantia2/Argolla.obj', [0.05, 0.05, 0.05])
-    cordill1Mesh_l2 = create_shape_rgb('iluminació/c1/Llantia2/Cordill1Mesh.obj', [0.05, 0.05, 0.05])
-    cordill2Mesh_l2 = create_shape_rgb('iluminació/c1/Llantia2/Cordill2Mesh.obj', [0.05, 0.05, 0.05])
-    cordill3Mesh_l2 = create_shape_rgb('iluminació/c1/Llantia2/Cordill3Mesh.obj', [0.05, 0.05, 0.05])
-    cordill4Mesh_l2 = create_shape_rgb('iluminació/c1/Llantia2/Cordill4Mesh.obj', [0.05, 0.05, 0.05])
-    llum_l2 = create_shape_dielectric('iluminació/c1/Llantia2/Llum.obj')
-    flama_l2 = create_obj_file_light_file('iluminació/c1/Llantia2/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    argolla_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Argolla.obj', [0.05, 0.05, 0.05])
+    cordill1Mesh_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Cordill1Mesh.obj', [0.05, 0.05, 0.05])
+    cordill2Mesh_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Cordill2Mesh.obj', [0.05, 0.05, 0.05])
+    cordill3Mesh_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Cordill3Mesh.obj', [0.05, 0.05, 0.05])
+    cordill4Mesh_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Cordill4Mesh.obj', [0.05, 0.05, 0.05])
+    llum_l2 = create_shape_dielectric('iluminacio/c1/Llantia2/Llum.obj')
+    flama_l2 = create_obj_file_light_file('iluminacio/c1/Llantia2/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
 
     #candeler 1
-    support_1 =create_shape_rgb('iluminació/c2/candeler1/holder_1.obj', [0.05, 0.05, 0.05])
-    espelma_1 = create_shape_rgb('iluminació/c2/candeler1/candle_1.obj', [0.8, 0.58, 0.33])
-    metxa_1 = create_shape_rgb('iluminació/c2/candeler1/candle_wick_1.obj', [0.80, 0.48, 0.28])
-    flama_1 = create_obj_file_light_file('iluminació/c2/candeler1/flame_1.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_1 =create_shape_rgb('iluminacio/c2/candeler1/holder_1.obj', [0.05, 0.05, 0.05])
+    espelma_1 = create_shape_rgb('iluminacio/c2/candeler1/candle_1.obj', [0.8, 0.58, 0.33])
+    metxa_1 = create_shape_rgb('iluminacio/c2/candeler1/candle_wick_1.obj', [0.80, 0.48, 0.28])
+    flama_1 = create_obj_file_light_file('iluminacio/c2/candeler1/flame_1.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
 
     #candeler 2
-    support_2 = create_shape_rgb('iluminació/c2/candeler2/holder_2.obj', [0.05, 0.05, 0.05])
-    espelma_2 = create_shape_rgb('iluminació/c2/candeler2/candle_2.obj', [0.8, 0.58, 0.33])
-    metxa_2 = create_shape_rgb('iluminació/c2/candeler2/candle_wick_2.obj', [0.80, 0.48, 0.28])
-    flama_2 = create_obj_file_light_file('iluminació/c2/candeler2/flame_2.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_2 = create_shape_rgb('iluminacio/c2/candeler2/holder_2.obj', [0.05, 0.05, 0.05])
+    espelma_2 = create_shape_rgb('iluminacio/c2/candeler2/candle_2.obj', [0.8, 0.58, 0.33])
+    metxa_2 = create_shape_rgb('iluminacio/c2/candeler2/candle_wick_2.obj', [0.80, 0.48, 0.28])
+    flama_2 = create_obj_file_light_file('iluminacio/c2/candeler2/flame_2.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #canelobre 1
-    support_1_c =create_shape_rgb('iluminació/c3/canelobre1/holder.obj', [0.05, 0.05, 0.05])
-    espelma_1_c = create_shape_rgb('iluminació/c3/canelobre1/candle_2.obj', [0.8, 0.58, 0.33])
-    metxa_1_c = create_shape_rgb('iluminació/c3/canelobre1/candle_wick_2.obj', [0.80, 0.48, 0.28])
-    flama_1_c = create_obj_file_light_file('iluminació/c3/canelobre1/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_1_c =create_shape_rgb('iluminacio/c3/canelobre1/holder.obj', [0.05, 0.05, 0.05])
+    espelma_1_c = create_shape_rgb('iluminacio/c3/canelobre1/candle_2.obj', [0.8, 0.58, 0.33])
+    metxa_1_c = create_shape_rgb('iluminacio/c3/canelobre1/candle_wick_2.obj', [0.80, 0.48, 0.28])
+    flama_1_c = create_obj_file_light_file('iluminacio/c3/canelobre1/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #canelobre 2
-    support_2_c = create_shape_rgb('iluminació/c3/canelobre2/holder.obj', [0.05, 0.05, 0.05])
-    espelma_2_c = create_shape_rgb('iluminació/c3/canelobre2/candle_2.obj', [0.8, 0.58, 0.33])
-    metxa_2_c = create_shape_rgb('iluminació/c3/canelobre2/candle_wick_2.obj', [0.80, 0.48, 0.28])
-    flama_2_c = create_obj_file_light_file('iluminació/c3/canelobre2/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_2_c = create_shape_rgb('iluminacio/c3/canelobre2/holder.obj', [0.05, 0.05, 0.05])
+    espelma_2_c = create_shape_rgb('iluminacio/c3/canelobre2/candle_2.obj', [0.8, 0.58, 0.33])
+    metxa_2_c = create_shape_rgb('iluminacio/c3/canelobre2/candle_wick_2.obj', [0.80, 0.48, 0.28])
+    flama_2_c = create_obj_file_light_file('iluminacio/c3/canelobre2/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #canelobre 3
-    support_3_c = create_shape_rgb('iluminació/c4/canelobre3/holder_3.obj', [0.05, 0.05, 0.05])
-    espelma_3_c = create_shape_rgb('iluminació/c4/canelobre3/candle_3.obj', [0.8, 0.58, 0.33])
-    metxa_3_c = create_shape_rgb('iluminació/c4/canelobre3/candle_wick_3.obj', [0.80, 0.48, 0.28])
-    flama_3_c = create_obj_file_light_file('iluminació/c4/canelobre3/flame_3.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_3_c = create_shape_rgb('iluminacio/c4/canelobre3/holder_3.obj', [0.05, 0.05, 0.05])
+    espelma_3_c = create_shape_rgb('iluminacio/c4/canelobre3/candle_3.obj', [0.8, 0.58, 0.33])
+    metxa_3_c = create_shape_rgb('iluminacio/c4/canelobre3/candle_wick_3.obj', [0.80, 0.48, 0.28])
+    flama_3_c = create_obj_file_light_file('iluminacio/c4/canelobre3/flame_3.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #canelobre 4
-    support_4_c = create_shape_rgb('iluminació/c4/canelobre4/holder_4.obj', [0.05, 0.05, 0.05])
-    espelma_4_c = create_shape_rgb('iluminació/c4/canelobre4/candle_4.obj', [0.8, 0.58, 0.33])
-    metxa_4_c = create_shape_rgb('iluminació/c4/canelobre4/candle_wick_4.obj', [0.80, 0.48, 0.28])
-    flama_4_c = create_obj_file_light_file('iluminació/c4/canelobre4/flame_4.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_4_c = create_shape_rgb('iluminacio/c4/canelobre4/holder_4.obj', [0.05, 0.05, 0.05])
+    espelma_4_c = create_shape_rgb('iluminacio/c4/canelobre4/candle_4.obj', [0.8, 0.58, 0.33])
+    metxa_4_c = create_shape_rgb('iluminacio/c4/canelobre4/candle_wick_4.obj', [0.80, 0.48, 0.28])
+    flama_4_c = create_obj_file_light_file('iluminacio/c4/canelobre4/flame_4.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #altar
-    base = create_shape_rgb('iluminació/Base.obj', [0.8, 0.8, 0.8])
-    llosa = create_shape_rgb('iluminació/Llosa.obj', [0.8, 0.8, 0.8])
+    base = create_shape_rgb('iluminacio/Base.obj', [0.8, 0.8, 0.8])
+    llosa = create_shape_rgb('iluminacio/Llosa.obj', [0.8, 0.8, 0.8])
 
     scene_definition = {
         'type': 'scene',
@@ -1113,82 +1113,82 @@ def create_sceneC5_XIII(emitters):
 
 
     #corona
-    anella = create_shape_rgb('iluminació/c1/Corona/Anella.obj', [0.05, 0.05, 0.05])
-    anella2 = create_shape_rgb('iluminació/c1/Corona/Anella2.obj', [0.05, 0.05, 0.05])
-    baseCorona = create_shape_rgb('iluminació/c1/Corona/Base.obj', [0.05, 0.05, 0.05])
-    cadena = create_shape_rgb('iluminació/c1/Corona/Cadena.obj', [0.05, 0.05, 0.05])
-    cadena2 = create_shape_rgb('iluminació/c1/Corona/Cadena2.obj', [0.05, 0.05, 0.05])
-    cadena3 = create_shape_rgb('iluminació/c1/Corona/Cadena3.obj', [0.05, 0.05, 0.05])
-    ganxo = create_shape_rgb('iluminació/c1/Corona/Ganxo.obj', [0.05, 0.05, 0.05])
-    ganxo2 = create_shape_rgb('iluminació/c1/Corona/Ganxo2.obj', [0.05, 0.05, 0.05])
-    ganxo3 = create_shape_rgb('iluminació/c1/Corona/Ganxo3.obj', [0.05, 0.05, 0.05])
-    ganxo4 = create_shape_rgb('iluminació/c1/Corona/Ganxo4.obj', [0.05, 0.05, 0.05])
-    llums = create_shape_dielectric('iluminació/c1/Corona/Llums.obj') 
-    flama1 = create_obj_file_light_file('iluminació/c1/Corona/flama1.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama2 = create_obj_file_light_file('iluminació/c1/Corona/flama2.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama3 = create_obj_file_light_file('iluminació/c1/Corona/flama3.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama4 = create_obj_file_light_file('iluminació/c1/Corona/flama4.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama5 = create_obj_file_light_file('iluminació/c1/Corona/flama5.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
-    flama6 = create_obj_file_light_file('iluminació/c1/Corona/flama6.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    anella = create_shape_rgb('iluminacio/c1/Corona/Anella.obj', [0.05, 0.05, 0.05])
+    anella2 = create_shape_rgb('iluminacio/c1/Corona/Anella2.obj', [0.05, 0.05, 0.05])
+    baseCorona = create_shape_rgb('iluminacio/c1/Corona/Base.obj', [0.05, 0.05, 0.05])
+    cadena = create_shape_rgb('iluminacio/c1/Corona/Cadena.obj', [0.05, 0.05, 0.05])
+    cadena2 = create_shape_rgb('iluminacio/c1/Corona/Cadena2.obj', [0.05, 0.05, 0.05])
+    cadena3 = create_shape_rgb('iluminacio/c1/Corona/Cadena3.obj', [0.05, 0.05, 0.05])
+    ganxo = create_shape_rgb('iluminacio/c1/Corona/Ganxo.obj', [0.05, 0.05, 0.05])
+    ganxo2 = create_shape_rgb('iluminacio/c1/Corona/Ganxo2.obj', [0.05, 0.05, 0.05])
+    ganxo3 = create_shape_rgb('iluminacio/c1/Corona/Ganxo3.obj', [0.05, 0.05, 0.05])
+    ganxo4 = create_shape_rgb('iluminacio/c1/Corona/Ganxo4.obj', [0.05, 0.05, 0.05])
+    llums = create_shape_dielectric('iluminacio/c1/Corona/Llums.obj') 
+    flama1 = create_obj_file_light_file('iluminacio/c1/Corona/flama1.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama2 = create_obj_file_light_file('iluminacio/c1/Corona/flama2.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama3 = create_obj_file_light_file('iluminacio/c1/Corona/flama3.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama4 = create_obj_file_light_file('iluminacio/c1/Corona/flama4.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama5 = create_obj_file_light_file('iluminacio/c1/Corona/flama5.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    flama6 = create_obj_file_light_file('iluminacio/c1/Corona/flama6.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
 
     #llantia1
-    argolla_l1 = create_shape_rgb('iluminació/c1/Llantia1/Argolla.obj', [0.05, 0.05, 0.05])
-    cordill1Mesh_l1 = create_shape_rgb('iluminació/c1/Llantia1/Cordill1Mesh.obj', [0.05, 0.05, 0.05])
-    cordill2Mesh_l1 = create_shape_rgb('iluminació/c1/Llantia1/Cordill2Mesh.obj', [0.05, 0.05, 0.05])
-    cordill3Mesh_l1 = create_shape_rgb('iluminació/c1/Llantia1/Cordill3Mesh.obj', [0.05, 0.05, 0.05])
-    cordill4Mesh_l1 = create_shape_rgb('iluminació/c1/Llantia1/Cordill4Mesh.obj', [0.05, 0.05, 0.05])
-    llum_l1 = create_shape_dielectric('iluminació/c1/Llantia1/Llum.obj')
-    flama_l1 = create_obj_file_light_file('iluminació/c1/Llantia1/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    argolla_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Argolla.obj', [0.05, 0.05, 0.05])
+    cordill1Mesh_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Cordill1Mesh.obj', [0.05, 0.05, 0.05])
+    cordill2Mesh_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Cordill2Mesh.obj', [0.05, 0.05, 0.05])
+    cordill3Mesh_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Cordill3Mesh.obj', [0.05, 0.05, 0.05])
+    cordill4Mesh_l1 = create_shape_rgb('iluminacio/c1/Llantia1/Cordill4Mesh.obj', [0.05, 0.05, 0.05])
+    llum_l1 = create_shape_dielectric('iluminacio/c1/Llantia1/Llum.obj')
+    flama_l1 = create_obj_file_light_file('iluminacio/c1/Llantia1/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
 
     #llantia2
-    argolla_l2 = create_shape_rgb('iluminació/c1/Llantia2/Argolla.obj', [0.05, 0.05, 0.05])
-    cordill1Mesh_l2 = create_shape_rgb('iluminació/c1/Llantia2/Cordill1Mesh.obj', [0.05, 0.05, 0.05])
-    cordill2Mesh_l2 = create_shape_rgb('iluminació/c1/Llantia2/Cordill2Mesh.obj', [0.05, 0.05, 0.05])
-    cordill3Mesh_l2 = create_shape_rgb('iluminació/c1/Llantia2/Cordill3Mesh.obj', [0.05, 0.05, 0.05])
-    cordill4Mesh_l2 = create_shape_rgb('iluminació/c1/Llantia2/Cordill4Mesh.obj', [0.05, 0.05, 0.05])
-    llum_l2 = create_shape_dielectric('iluminació/c1/Llantia2/Llum.obj')
-    flama_l2 = create_obj_file_light_file('iluminació/c1/Llantia2/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
+    argolla_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Argolla.obj', [0.05, 0.05, 0.05])
+    cordill1Mesh_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Cordill1Mesh.obj', [0.05, 0.05, 0.05])
+    cordill2Mesh_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Cordill2Mesh.obj', [0.05, 0.05, 0.05])
+    cordill3Mesh_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Cordill3Mesh.obj', [0.05, 0.05, 0.05])
+    cordill4Mesh_l2 = create_shape_rgb('iluminacio/c1/Llantia2/Cordill4Mesh.obj', [0.05, 0.05, 0.05])
+    llum_l2 = create_shape_dielectric('iluminacio/c1/Llantia2/Llum.obj')
+    flama_l2 = create_obj_file_light_file('iluminacio/c1/Llantia2/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd')
 
     #candeler 1
-    support_1 =create_shape_rgb('iluminació/c2/candeler1/holder_1.obj', [0.05, 0.05, 0.05])
-    espelma_1 = create_shape_rgb('iluminació/c2/candeler1/candle_1.obj', [0.8, 0.58, 0.33])
-    metxa_1 = create_shape_rgb('iluminació/c2/candeler1/candle_wick_1.obj', [0.80, 0.48, 0.28])
-    flama_1 = create_obj_file_light_file('iluminació/c2/candeler1/flame_1.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_1 =create_shape_rgb('iluminacio/c2/candeler1/holder_1.obj', [0.05, 0.05, 0.05])
+    espelma_1 = create_shape_rgb('iluminacio/c2/candeler1/candle_1.obj', [0.8, 0.58, 0.33])
+    metxa_1 = create_shape_rgb('iluminacio/c2/candeler1/candle_wick_1.obj', [0.80, 0.48, 0.28])
+    flama_1 = create_obj_file_light_file('iluminacio/c2/candeler1/flame_1.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
 
     #candeler 2
-    support_2 = create_shape_rgb('iluminació/c2/candeler2/holder_2.obj', [0.05, 0.05, 0.05])
-    espelma_2 = create_shape_rgb('iluminació/c2/candeler2/candle_2.obj', [0.8, 0.58, 0.33])
-    metxa_2 = create_shape_rgb('iluminació/c2/candeler2/candle_wick_2.obj', [0.80, 0.48, 0.28])
-    flama_2 = create_obj_file_light_file('iluminació/c2/candeler2/flame_2.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_2 = create_shape_rgb('iluminacio/c2/candeler2/holder_2.obj', [0.05, 0.05, 0.05])
+    espelma_2 = create_shape_rgb('iluminacio/c2/candeler2/candle_2.obj', [0.8, 0.58, 0.33])
+    metxa_2 = create_shape_rgb('iluminacio/c2/candeler2/candle_wick_2.obj', [0.80, 0.48, 0.28])
+    flama_2 = create_obj_file_light_file('iluminacio/c2/candeler2/flame_2.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #canelobre 1
-    support_1_c =create_shape_rgb('iluminació/c3/canelobre1/holder.obj', [0.05, 0.05, 0.05])
-    espelma_1_c = create_shape_rgb('iluminació/c3/canelobre1/candle_2.obj', [0.8, 0.58, 0.33])
-    metxa_1_c = create_shape_rgb('iluminació/c3/canelobre1/candle_wick_2.obj', [0.80, 0.48, 0.28])
-    flama_1_c = create_obj_file_light_file('iluminació/c3/canelobre1/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_1_c =create_shape_rgb('iluminacio/c3/canelobre1/holder.obj', [0.05, 0.05, 0.05])
+    espelma_1_c = create_shape_rgb('iluminacio/c3/canelobre1/candle_2.obj', [0.8, 0.58, 0.33])
+    metxa_1_c = create_shape_rgb('iluminacio/c3/canelobre1/candle_wick_2.obj', [0.80, 0.48, 0.28])
+    flama_1_c = create_obj_file_light_file('iluminacio/c3/canelobre1/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #canelobre 2
-    support_2_c = create_shape_rgb('iluminació/c3/canelobre2/holder.obj', [0.05, 0.05, 0.05])
-    espelma_2_c = create_shape_rgb('iluminació/c3/canelobre2/candle_2.obj', [0.8, 0.58, 0.33])
-    metxa_2_c = create_shape_rgb('iluminació/c3/canelobre2/candle_wick_2.obj', [0.80, 0.48, 0.28])
-    flama_2_c = create_obj_file_light_file('iluminació/c3/canelobre2/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_2_c = create_shape_rgb('iluminacio/c3/canelobre2/holder.obj', [0.05, 0.05, 0.05])
+    espelma_2_c = create_shape_rgb('iluminacio/c3/canelobre2/candle_2.obj', [0.8, 0.58, 0.33])
+    metxa_2_c = create_shape_rgb('iluminacio/c3/canelobre2/candle_wick_2.obj', [0.80, 0.48, 0.28])
+    flama_2_c = create_obj_file_light_file('iluminacio/c3/canelobre2/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #canelobre 3
-    support_3_c = create_shape_rgb('iluminació/c4/canelobre3/holder_3.obj', [0.05, 0.05, 0.05])
-    espelma_3_c = create_shape_rgb('iluminació/c4/canelobre3/candle_3.obj', [0.8, 0.58, 0.33])
-    metxa_3_c = create_shape_rgb('iluminació/c4/canelobre3/candle_wick_3.obj', [0.80, 0.48, 0.28])
-    flama_3_c = create_obj_file_light_file('iluminació/c4/canelobre3/flame_3.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_3_c = create_shape_rgb('iluminacio/c4/canelobre3/holder_3.obj', [0.05, 0.05, 0.05])
+    espelma_3_c = create_shape_rgb('iluminacio/c4/canelobre3/candle_3.obj', [0.8, 0.58, 0.33])
+    metxa_3_c = create_shape_rgb('iluminacio/c4/canelobre3/candle_wick_3.obj', [0.80, 0.48, 0.28])
+    flama_3_c = create_obj_file_light_file('iluminacio/c4/canelobre3/flame_3.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #canelobre 4
-    support_4_c = create_shape_rgb('iluminació/c4/canelobre4/holder_4.obj', [0.05, 0.05, 0.05])
-    espelma_4_c = create_shape_rgb('iluminació/c4/canelobre4/candle_4.obj', [0.8, 0.58, 0.33])
-    metxa_4_c = create_shape_rgb('iluminació/c4/canelobre4/candle_wick_4.obj', [0.80, 0.48, 0.28])
-    flama_4_c = create_obj_file_light_file('iluminació/c4/canelobre4/flame_4.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
+    support_4_c = create_shape_rgb('iluminacio/c4/canelobre4/holder_4.obj', [0.05, 0.05, 0.05])
+    espelma_4_c = create_shape_rgb('iluminacio/c4/canelobre4/candle_4.obj', [0.8, 0.58, 0.33])
+    metxa_4_c = create_shape_rgb('iluminacio/c4/canelobre4/candle_wick_4.obj', [0.80, 0.48, 0.28])
+    flama_4_c = create_obj_file_light_file('iluminacio/c4/canelobre4/flame_4.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd')
 
     #altar
-    base = create_shape_rgb('iluminació/Base.obj', [0.8, 0.8, 0.8])
-    llosa = create_shape_rgb('iluminació/Llosa.obj', [0.8, 0.8, 0.8])
+    base = create_shape_rgb('iluminacio/Base.obj', [0.8, 0.8, 0.8])
+    llosa = create_shape_rgb('iluminacio/Llosa.obj', [0.8, 0.8, 0.8])
 
     scene_definition = {
         'type': 'scene',

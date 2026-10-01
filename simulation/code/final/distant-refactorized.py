@@ -227,99 +227,99 @@ def add_SXIII_shapes(shapes, use_gray_albedo = False):
     
 def add_corona_shapes(shapes):
     color = [0.05, 0.05, 0.05]
-    shapes.append(create_shape_rgb('iluminació/c1/Corona/Anella.obj', color))
-    shapes.append(create_shape_rgb('iluminació/c1/Corona/Anella2.obj', color))
-    shapes.append(create_shape_rgb('iluminació/c1/Corona/Base.obj', color))
-    shapes.append(create_shape_rgb('iluminació/c1/Corona/Cadena.obj', color))
-    shapes.append(create_shape_rgb('iluminació/c1/Corona/Cadena2.obj', color))
-    shapes.append(create_shape_rgb('iluminació/c1/Corona/Cadena3.obj', color))
-    shapes.append(create_shape_rgb('iluminació/c1/Corona/Ganxo.obj', color))
-    shapes.append(create_shape_rgb('iluminació/c1/Corona/Ganxo2.obj', color))
-    shapes.append(create_shape_rgb('iluminació/c1/Corona/Ganxo3.obj', color))
-    shapes.append(create_shape_rgb('iluminació/c1/Corona/Ganxo4.obj', color))
-    shapes.append(create_shape_dielectric('iluminació/c1/Corona/Llums.obj'))
-    shapes.append(create_obj_file_light_file('iluminació/c1/Corona/flama1.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
-    shapes.append(create_obj_file_light_file('iluminació/c1/Corona/flama2.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
-    shapes.append(create_obj_file_light_file('iluminació/c1/Corona/flama3.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
-    shapes.append(create_obj_file_light_file('iluminació/c1/Corona/flama4.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
-    shapes.append(create_obj_file_light_file('iluminació/c1/Corona/flama5.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
-    shapes.append(create_obj_file_light_file('iluminació/c1/Corona/flama6.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_shape_rgb('iluminacio/c1/Corona/Anella.obj', color))
+    shapes.append(create_shape_rgb('iluminacio/c1/Corona/Anella2.obj', color))
+    shapes.append(create_shape_rgb('iluminacio/c1/Corona/Base.obj', color))
+    shapes.append(create_shape_rgb('iluminacio/c1/Corona/Cadena.obj', color))
+    shapes.append(create_shape_rgb('iluminacio/c1/Corona/Cadena2.obj', color))
+    shapes.append(create_shape_rgb('iluminacio/c1/Corona/Cadena3.obj', color))
+    shapes.append(create_shape_rgb('iluminacio/c1/Corona/Ganxo.obj', color))
+    shapes.append(create_shape_rgb('iluminacio/c1/Corona/Ganxo2.obj', color))
+    shapes.append(create_shape_rgb('iluminacio/c1/Corona/Ganxo3.obj', color))
+    shapes.append(create_shape_rgb('iluminacio/c1/Corona/Ganxo4.obj', color))
+    shapes.append(create_shape_dielectric('iluminacio/c1/Corona/Llums.obj'))
+    shapes.append(create_obj_file_light_file('iluminacio/c1/Corona/flama1.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_obj_file_light_file('iluminacio/c1/Corona/flama2.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_obj_file_light_file('iluminacio/c1/Corona/flama3.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_obj_file_light_file('iluminacio/c1/Corona/flama4.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_obj_file_light_file('iluminacio/c1/Corona/flama5.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_obj_file_light_file('iluminacio/c1/Corona/flama6.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
 
 def add_llantia_shapes(shapes):
     #llantia1
-    shapes.append(create_shape_rgb('iluminació/c1/Llantia1/Argolla.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c1/Llantia1/Cordill1Mesh.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c1/Llantia1/Cordill2Mesh.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c1/Llantia1/Cordill3Mesh.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c1/Llantia1/Cordill4Mesh.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_dielectric('iluminació/c1/Llantia1/Llum.obj'))
-    shapes.append(create_obj_file_light_file('iluminació/c1/Llantia1/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_shape_rgb('iluminacio/c1/Llantia1/Argolla.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c1/Llantia1/Cordill1Mesh.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c1/Llantia1/Cordill2Mesh.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c1/Llantia1/Cordill3Mesh.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c1/Llantia1/Cordill4Mesh.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_dielectric('iluminacio/c1/Llantia1/Llum.obj'))
+    shapes.append(create_obj_file_light_file('iluminacio/c1/Llantia1/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
 
     #llantia2
-    shapes.append(create_shape_rgb('iluminació/c1/Llantia2/Argolla.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c1/Llantia2/Cordill1Mesh.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c1/Llantia2/Cordill2Mesh.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c1/Llantia2/Cordill3Mesh.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c1/Llantia2/Cordill4Mesh.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_dielectric('iluminació/c1/Llantia2/Llum.obj'))
-    shapes.append(create_obj_file_light_file('iluminació/c1/Llantia2/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_shape_rgb('iluminacio/c1/Llantia2/Argolla.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c1/Llantia2/Cordill1Mesh.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c1/Llantia2/Cordill2Mesh.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c1/Llantia2/Cordill3Mesh.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c1/Llantia2/Cordill4Mesh.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_dielectric('iluminacio/c1/Llantia2/Llum.obj'))
+    shapes.append(create_obj_file_light_file('iluminacio/c1/Llantia2/Flama.obj', 'spdFiles/XII/Aceite_sal_Horizontal_position2_by_flamearea.spd'))
 
 def add_candelers(shapes):
     #candeler 1
-    shapes.append(create_shape_rgb('iluminació/c2/candeler1/holder_1.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c2/candeler1/candle_1.obj', [0.8, 0.58, 0.33]))
-    shapes.append(create_shape_rgb('iluminació/c2/candeler1/candle_wick_1.obj', [0.80, 0.48, 0.28]))
-    shapes.append(create_obj_file_light_file('iluminació/c2/candeler1/flame_1.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_shape_rgb('iluminacio/c2/candeler1/holder_1.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c2/candeler1/candle_1.obj', [0.8, 0.58, 0.33]))
+    shapes.append(create_shape_rgb('iluminacio/c2/candeler1/candle_wick_1.obj', [0.80, 0.48, 0.28]))
+    shapes.append(create_obj_file_light_file('iluminacio/c2/candeler1/flame_1.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
 
     #candeler 2
-    shapes.append(create_shape_rgb('iluminació/c2/candeler2/holder_2.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c2/candeler2/candle_2.obj', [0.8, 0.58, 0.33]))
-    shapes.append(create_shape_rgb('iluminació/c2/candeler2/candle_wick_2.obj', [0.80, 0.48, 0.28]))
-    shapes.append(create_obj_file_light_file('iluminació/c2/candeler2/flame_2.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_shape_rgb('iluminacio/c2/candeler2/holder_2.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c2/candeler2/candle_2.obj', [0.8, 0.58, 0.33]))
+    shapes.append(create_shape_rgb('iluminacio/c2/candeler2/candle_wick_2.obj', [0.80, 0.48, 0.28]))
+    shapes.append(create_obj_file_light_file('iluminacio/c2/candeler2/flame_2.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
 
 def add_candelers2(shapes):
     #canelobre 1
-    shapes.append(create_shape_rgb('iluminació/c3/canelobre1/holder.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c3/canelobre1/candle_2.obj', [0.8, 0.58, 0.33]))
-    shapes.append(create_shape_rgb('iluminació/c3/canelobre1/candle_wick_2.obj', [0.80, 0.48, 0.28]))
-    shapes.append(create_obj_file_light_file('iluminació/c3/canelobre1/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_shape_rgb('iluminacio/c3/canelobre1/holder.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c3/canelobre1/candle_2.obj', [0.8, 0.58, 0.33]))
+    shapes.append(create_shape_rgb('iluminacio/c3/canelobre1/candle_wick_2.obj', [0.80, 0.48, 0.28]))
+    shapes.append(create_obj_file_light_file('iluminacio/c3/canelobre1/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
 
     #canelobre 2
-    shapes.append(create_shape_rgb('iluminació/c3/canelobre2/holder.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c3/canelobre2/candle_2.obj', [0.8, 0.58, 0.33]))
-    shapes.append(create_shape_rgb('iluminació/c3/canelobre2/candle_wick_2.obj', [0.80, 0.48, 0.28]))
-    shapes.append(create_obj_file_light_file('iluminació/c3/canelobre2/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_shape_rgb('iluminacio/c3/canelobre2/holder.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c3/canelobre2/candle_2.obj', [0.8, 0.58, 0.33]))
+    shapes.append(create_shape_rgb('iluminacio/c3/canelobre2/candle_wick_2.obj', [0.80, 0.48, 0.28]))
+    shapes.append(create_obj_file_light_file('iluminacio/c3/canelobre2/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
 
 
 def add_candelers4(shapes):
     #canelobre 1
-    shapes.append(create_shape_rgb('iluminació/c3/canelobre1/holder.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c3/canelobre1/candle_2.obj', [0.8, 0.58, 0.33]))
-    shapes.append(create_shape_rgb('iluminació/c3/canelobre1/candle_wick_2.obj', [0.80, 0.48, 0.28]))
-    shapes.append(create_obj_file_light_file('iluminació/c3/canelobre1/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_shape_rgb('iluminacio/c3/canelobre1/holder.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c3/canelobre1/candle_2.obj', [0.8, 0.58, 0.33]))
+    shapes.append(create_shape_rgb('iluminacio/c3/canelobre1/candle_wick_2.obj', [0.80, 0.48, 0.28]))
+    shapes.append(create_obj_file_light_file('iluminacio/c3/canelobre1/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
 
     #canelobre 2
-    shapes.append(create_shape_rgb('iluminació/c3/canelobre2/holder.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c3/canelobre2/candle_2.obj', [0.8, 0.58, 0.33]))
-    shapes.append(create_shape_rgb('iluminació/c3/canelobre2/candle_wick_2.obj', [0.80, 0.48, 0.28]))
-    shapes.append(create_obj_file_light_file('iluminació/c3/canelobre2/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_shape_rgb('iluminacio/c3/canelobre2/holder.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c3/canelobre2/candle_2.obj', [0.8, 0.58, 0.33]))
+    shapes.append(create_shape_rgb('iluminacio/c3/canelobre2/candle_wick_2.obj', [0.80, 0.48, 0.28]))
+    shapes.append(create_obj_file_light_file('iluminacio/c3/canelobre2/flame.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
 
     #canelobre 3
-    shapes.append(create_shape_rgb('iluminació/c4/canelobre3/holder_3.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c4/canelobre3/candle_3.obj', [0.8, 0.58, 0.33]))
-    shapes.append(create_shape_rgb('iluminació/c4/canelobre3/candle_wick_3.obj', [0.80, 0.48, 0.28]))
-    shapes.append(create_obj_file_light_file('iluminació/c4/canelobre3/flame_3.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_shape_rgb('iluminacio/c4/canelobre3/holder_3.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c4/canelobre3/candle_3.obj', [0.8, 0.58, 0.33]))
+    shapes.append(create_shape_rgb('iluminacio/c4/canelobre3/candle_wick_3.obj', [0.80, 0.48, 0.28]))
+    shapes.append(create_obj_file_light_file('iluminacio/c4/canelobre3/flame_3.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
 
     #canelobre 4
-    shapes.append(create_shape_rgb('iluminació/c4/canelobre4/holder_4.obj', [0.05, 0.05, 0.05]))
-    shapes.append(create_shape_rgb('iluminació/c4/canelobre4/candle_4.obj', [0.8, 0.58, 0.33]))
-    shapes.append(create_shape_rgb('iluminació/c4/canelobre4/candle_wick_4.obj', [0.80, 0.48, 0.28]))
-    shapes.append(create_obj_file_light_file('iluminació/c4/canelobre4/flame_4.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
+    shapes.append(create_shape_rgb('iluminacio/c4/canelobre4/holder_4.obj', [0.05, 0.05, 0.05]))
+    shapes.append(create_shape_rgb('iluminacio/c4/canelobre4/candle_4.obj', [0.8, 0.58, 0.33]))
+    shapes.append(create_shape_rgb('iluminacio/c4/canelobre4/candle_wick_4.obj', [0.80, 0.48, 0.28]))
+    shapes.append(create_obj_file_light_file('iluminacio/c4/canelobre4/flame_4.obj', 'spdFiles/XII/Parafina_diam3_Horizontal_position2_by_flamearea.spd'))
 
 
 def add_altar(shapes):
-    shapes.append(create_obj_shape('iluminació/Base.obj', "textures/altar/plastersubstance001_Plaster_normal.png", "textures/altar/plastersubstance001_Plaster_basecolor.png"))
-    shapes.append(create_obj_shape('iluminació/Llosa.obj', "textures/altar/granite_001_Granite_001_normal.png", "textures/altar/granite_001_Granite_001_basecolor.png"))
+    shapes.append(create_obj_shape('iluminacio/Base.obj', "textures/altar/plastersubstance001_Plaster_normal.png", "textures/altar/plastersubstance001_Plaster_basecolor.png"))
+    shapes.append(create_obj_shape('iluminacio/Llosa.obj', "textures/altar/granite_001_Granite_001_normal.png", "textures/altar/granite_001_Granite_001_basecolor.png"))
 
 
 def create_scene_from_shapes(building_shapes, lighting_shapes):
@@ -510,7 +510,7 @@ def generate_natural_light(moment):
 
 
 def make_filename_compatible(s):
-    invalid = """#%&{}\<>*?/$!'"@+`|= """
+    invalid = r"""#%&{}\<>*?/$!'"@+`|= """
     for c in invalid: 
         s = s.replace(c, "")
     return s
@@ -589,18 +589,19 @@ spp = 512 # 2048
 #    render(str(moment)+"-artificial"+str(artLightConfig).split('_')[1]+"-pv7", upscale=2, model = add_SXII_shapes, artificial_lighting_shape_generator = artLightConfig, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv7(), save_noisy=True, save_albedo = True, use_gray_albedo=False, save_normals=True)
 
 #Natural completa
-spp=8096
-for moment in ["D1T1", "D1T2", "D1T3", "D2T1", "D2T2", "D2T3", "D3T1", "D3T2", "D3T3"]:
-    print(str(moment))
-    render(str(moment)+"-natural"+"-pv2", upscale=2, model = add_SXII_shapes, artificial_lighting_shape_generator = False, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = True, use_gray_albedo=False, save_normals=True)
-    render(str(moment)+"-natural"+"-pv7", upscale=2, model = add_SXII_shapes, artificial_lighting_shape_generator = False, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv7(), save_noisy=True, save_albedo = True, use_gray_albedo=False, save_normals=True)
-
-#Natural+Articficial
 #spp=8096
 #for moment in ["D1T1", "D1T2", "D1T3", "D2T1", "D2T2", "D2T3", "D3T1", "D3T2", "D3T3"]:
-#    for artLightConfig in [alse, generate_C2_shapes, generate_C5_shapes]:#generate_C4_shapes
-#        print(str(moment)+" "+str(artLightConfig).split('_')[1])
-#        render(str(moment)+"-atificial"+str(artLightConfig).split('_')[1]+"-pv2", upscale=2, building_shape_generator = generate_sXII_shapes, artificial_lighting_shape_generator = artLightConfig, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = False, use_gray_albedo=False, save_normals=False)
+#    print(str(moment))
+#    render(str(moment)+"-natural"+"-pv2", upscale=2, model = add_SXII_shapes, artificial_lighting_shape_generator = False, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = True, use_gray_albedo=False, save_normals=True)
+#    render(str(moment)+"-natural"+"-pv7", upscale=2, model = add_SXII_shapes, artificial_lighting_shape_generator = False, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv7(), save_noisy=True, save_albedo = True, use_gray_albedo=False, save_normals=True)
+
+#Natural+Articficial
+spp=8096
+for moment in ["D1T3", "D2T3", "D3T3"]:
+    for artLightConfig in [generate_C2_shapes, generate_C5_shapes]:
+        print(str(moment)+str(artLightConfig))
+        render(str(moment)+"-natural"+"-pv2", upscale=2, model = add_SXII_shapes, artificial_lighting_shape_generator = artLightConfig, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = True, use_gray_albedo=False, save_normals=True)
+        render(str(moment)+"-natural"+"-pv7", upscale=2, model = add_SXII_shapes, artificial_lighting_shape_generator = artLightConfig, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv7(), save_noisy=True, save_albedo = True, use_gray_albedo=False, save_normals=True)
 
 #moment = "D3T3"
 #render(str(moment)+"-natural-pv2", upscale=1, model = add_SXII_shapes, artificial_lighting_shape_generator = False, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = True, use_gray_albedo=False, save_normals=True)
