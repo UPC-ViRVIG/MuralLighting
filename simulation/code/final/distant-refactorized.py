@@ -55,18 +55,10 @@ def create_obj_file_light_file(obj_file, radiance_file):
             }
         },
         'bsdf': {
-            'type': 'normalmap',
-            'normalmap': {
-                'type': 'bitmap',
-                'raw': True,
-                'filename': 'textures/normalmap.jpg'
-            },
-            'bsdf': {
-                'type': 'diffuse',
-                'reflectance': {
+            'type': 'diffuse',
+            'reflectance': {
                 'type': 'rgb',
                 'value': [1,1,1],
-                }
             }
         }
     }
@@ -111,28 +103,34 @@ def create_spd_file_and_emitter(sheet_name, number, filepath='data/IT1073.xlsx')
 
 
 def create_obj_shape(filename, normal_texture, color_texture):
+    # Comprovem si volem el gris pla o una textura real
+    if color_texture == 'textures/midgray.png':
+        reflectance_data = {
+            'type': 'rgb',
+            'value': [0.5, 0.5, 0.5] # Color gris RGB
+        }
+    else:
+        reflectance_data = {
+            'type': 'bitmap',
+            'filename': color_texture
+        }
+
     return {
         'type': 'obj',
         'filename': filename,
         'face_normals': False,
-        #'bsdf': {
-        #    'type': 'twosided',
-            'bsdf': {
-                'type': 'normalmap',
-                'normalmap': {
-                    'type': 'bitmap',
-                    'raw': True,
-                    'filename': normal_texture
-                },
-                'bsdf': {
-                    'type': 'diffuse',
-                    'reflectance': {
-                        'type': 'bitmap',
-                        'filename': color_texture,
-                    },    
-                },
+        'bsdf': {
+            'type': 'normalmap',
+            'normalmap': {
+                'type': 'bitmap',
+                'raw': True,
+                'filename': normal_texture
             },
-        #}
+            'bsdf': {
+                'type': 'diffuse',
+                'reflectance': reflectance_data,    
+            },
+        },
     }
 
 def create_shape_rgb(filename, color):
@@ -140,18 +138,10 @@ def create_shape_rgb(filename, color):
         'type': 'obj',
         'filename': filename,
         'bsdf': {
-            'type': 'normalmap',
-            'normalmap': {
-                'type': 'bitmap',
-                'raw': True,
-                'filename': 'textures/normalmap.jpg'
-            },
-            'bsdf': {
-                'type': 'diffuse',
-                'reflectance': {
+            'type': 'diffuse',
+            'reflectance': {
                 'type': 'rgb',
                 'value': color,
-                }
             }
         }
     }
@@ -163,17 +153,9 @@ def create_shape_dielectric(filename):
         'type': 'obj',
         'filename': filename,
         'bsdf': {
-            'type': 'normalmap',
-            'normalmap': {
-                'type': 'bitmap',
-                'raw': True,
-                'filename': 'textures/normalmap.jpg'
-            },
-            'bsdf': {
-                'type': 'dielectric',
-                'int_ior': 'bk7',
-                'ext_ior':'air', 
-            }
+            'type': 'dielectric',
+            'int_ior': 'bk7',
+            'ext_ior': 'air', 
         }
     }
 
@@ -386,7 +368,7 @@ def add_camera(scene, translation, rotX, rotY, rotZ, fov, sampler, upscale = 1):
     }
 
 def pvExt():
-    translation = mi.Point3f(-19.7637, -3.08869, 12.4302)
+    translation = mi.ScalarPoint3f(-19.7637, -3.08869, 12.4302) # Canviat a ScalarPoint3f
     rotX  = 61.8091
     rotY  = 0.001683
     rotZ  = -76.2696
@@ -394,7 +376,7 @@ def pvExt():
     return (translation, rotX, rotY, rotZ, fov)
 
 def pv1():
-    translation = mi.Point3f(-4.21867, 3.15803, 4.85095)
+    translation = mi.ScalarPoint3f(-4.21867, 3.15803, 4.85095) # Canviat a ScalarPoint3f
     rotX  = 93.9045
     rotY  = -0.000112
     rotZ  = -113.164
@@ -410,7 +392,7 @@ def pv2():
     return (translation, rotX, rotY, rotZ, fov)
 
 def pv7():
-    translation = mi.Point3f(-3.04298, 5.0747, 3.6798)
+    translation = mi.ScalarPoint3f(-3.04298, 5.0747, 3.6798) # Canviat a ScalarPoint3f
     rotX  = 99.3053
     rotY  = -0.000209
     rotZ  = -131.466
@@ -443,16 +425,20 @@ def my_render(scene, spp, integrator, exposure, basename, save_albedo = False, s
     mi.util.write_bitmap("renderPedret/" + basename + "-denoised.exr", denoised)
     """
 
+    # Creem un diccionari amb tots els canals disponibles
+    bitmaps = dict(noisy_multichannel.split())
 
     if save_albedo:  # save also albedo and normal map
-        #print(noisy_multichannel)
-        #print(noisy_multichannel.split())
-        mi.util.write_bitmap("renderPedret/" + basename + "-albedo.exr", noisy_multichannel.split()[1][1])
-        mi.util.write_bitmap("renderPedret/" + basename + "-albedo.jpg", noisy_multichannel.split()[1][1])
+        if 'albedo' in bitmaps:
+            #print(noisy_multichannel)
+            #print(noisy_multichannel.split())
+            mi.util.write_bitmap("renderPedret/" + basename + "-albedo.exr", bitmaps['albedo'])
+            mi.util.write_bitmap("renderPedret/" + basename + "-albedo.jpg", bitmaps['albedo'])
     
     if save_normals:
-        mi.util.write_bitmap("renderPedret/" + basename + "-normal.exr", noisy_multichannel.split()[3][1])
-        mi.util.write_bitmap("renderPedret/" + basename + "-normal.jpg", noisy_multichannel.split()[3][1])
+        if 'normals' in bitmaps:
+            mi.util.write_bitmap("renderPedret/" + basename + "-normal.exr", bitmaps['normals'])
+            mi.util.write_bitmap("renderPedret/" + basename + "-normal.jpg", bitmaps['normals'])
 
 
     if False:
@@ -468,7 +454,7 @@ def my_render(scene, spp, integrator, exposure, basename, save_albedo = False, s
 #        mi.util.write_bitmap("renderPedret/" + basename + "-denoised-adjusted.exr", denoised)
 
     if save_noisy:
-        noisy = dict(noisy_multichannel.split())['<root>']        
+        noisy = bitmaps['<root>']
         if exposure_noisy != 1:
             print("Adjusting exposure...")
             noisy = np.array(noisy)
@@ -596,16 +582,23 @@ spp = 512 # 2048
 
 
 #Artificial
-moment = False
+#moment = False
+#spp=8096
+#for artLightConfig in [generate_C1_shapes, generate_C2_shapes, generate_C3_shapes, generate_C4_shapes, generate_C5_shapes]:
+#    print(str(artLightConfig).split('_')[1])
+#    render(str(moment)+"-artificial"+str(artLightConfig).split('_')[1]+"-pv7", upscale=2, model = add_SXII_shapes, artificial_lighting_shape_generator = artLightConfig, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv7(), save_noisy=True, save_albedo = True, use_gray_albedo=False, save_normals=True)
+
+#Natural completa
 spp=8096
-for artLightConfig in [generate_C1_shapes, generate_C2_shapes, generate_C3_shapes, generate_C4_shapes, generate_C5_shapes]:
-    print(str(artLightConfig).split('_')[1])
-    render(str(moment)+"-artificial"+str(artLightConfig).split('_')[1]+"-pv7", upscale=1, model = add_SXII_shapes, artificial_lighting_shape_generator = artLightConfig, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv7(), save_noisy=True, save_albedo = True, use_gray_albedo=True, save_normals=True)
+for moment in ["D1T1", "D1T2", "D1T3", "D2T1", "D2T2", "D2T3", "D3T1", "D3T2", "D3T3"]:
+    print(str(moment))
+    render(str(moment)+"-natural"+"-pv2", upscale=2, model = add_SXII_shapes, artificial_lighting_shape_generator = False, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = True, use_gray_albedo=False, save_normals=True)
+    render(str(moment)+"-natural"+"-pv7", upscale=2, model = add_SXII_shapes, artificial_lighting_shape_generator = False, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv7(), save_noisy=True, save_albedo = True, use_gray_albedo=False, save_normals=True)
 
 #Natural+Articficial
 #spp=8096
-#for moment in ["D1T3", "D2T3"]:
-#    for artLightConfig in [generate_C2_shapes, generate_C5_shapes]:#generate_C4_shapes
+#for moment in ["D1T1", "D1T2", "D1T3", "D2T1", "D2T2", "D2T3", "D3T1", "D3T2", "D3T3"]:
+#    for artLightConfig in [alse, generate_C2_shapes, generate_C5_shapes]:#generate_C4_shapes
 #        print(str(moment)+" "+str(artLightConfig).split('_')[1])
 #        render(str(moment)+"-atificial"+str(artLightConfig).split('_')[1]+"-pv2", upscale=2, building_shape_generator = generate_sXII_shapes, artificial_lighting_shape_generator = artLightConfig, natural_lighting_generator = moment, sampler=sampler, max_depth=6, exposure = exposure, spp = spp, point_of_view = pv2(), save_noisy=True, save_albedo = False, use_gray_albedo=False, save_normals=False)
 
