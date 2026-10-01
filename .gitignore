@@ -1,3 +1,6 @@
 node_modules
 package-lock.json
 simulation/code/final/__pycache__/sunsky_configurations.cpython-311.pyc
+simulation/renderPedret
+simulation/textures
+
